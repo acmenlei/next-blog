@@ -24,7 +24,7 @@
     },
     methods: {
          PageInit() {
-            if(window.innerWidth<768) {
+            if(window.innerWidth <= 992) {
             this.MeunisShow = true
             }else {
             this.MeunisShow = false

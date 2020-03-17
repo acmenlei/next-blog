@@ -7,7 +7,7 @@
             <p class="publictime">{{time}}</p>
             <p> 
              <Tooltip placement="top" content="点击跳转到详情页查看">
-            <Button @click.native="Godetail(id)" class="readall" type="primary">阅读全文</Button>
+            <Button @click.native="Godetail(article_id,id)" class="readall" type="primary">阅读全文</Button>
             </Tooltip>
             <p class="box">
               <i @click="likeArticle(id)" 
@@ -15,6 +15,7 @@
               :class="{likeStyle:liked(id)}"
               >赞</i>
               </span><span style="margin-right:0.5rem">{{like}}</span>
+              <i class="iconfont icon-pinglun"></i><span>{{accessPulish_count}}</span>
               <i class="iconfont icon-fangwen"></i><span>{{visited}}</span>
             </p>
             </p>
@@ -24,6 +25,7 @@
 <script>
 import marked from 'marked'
 import highlight from 'highlight.js'
+import { getnotedetail } from '../NetWork/request'
   export default {
     name:'carditem',
     props:{
@@ -47,11 +49,15 @@ import highlight from 'highlight.js'
       },
       id:{
         type:Number,default:0,required:true
+      },
+      article_id:{
+        type:String,default:'',required:true
       }
     },
     data () {
       return {
         flag:true,
+        accessPulish_count:0
       };
     },
     computed: {
@@ -70,10 +76,19 @@ import highlight from 'highlight.js'
       let color2 = parseInt(Math.random()*255)
       let color3 = parseInt(Math.random()*255)
       this.$refs.lable.style.backgroundColor=`rgba(${color1},${color2},${color3})`
+      getnotedetail(`/message/accessPulishCount/${this.article_id}`)
+      .then(res => {
+        if(res.data.err == -999) {
+          this.$Message.error(res.data.data);
+        } else {
+          /* 获取用户评论数量 */
+          this.accessPulish_count = res.data.data[0]["COUNT(article_id)"]
+        }
+      })
     },
     methods: {
-      Godetail(id) {
-        this.$router.push(`/detail/${id}`)
+      Godetail(article_id,id) {
+        this.$router.push(`/detail/${article_id}`)
         /* 发送请求 */
         this.$emit('changevisited',id)
       },

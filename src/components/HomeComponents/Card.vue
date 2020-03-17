@@ -2,14 +2,23 @@
   <div id="card">
     <Row>
       <Col class="box" :xl="15" :lg="14" :md="14" :sm="24" :xs="24">
+             <!-- 输入框 -->
+        <Input 
+        v-model="value" 
+        enter-button
+        @on-search="searchArticle(value)"
+        search placeholder="输入文章标签关键词搜索相关文章内容"
+        class="search"
+        />
       <Music class="music"/>
+        <!-- 文章卡片 -->
           <Card-item 
           @changevisited="changevisite"
           @changelike="changeliked" v-for="(item, index) in lists"
         :title="item.title" :time ="item.time"
         :content="item.content" :lable="item.lable" 
         :visited="item.visited" :like="item.like_Star"
-        :id="item.id"
+        :id="item.id" :article_id="item.article_id"
         :key="index"
         ></Card-item>
          <Page ref="page" 
@@ -20,8 +29,8 @@
          show-total />
       </Col>
       <Col :xl="9" :lg="10" :md="10" :sm="0" :xs="0">
-                   <!-- 每日音乐 -->
-          <Music/>
+           <!-- 每日音乐 -->
+          <Music class="xl_music"/>
           <List style="background: rgb(59, 59, 59);padding:1rem">
               <ListItem style="color:orange;font-weight:bold;">
                 最近文章
@@ -122,7 +131,8 @@ import Music from './Music'
         MyInfo:{},
         username:'',
         flag:false,
-        modal1:false
+        modal1:false,
+        value:''
       };
     },
     components: {CardItem,Music},
@@ -202,6 +212,30 @@ import Music from './Music'
         /* 打开我们的编辑框框 */
         this.flag = !this.flag;
       },
+      /* 搜索框 */
+        searchArticle(value) {
+          this.$Spin.show();
+             if(!this.value) {
+                if(this.timer) clearTimeout(this.timer)
+                this.timer = setTimeout(() => {
+                this.$Spin.hide();
+                this.bus.$emit('searchover')
+                }, 1000);
+              }
+            else {
+            PostMessage('/note/getlableInfo',{lable:value})
+            .then(res => {
+                if(res.data.err == 0) {
+                    res.data.message.forEach(element => {
+                        element.content = element.content.toString().substring(0,300)
+                    });
+                    const Itemlist = res.data.message
+                    this.bus.$emit('searchArticle',Itemlist)
+                    this.$Spin.hide();
+                } 
+            })
+            }
+        },
       primaryInfo() {
         PostMessage('/user/primaryInfo',
         {user:this.username,Info:this.MyInfo.info,name:this.MyInfo.name,Imgsrc:this.MyInfo.uploadimg})
@@ -231,6 +265,16 @@ import Music from './Music'
       .music {
         display: none;
       }
+      .xl_music {
+        margin-top: 3.3rem;
+        border-top-left-radius: 0.3rem;
+      }
+     .search {
+        margin: 0 auto;
+        width:90%;
+        transition: all 1s;
+        padding: 0.4rem 0;
+   }
       @media screen and(max-width:768px) {
         .music {
           display: block;
@@ -257,14 +301,10 @@ import Music from './Music'
         transition: all 1s;
       }
       .box {
-        position: relative;
          .page {
-              left: 50%;
-              transform: translateX(-60%);
-              position: absolute;
+              padding-left: 1rem;
       }
       }
-     
       .article_Item:hover {
         color: orange;
         margin-left: 0.5rem;
@@ -295,13 +335,12 @@ import Music from './Music'
           border-radius: .4rem;
           padding: 1rem;
           color: lightblue;
-          
         }
         .myInfo {
           width: 100%;height: 28rem;
-          border-radius: 2rem;
           margin-top: 1rem;
-          border-radius: 0;
+          border-top-left-radius: 0.3rem;
+          border-bottom-left-radius: 0.3rem;
           background: rgb(59, 59, 59);
           padding: 1rem;
           .SuccessInfo {

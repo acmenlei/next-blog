@@ -4,6 +4,25 @@
      <Row>
         <Col :xl="15" :lg="14" :md="14" :sm="24" :xs="24">
            <div ref="content" class="renderNav" v-html="html"></div>
+         <div class="compile">
+           <p style="color:#f2f2f2!important;padding:1rem 0">用户评论：</p>
+         <Input v-model="value" maxlength="100" 
+          show-word-limit type="textarea" 
+          placeholder="你想说些什么呢..." 
+          style="width: 100%;" />
+          <Button 
+            class="btn" 
+            type="primary"
+            @click="publish">发表</Button>
+      </div>
+        <List class="leaveContent">
+            <ListItem class="contentItem" v-for="(item, index) in arrMesasgeList" :key="index">
+              <img :src="item.access_img"> 
+               <a>{{item.username}}</a>
+               <span>{{item.access_content}}</span>
+              <p>{{item.datetime}}</p>
+            </ListItem>
+        </List>
         </Col>
         <Col :xl="9" :lg="10" :md="10" :sm="0" :xs="0">
          <div v-show="html" class="tabbarlist">  
@@ -16,7 +35,7 @@
   </div>
 </template>
 <script>
-import { getnotedetail } from '../NetWork/request'
+import { getnotedetail, PostMessage } from '../NetWork/request'
 import highlight from 'highlight.js'
 import marked from 'marked'
   export default {
@@ -24,7 +43,9 @@ import marked from 'marked'
     data () {
       return {
         html:'',
-        navbar:''
+        navbar:'',
+        value:'',
+        arrMesasgeList:[]
       };
     },
     mounted() {
@@ -32,9 +53,11 @@ import marked from 'marked'
        this.$Spin.show();
       getnotedetail(`/note/bynotetext/${this.$route.params.id}`)
       .then( res => {
-        this.html = marked(res.data[0].content)
-        this.navbar = marked(res.data[0].navbar)
-       this.$Spin.hide();
+        console.log(res.data)
+        this.html = marked(res.data.data.article_data[0].content)
+        this.navbar = marked(res.data.data.article_data[0].navbar)
+        this.arrMesasgeList = res.data.data.access_data
+        this.$Spin.hide();
         })
     },
     methods: {
@@ -58,6 +81,28 @@ import marked from 'marked'
         }
         })
       },
+      publish() {
+        if(this.value !== '') {
+          const username = localStorage.getItem("username");
+        const article_id = this.$route.params.id
+        let that = this
+        const obj = {
+          username:username,
+          article_id:article_id,
+          access_content:that.value
+        }
+        PostMessage('/note/accessPulish', obj)
+        .then(res => {
+          if(res.data.err == 0) {
+            this.$Message.success("发表成功!");
+          } else {
+            this.$Message.error("发表失败检查网路后重新尝试!");
+          }
+        })
+        } else {
+          this.$Message.error("不能为空")
+        }
+      }
    },
   }
 </script>
@@ -75,5 +120,43 @@ import marked from 'marked'
   .navbar {
     margin-top: 1rem;
   }
+     .btn {
+        margin:1rem;
+    }
+    .compile {
+      margin:2rem;
+    }
+    .leaveContent {
+      img {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+      }
+      .contentItem {
+        padding: 2rem;
+        position: relative;
+        border-bottom:1px solid rgb(109, 106, 106);
+        p,span,img,a{
+          position: absolute;font-size: 0.8rem;
+        }
+        a{
+          color: rgb(250, 17, 17);
+          left: 4rem;
+          top: 1rem;
+          font-size: 0.6rem;
+        }
+        img {
+          top: 0.5rem;left: 1.5rem;
+        }
+        span{
+          left: 8.2rem;bottom: 0.5rem;color:#fff;
+          
+        }
+        p {
+          top: 0.5rem;left: 8.2rem;
+          color: #ccc!important;
+        }
+      }
+    }
 }
 </style>s

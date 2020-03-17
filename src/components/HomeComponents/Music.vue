@@ -1,6 +1,6 @@
 <template>
     <div id="music_container">
-          <h4>放松心情</h4>
+          <h4>Music</h4>
           <span class="introduce">谁还不是个优雅不失风度的人呢，看电脑累了吧，给你推荐一首好听的音乐，闭一下眼睛听首音乐放松放松吧。</span>
           <iframe 
         frameborder="no" border="0" marginwidth="0" 
@@ -50,6 +50,7 @@ import { getnotedetail } from '../NetWork/request'
         margin-top: 1rem;
         background: rgb(59, 59, 59);
         padding:1rem 1.5rem 0 1rem;
+        box-sizing: border-box;
         .musicBox {
         height: 8rem;
         width: 100%;
