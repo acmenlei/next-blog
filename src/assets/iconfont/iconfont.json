@@ -1,0 +1,58 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "579286",
+      "name": "点赞",
+      "font_class": "dianzan",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "1262053",
+      "name": "qq",
+      "font_class": "qq",
+      "unicode": "e6e4",
+      "unicode_decimal": 59108
+    },
+    {
+      "icon_id": "1725633",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "5093349",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "6683432",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "8923938",
+      "name": "游戏",
+      "font_class": "-",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "10148667",
+      "name": "向下",
+      "font_class": "xiangxia",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    }
+  ]
+}

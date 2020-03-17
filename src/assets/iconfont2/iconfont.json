@@ -1,0 +1,30 @@
+{
+  "id": "1666386",
+  "name": "十大",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "784995",
+      "name": "留言2",
+      "font_class": "liuyan2",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "1009221",
+      "name": "关于",
+      "font_class": "guanyu",
+      "unicode": "e6a1",
+      "unicode_decimal": 59041
+    },
+    {
+      "icon_id": "9697369",
+      "name": "友情链接",
+      "font_class": "icon_xinyong_xianxing_jijin-",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    }
+  ]
+}
