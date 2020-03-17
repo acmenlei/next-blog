@@ -123,9 +123,6 @@ import { getnotedetail } from '../NetWork/request'
         }
         } else {
            this.$Message.error("请先去登陆再来点赞噢小主！(ノへ￣、)")
-          setTimeout(() => {
-             this.$router.push('/login')
-          }, 1000);
         }
       }
    },

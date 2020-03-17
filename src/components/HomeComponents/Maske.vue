@@ -58,9 +58,9 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
    user-select: none;
    .center{
        position: absolute;
-       top: 60%;
+       top: 50%;
        left: 50%;
-       z-index: 999;
+       z-index: 2;
        transform: translate(-50%,-50%);
    }
 }

@@ -18,7 +18,7 @@
         <List class="leaveContent">
             <ListItem class="contentItem" v-for="(item, index) in arrMesasgeList" :key="index">
               <img :src="item.access_img"> 
-               <a>{{item.username}}</a>
+               <a>{{item.name}}</a>
                <span>{{item.access_content}}</span>
               <p>{{item.datetime}}</p>
             </ListItem>
@@ -53,7 +53,6 @@ import marked from 'marked'
        this.$Spin.show();
       getnotedetail(`/note/bynotetext/${this.$route.params.id}`)
       .then( res => {
-        console.log(res.data)
         this.html = marked(res.data.data.article_data[0].content)
         this.navbar = marked(res.data.data.article_data[0].navbar)
         this.arrMesasgeList = res.data.data.access_data
@@ -82,8 +81,9 @@ import marked from 'marked'
         })
       },
       publish() {
-        if(this.value !== '') {
-          const username = localStorage.getItem("username");
+        const username = localStorage.getItem("username");
+        if(username) {
+          if(this.value !== '') {
         const article_id = this.$route.params.id
         let that = this
         const obj = {
@@ -95,12 +95,18 @@ import marked from 'marked'
         .then(res => {
           if(res.data.err == 0) {
             this.$Message.success("发表成功!");
+            setTimeout(() => {
+              location.reload()
+            }, 1000);
           } else {
             this.$Message.error("发表失败检查网路后重新尝试!");
           }
         })
         } else {
           this.$Message.error("不能为空")
+        }
+        } else {
+          this.$Message.error("请先登录哦!")
         }
       }
    },

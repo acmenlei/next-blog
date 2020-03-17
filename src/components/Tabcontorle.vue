@@ -57,7 +57,7 @@
       width: 100%;
       background: rgb(255, 255, 255);
       position: absolute;
-      top: -30rem;
+      top: -35rem;
       z-index: 998;
       transition: all .5s ease-in-out;
       i{
