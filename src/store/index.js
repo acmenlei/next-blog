@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     isshow:false
-  },
+    },
   mutations: {
     updateShow(state,data) {
       state.isshow = data

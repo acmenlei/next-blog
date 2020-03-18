@@ -19,6 +19,7 @@
         :content="item.content" :lable="item.lable" 
         :visited="item.visited" :like="item.like_Star"
         :id="item.id" :article_id="item.article_id"
+        :accessPulish_count="item.accessPulish_count"
         :key="index"
         ></Card-item>
          <Page ref="page" 
@@ -37,7 +38,7 @@
               </ListItem>
             <ListItem 
               class="article_Item"
-              @click.native="timeArticle(item.id)"
+              @click.native="timeArticle(item.article_id)"
               v-for="(item, index) in navList" 
               :key="index">
               {{item.title}}
@@ -132,7 +133,7 @@ import Music from './Music'
         username:'',
         flag:false,
         modal1:false,
-        value:''
+        value:'',
       };
     },
     components: {CardItem,Music},
@@ -194,7 +195,6 @@ import Music from './Music'
         }
       },
         Pagechange(index) {
-        /* 发起请求 */
         PageSizeChange('/page/getnotePage',{page:index})
         .then(res => {
           if(res.data.err == 0) {

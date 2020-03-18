@@ -25,7 +25,7 @@
 <script>
 import marked from 'marked'
 import highlight from 'highlight.js'
-import { getnotedetail } from '../NetWork/request'
+// import { getnotedetail } from '../NetWork/request'
   export default {
     name:'carditem',
     props:{
@@ -52,23 +52,15 @@ import { getnotedetail } from '../NetWork/request'
       },
       article_id:{
         type:String,default:'',required:true
+      },
+      accessPulish_count:{
+        type:Number,default:0,required:true
       }
     },
     data () {
       return {
         flag:true,
-        accessPulish_count:0
       };
-    },
-    computed: {
-      liked() {
-        return function(id) {
-          return localStorage.getItem(`like${id}`) == id
-        }
-      },
-      newcontent() {
-        return marked(this.content.toString().substring(0,300)+'...')
-      },
     },
     mounted() {
       this.lightEdite()
@@ -76,15 +68,6 @@ import { getnotedetail } from '../NetWork/request'
       let color2 = parseInt(Math.random()*255)
       let color3 = parseInt(Math.random()*255)
       this.$refs.lable.style.backgroundColor=`rgba(${color1},${color2},${color3})`
-      getnotedetail(`/message/accessPulishCount/${this.article_id}`)
-      .then(res => {
-        if(res.data.err == -999) {
-          this.$Message.error(res.data.data);
-        } else {
-          /* 获取用户评论数量 */
-          this.accessPulish_count = res.data.data[0]["COUNT(article_id)"]
-        }
-      })
     },
     methods: {
       Godetail(article_id,id) {
@@ -124,8 +107,18 @@ import { getnotedetail } from '../NetWork/request'
         } else {
            this.$Message.error("请先去登陆再来点赞噢小主！(ノへ￣、)")
         }
-      }
+      },
    },
+   computed:{
+      liked() {
+        return function(id) {
+          return localStorage.getItem(`like${id}`) == id
+        }
+      },
+      newcontent() {
+        return marked(this.content.toString().substring(0,300)+'...')
+      },
+   }
   }
 
 </script>

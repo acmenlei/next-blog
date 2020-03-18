@@ -3,7 +3,7 @@
     <!-- 需要渲染的html -->
      <Row>
         <Col :xl="15" :lg="14" :md="14" :sm="24" :xs="24">
-           <div ref="content" class="renderNav" v-html="html"></div>
+             <div ref="content" class="renderNav" v-html="html"></div>
          <div class="compile">
            <p style="color:#f2f2f2!important;padding:1rem 0">用户评论：</p>
          <Input v-model="value" maxlength="100" 
@@ -148,18 +148,17 @@ import marked from 'marked'
         a{
           color: rgb(250, 17, 17);
           left: 4rem;
-          top: 1rem;
+          top: 0.8rem;
           font-size: 0.6rem;
         }
         img {
           top: 0.5rem;left: 1.5rem;
         }
         span{
-          left: 8.2rem;bottom: 0.5rem;color:#fff;
-          
+          left: 5rem;bottom: 0.2rem;color:#fff;
         }
         p {
-          top: 0.5rem;left: 8.2rem;
+          top: 0.8rem;right: 2rem;
           color: #ccc!important;
         }
       }
