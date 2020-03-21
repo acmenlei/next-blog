@@ -3,7 +3,9 @@
     <!-- 需要渲染的html -->
      <Row>
         <Col :xl="15" :lg="14" :md="14" :sm="24" :xs="24">
-             <div ref="content" class="renderNav" v-html="html"></div>
+             <div class="markdown-body">
+               <div ref="content" class="renderNav" v-html="html"></div>
+             </div>
          <div class="compile">
            <p style="color:#f2f2f2!important;padding:1rem 0">用户评论：</p>
          <Input v-model="value" maxlength="100" 
@@ -87,7 +89,7 @@ import marked from 'marked'
         const article_id = this.$route.params.id
         let that = this
         const obj = {
-          username:username,
+          token:username,
           article_id:article_id,
           access_content:that.value
         }
@@ -99,7 +101,7 @@ import marked from 'marked'
               location.reload()
             }, 1000);
           } else {
-            this.$Message.error("发表失败检查网路后重新尝试!");
+            this.$Message.error(res.data.message);
           }
         })
         } else {

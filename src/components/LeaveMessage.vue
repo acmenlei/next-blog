@@ -59,7 +59,7 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
              /* 如果 value不为空的话  */
           if(this.value) {
             const username = localStorage.getItem('username')
-            PostMessage('/message/leavemessage',{user:username,value:this.value})
+            PostMessage('/message/leavemessage',{token:username,value:this.value})
             .then(res => {
               if(res.data.err == 0) {
                 this.$Message.success(res.data.message)

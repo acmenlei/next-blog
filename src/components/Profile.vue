@@ -60,7 +60,7 @@ import { PostMessage } from './NetWork/request'
          getInfo() {
         this.username = localStorage.getItem('username')
         if(this.username) {
-           PostMessage('/user/getuserInfo',{user:this.username})
+           PostMessage('/user/getuserInfo',{token:this.username})
            .then(res => {
              this.MyInfo = res.data.Info[0]
            })
@@ -86,7 +86,7 @@ import { PostMessage } from './NetWork/request'
         })
       },
       ok() {
-        localStorage.removeItem('username')
+        localStorage.clear()
         this.myInfo = {}
         location.reload()
       },

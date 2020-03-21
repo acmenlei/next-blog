@@ -50,12 +50,6 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
     width: 100%;
     height: 100vh;
      transition: all 0.5s;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-   user-select: none;
    .center{
        position: absolute;
        top: 50%;

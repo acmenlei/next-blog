@@ -98,8 +98,8 @@ import { PostMessage } from './NetWork/request'
                             .then( res => {
                             if(res.data.err == 0) {
                                 this.$Message.success('注册成功啦小主,3秒后为您跳转到首页(❤ ω ❤)!')
-                                 /* 保存一下刚刚注册的账号 */
-                                localStorage.setItem('username',res.data.username)
+                                 /* 保存一下token */
+                                localStorage.setItem('username',res.data.token)
                                 /* 再清除一下本地验证码缓存 */
                                 localStorage.removeItem('code')
                                 setTimeout(() => {
@@ -120,7 +120,7 @@ import { PostMessage } from './NetWork/request'
                             if(res.data.err == 0) {
                                 this.$Message.success('登陆成功啦小主,3秒后为您跳转到首页(❤ ω ❤)!')
                                 /* 保存一下刚刚登陆的账号 */
-                                localStorage.setItem('username',res.data.data[0].username)
+                                localStorage.setItem('username',res.data.token)
                                  setTimeout(() => {
                                     this.$router.replace('/home')
                                 }, 1000);

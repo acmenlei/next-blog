@@ -2,14 +2,6 @@
   <div id="card">
     <Row>
       <Col class="box" :xl="15" :lg="14" :md="14" :sm="24" :xs="24">
-             <!-- 输入框 -->
-        <Input 
-        v-model="value" 
-        enter-button
-        @on-search="searchArticle(value)"
-        search placeholder="输入文章标签关键词搜索相关文章内容"
-        class="search"
-        />
       <Music class="music"/>
         <!-- 文章卡片 -->
           <Card-item 
@@ -145,14 +137,6 @@ import Music from './Music'
         this.navList = res.data
       })
       this.getInfo()
-      this.bus.$on('searchArticle',(value) => {
-        this.lists = value
-        this.count = value.length
-      })
-      /* 搜索完毕调用第一页数据 */
-        this.bus.$on('searchover',() => {
-           this.Pagechange(1)
-      })
     },
     methods: {
       timeArticle(path) {
@@ -184,10 +168,16 @@ import Music from './Music'
       getInfo() {
         this.username = localStorage.getItem('username')
         if(this.username) {
-           PostMessage('/user/getuserInfo',{user:this.username})
+           PostMessage('/user/getuserInfo',{token:this.username})
            .then(res => {
             if(res.data.err == 0) {
                this.MyInfo = res.data.Info[0]
+            } else if(res.data.err == -998) {
+              this.$Message.error(res.data.message)
+              localStorage.clear()
+              setTimeout(() => {
+                this.$router.push('/login')
+              }, 1500);
             } else {
               this.$Message.error("出错了")
             }
@@ -212,33 +202,9 @@ import Music from './Music'
         /* 打开我们的编辑框框 */
         this.flag = !this.flag;
       },
-      /* 搜索框 */
-        searchArticle(value) {
-          this.$Spin.show();
-             if(!this.value) {
-                if(this.timer) clearTimeout(this.timer)
-                this.timer = setTimeout(() => {
-                this.$Spin.hide();
-                this.bus.$emit('searchover')
-                }, 1000);
-              }
-            else {
-            PostMessage('/note/getlableInfo',{lable:value})
-            .then(res => {
-                if(res.data.err == 0) {
-                    res.data.message.forEach(element => {
-                        element.content = element.content.toString().substring(0,300)
-                    });
-                    const Itemlist = res.data.message
-                    this.bus.$emit('searchArticle',Itemlist)
-                    this.$Spin.hide();
-                } 
-            })
-            }
-        },
       primaryInfo() {
         PostMessage('/user/primaryInfo',
-        {user:this.username,Info:this.MyInfo.info,name:this.MyInfo.name,Imgsrc:this.MyInfo.uploadimg})
+        {token:this.username,Info:this.MyInfo.info,name:this.MyInfo.name,Imgsrc:this.MyInfo.uploadimg})
         .then(res => {
           if(res.data.err == 0) {
             this.flag=false
@@ -249,15 +215,20 @@ import Music from './Music'
         })
       },
       ok() {
-        localStorage.clear()
-        this.myInfo = {}
-        location.reload()
-      },
-      cancel() {
+            localStorage.clear()
+            this.myInfo = {}
+            setTimeout(() => {
+              location.reload()
+            }, 1000);
+            this.$Message.success("退出成功")
+         },
+          cancel() {
           this.$Message.success('不想退出可以多看看噢！(●ˇ∀ˇ●)')
           return
       }
-    },
+      },
+
+  
   }
 </script>
 <style lang="scss" scoped>
@@ -266,15 +237,9 @@ import Music from './Music'
         display: none;
       }
       .xl_music {
-        margin-top: 3.3rem;
+        margin-top: 2rem;
         border-top-left-radius: 0.3rem;
       }
-     .search {
-        margin: 0 auto;
-        width:90%;
-        transition: all 1s;
-        padding: 0.4rem 0;
-   }
       @media screen and(max-width:768px) {
         .music {
           display: block;
@@ -301,6 +266,7 @@ import Music from './Music'
         transition: all 1s;
       }
       .box {
+        margin-top: 1.5rem;
          .page {
               padding-left: 1rem;
       }
