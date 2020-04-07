@@ -7,7 +7,7 @@
                <div ref="content" class="renderNav" v-html="html"></div>
              </div>
          <div class="compile">
-           <p style="color:#f2f2f2!important;padding:1rem 0">用户评论：</p>
+           <p style="color:#333!important;padding:1rem 0">用户评论：</p>
          <Input v-model="value" maxlength="100" 
           show-word-limit type="textarea" 
           placeholder="你想说些什么呢..." 
@@ -117,7 +117,6 @@ import marked from 'marked'
 <style lang="scss" scoped>
 @import url('../../assets/css/detail.css');
 #detail {
-    margin-top: 3.7rem;
     padding: 2rem;
   .tabbarlist {
     padding:2rem 1rem;
@@ -143,7 +142,7 @@ import marked from 'marked'
       .contentItem {
         padding: 2rem;
         position: relative;
-        border-bottom:1px solid rgb(109, 106, 106);
+        border-bottom:1px solid rgb(224, 224, 224);
         p,span,img,a{
           position: absolute;font-size: 0.8rem;
         }
@@ -157,11 +156,10 @@ import marked from 'marked'
           top: 0.5rem;left: 1.5rem;
         }
         span{
-          left: 5rem;bottom: 0.2rem;color:#fff;
+          left: 5rem;bottom: 0.2rem;
         }
         p {
           top: 0.8rem;right: 2rem;
-          color: #ccc!important;
         }
       }
     }

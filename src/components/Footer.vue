@@ -1,5 +1,5 @@
 <template>
-  <div id="Footer">
+  <div v-show="$route.path !== '/home'" id="Footer">
    <p class="content_box"> 
        <p> &copy; 本博客由vue express驱动</p>
        <p v-html="Text"></p>
@@ -46,7 +46,7 @@
     margin-top: 5rem;
     text-align: center;
     p {
-       color:lightblue!important;
+       color:white;
        margin: 1rem 0;
     }
     p:nth-child(1) {

@@ -1,7 +1,7 @@
 <template>
  <div class="myInfo">
             <h4 style="color:orange;margin-bottom:1rem;">下面这些就是小主的个人信息啦(●ˇ∀ˇ●)~</h4>
-            <div v-if="!username" style="text-align:center;line-height:20rem;">
+            <div v-if="!username" style="text-align:center;padding-top:8rem">
               糟糕，小主你还没有登陆检测不到信息! ~§(*￣▽￣*)§~
             </div>
             <div v-if="username"  class="SuccessInfo">
@@ -21,7 +21,7 @@
                 </div><span style="font-size:.6rem">上传头像</span>
               </Upload>
                 <!-- <a>退出登录</!-->
-                <Button style="font-size:0.5rem;margin:0 0 1.5rem 2rem;" type="primary" @click="modal1 = true">退出登录</Button>
+                <Button class="back_out" type="primary" @click="modal1 = true">退出登录</Button>
               <Modal
                   v-model="modal1"
                   title="退出提示"
@@ -32,8 +32,8 @@
                 <p><span>昵称:</span><input :class="{active:!flag}" :disabled="!flag" class="name" type="text" v-model="MyInfo.name"></p>
                 <p><span>介绍:</span><input :class="{active:!flag}" :disabled="!flag" class="info" type="text" v-model="MyInfo.info"></input></p>
                 <p>
-                  <Button style="margin:1rem;" @click="updateInfo" type="default">编辑信息</Button>
-                  <Button v-show="flag" @click="primaryInfo" type="primary">提交</Button>
+                  <Button class="editor_Info" @click="updateInfo" type="default">编辑信息</Button>
+                  <Button class="primary" v-show="flag" @click="primaryInfo" type="primary">提交</Button>
                 </p>
                 <p>温馨提示:小主如果点错了,连续按两次编辑信息可以取消编辑哦(。・∀・)ノ</p>
             </div>
@@ -102,8 +102,7 @@ import { PostMessage } from './NetWork/request'
 .myInfo {
           width: 70%;height: 28rem;
           border-radius: 1rem;
-          margin: 0 auto;
-          margin-top: 8rem;
+          margin: 6rem auto ;
           .SuccessInfo {
             img {
               width: 8rem;
@@ -111,6 +110,8 @@ import { PostMessage } from './NetWork/request'
               border-radius: 50%;
               box-shadow: 0 0 5px #ccc;
               margin: 1rem 0 0 1rem;
+              position: relative;
+              z-index: 3;
             }
             p{
               text-align: left;
@@ -138,8 +139,18 @@ import { PostMessage } from './NetWork/request'
               width:80%;
             }
             .active {
-              background: rgb(59, 59, 59)!important;
+              background: rgb(255, 254, 254)!important;
             }
+          }
+          .editor_Info,
+          .primary,
+          .back_out {
+            margin:1rem;
+            position: relative;
+            z-index: 3;
+          }
+            .back_out {
+            font-size:0.5rem;margin:0 0 1.5rem 2rem;
           }
         }
 </style>

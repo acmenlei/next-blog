@@ -24,9 +24,9 @@
       <Col :xl="9" :lg="10" :md="10" :sm="0" :xs="0">
            <!-- 每日音乐 -->
           <Music class="xl_music"/>
-          <List style="background: rgb(59, 59, 59);padding:1rem">
-              <ListItem style="color:orange;font-weight:bold;">
-                最近文章
+          <List style="background: rgba(255, 255, 255, 0.8);padding:1rem">
+              <ListItem style="color:orange;font-weight:bold;border-bottom: 1px solid #ccc;">
+                Recent articles
               </ListItem>
             <ListItem 
               class="article_Item"
@@ -40,7 +40,7 @@
               </ListItem>
           </List>
           <!-- 个人介绍 -->
-            <h4>小主您的个人信息:</h4>
+            <h4>Your Profile:</h4>
           <div class="myInfo">
             <div v-if="!username" style="text-align:center;position:relative">
               <img class="xiaomai" width="80" height="80" src="../../assets/images/xiaomai.jpg" alt="">
@@ -85,7 +85,7 @@
             </div>
           </div>
           <!-- 个人介绍结束 -->
-          <h4>博主的交友信息:</h4>
+          <h4>My Makefirend:</h4>
           <Tabs class="tabs" value="name1"> 
         <TabPane label="联系方式" name="name1">
           <i class="iconfont icon-qq" style="color:skyblue;"></i>:755425595 
@@ -227,12 +227,11 @@ import Music from './Music'
           return
       }
       },
-
-  
   }
 </script>
 <style lang="scss" scoped>
     #card {
+      // padding-top: 2rem;
       .music {
         display: none;
       }
@@ -261,9 +260,9 @@ import Music from './Music'
         text-align: center;
       }
       .article_Item {
-        color: #957ee6;
         cursor: pointer;
         transition: all 1s;
+        border-bottom: 1px solid #ccc;
       }
       .box {
         margin-top: 1.5rem;
@@ -290,25 +289,26 @@ import Music from './Music'
         }
          .nologinShow {
            width: 100%;
-            position:absolute;color:lightblue;
+            position:absolute;color:#333;
             top:13rem;left:50%;
             transform: translate(-50%,-50%);
             opacity: .6;
           }
         .tabs {
-          background: rgb(59, 59, 59);
+          background: rgba(255, 255, 255, 0.8);
           margin-top:1rem;
           border-radius: .4rem;
           padding: 1rem;
-          color: lightblue;
+          color: #333;
         }
         .myInfo {
           width: 100%;height: 28rem;
           margin-top: 1rem;
           border-top-left-radius: 0.3rem;
           border-bottom-left-radius: 0.3rem;
-          background: rgb(59, 59, 59);
+          background: rgba(255, 255, 255, 0.8);
           padding: 1rem;
+          border: 1px solid #ccc;
           .SuccessInfo {
             img {
               width: 5rem;

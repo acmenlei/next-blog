@@ -2,7 +2,7 @@
     <div id="Login">
          <Form ref="formInline" :model="formInline" :rules="ruleInline" :lable-width="80">
         <FormItem >
-           <h3 class="logintitle">欢迎加入codelei的小家庭!</h3>
+           <div class="logintitle">欢迎加入codelei的小家庭!</div>
         </FormItem>
         <FormItem prop="user">
             <Input type="text" v-model="formInline.user" placeholder="Username">
@@ -193,7 +193,7 @@ import { PostMessage } from './NetWork/request'
         justify-content: center;
         align-items: center;
         .logintitle {
-            color: white;
+            color: #333 !important;
             font-size: 2rem;
         }
     }    

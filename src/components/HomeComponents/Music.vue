@@ -48,8 +48,9 @@ import { getnotedetail } from '../NetWork/request'
 #music_container {
         position: relative;
         margin-top: 1rem;
-        background: rgb(59, 59, 59);
+        background: rgba(255, 255, 255, 0.8);
         padding:1rem 1.5rem 0 1rem;
+        border: 0.5px solid #ccc;
         box-sizing: border-box;
         .musicBox {
         height: 8rem;
@@ -65,7 +66,7 @@ import { getnotedetail } from '../NetWork/request'
         margin:0 0.5rem;
         position: absolute;
         bottom: 1rem;
-        color:oldlace;
+        color:rgb(56, 54, 49);
         cursor: pointer;
         font-weight: bold;
       }

@@ -19,11 +19,13 @@
     margin: 10rem 5rem;
     text-align: center;
     p {
-        color:lightblue!important;
+        color:#333;
     }
     img{
         width: 50%;
         margin: 2rem 5rem;
+        position: relative;
+                    z-index: 99;
     }
     @media screen and (min-width:768px) {
         img {

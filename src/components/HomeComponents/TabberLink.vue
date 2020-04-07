@@ -15,9 +15,10 @@
     props:{},
     data () {
       return {
-          LinkList:[{name:"首页",imageURL:"md-home",path:'/'},{name:"分类",imageURL:'md-infinite',path:'/category'},
-                    {name:"关于",imageURL:'md-ribbon',path:'/about'},{name:"留言板",imageURL:'md-mail',path:'/message'},
-                    {name:"登陆 / 注册",imageURL:'md-happy',path:'/login'},{name:"GitHub",imageURL:'logo-github',path:'https://github.com/Acmenlei'}
+          LinkList:[{name:"首页",imageURL:"md-home",path:'/'},{name:"文章列表",imageURL:'ios-bookmarks-outline',path:'/article'},
+                    {name:"分类",imageURL:'md-infinite',path:'/category'},{name:"关于",imageURL:'md-ribbon',path:'/about'},
+                    {name:"留言板",imageURL:'md-mail',path:'/message'},{name:"GitHub",imageURL:'logo-github',path:'https://github.com/Acmenlei'},
+                    {name:"登陆 / 注册",imageURL:'md-happy',path:'/login'}
           ]
       };
     },

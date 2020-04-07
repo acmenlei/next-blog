@@ -7,8 +7,10 @@ import './assets/iconfont/iconfont.css'
 import './assets/iconfont2/iconfont.css'
 import './assets/iconfont3/iconfont.css'
 import  './components/HomeComponents/clicklove/clicklove'
-import 'highlight.js/styles/monokai.css'
+import 'highlight.js/styles/solarized-dark.css'
+
 Vue.config.productionTip = false
+
 Vue.prototype.bus = new Vue()
 new Vue({
   router,

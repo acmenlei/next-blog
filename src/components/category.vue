@@ -11,9 +11,9 @@
       <div v-if="Itemlist.length">
         <h3 style="color:#999 !important;">搜索结果...</h3>
         <Card class="detail" v-for="(item, index) in Itemlist" :key="index" :bordered="false">
-            <p style="color:orange !important;border:0;">{{item.title}}</p>
+            <p style="color:orange;margin:0.5rem;border:0;">{{item.title}}</p>
             <span class="lablecard" style="background:purple"># {{item.lable}}</span>
-            <p style="color:lightblue !important">{{item.content}}</p>
+            <p style="color:#333 !important">{{item.content}}</p>
             <p style="margin:1rem">{{item.time}}</p>
             <p> 
              <Tooltip placement="top" content="点击跳转到详情页查看">
@@ -85,13 +85,15 @@ import lables from './categoryComponents/lables'
     h3 {
       text-align: center;
       padding:2rem;
-      color: orange ;
+      color: #333!important ;
     }
     .lables {
       width: 80%;
       height: 10rem;
       margin: 0 auto;
-      box-shadow: 0 0 5px rgb(44, 43, 43);
+      box-shadow: 0 0 2px rgb(44, 43, 43);
+      position: relative;
+      z-index: 3;
     }
     .lablecard { 
     text-align: center;

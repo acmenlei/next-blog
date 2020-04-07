@@ -60,11 +60,12 @@ export default {
 body,html {
   width: 100%;
   height: 100%;
-  background:#464643!important;
+  background: transparent;
 }
 .navbar a{
   transition: all .5s;
-  color: lightblue;
+  color: #333;
+  padding-top:0.5rem;
 }
 .navbar a:hover{
   margin-left: 0.5rem;
@@ -77,11 +78,12 @@ body,html {
       position: absolute;
       top: 0;
       z-index: 999;
-      transition: all .5s ease-in;
+      transition: all 1s;
     }
     .active,
     .current {
-      background:rgb(0, 0, 0);
+      position: sticky;
+      background:rgb(117, 114, 114);
     }
     @keyframes star-opacity {
     0% {

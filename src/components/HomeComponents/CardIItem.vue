@@ -126,21 +126,21 @@ import highlight from 'highlight.js'
 @import url('../../assets/css/detail.css');
 #carditem {
   .content {
-  box-sizing: border-box;
-  overflow:hidden;
-  -webkit-line-clamp:3;
-  text-overflow:ellipsis; 
-  color: #957ee6!important;
-  font-family: "Microsoft YaHei";
+      font-family: 'title';
+      box-sizing: border-box;
+      overflow:hidden;
+      -webkit-line-clamp:3;
+      text-overflow:ellipsis; 
+      color: #333;
 }
 .likeStyle {
   color: rgb(91, 91, 243);
 }
 .box {
   text-align:right;
-  color: white!important;
+  color: #333!important;
   i {
-  margin: 0 0.5rem;
+      margin: 0 0.5rem;
     }
     i:nth-child(1):hover {
       color: rgb(91, 91, 243);
@@ -148,16 +148,39 @@ import highlight from 'highlight.js'
 }
 
 .card {
+  position: relative;
   cursor:pointer;margin:0.5rem 2rem 2rem 2.5rem;
-    background: rgb(59, 59, 59);border: 0;
-    // border-bottom: 1px solid #f2f2f2;
+    border: 0;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 2px #ccc;
+}
+.card> ::before {
+  content:"";
+  width: 30px;
+  height: 30px;
+  border-top: 3px solid yellow;
+  border-left: 3px solid lightgreen;
+  position: absolute;
+  left: 0;top:0;
+}
+.card> ::after {
+  content:"";
+  width: 30px;
+  height: 30px;
+  border-top: 3px solid blue;
+  border-right: 3px solid red;
+  position: absolute;
+  right: 0;top:0;
+}
+@font-face {
+  font-family: 'title';
+  src: url('../../assets/font/font_title.ttf');
 }
 .title{
   text-align:center;
-  animation: trigger 5s infinite alternate;
   margin-bottom: .5rem;
-  color: white!important;
-  font-family: cursive;
+  color: #000!important;
+  font-family: 'title';
 }
 .lable { 
   text-align: center;
@@ -171,13 +194,7 @@ import highlight from 'highlight.js'
   text-align:right;color:#ccc!important;
   margin:1rem 0;
 }
-@keyframes trigger {
-  25%{color: rgb(255, 217, 0);}
-  0%{color: rgb(255, 147, 6);}
-  75%{color: rgb(0, 119, 255);}
-  50%{color: rgb(15, 209, 64);}
-  100%{color: rgb(236, 26, 236);}
-}
+
 .readall {
   font-size:12px;
 }

@@ -44,6 +44,11 @@ const routes = [
     component:() => import('../components/category.vue')
   },
   {
+    path:'/article',
+    name:'card',
+    component:() => import('../components/HomeComponents/Card.vue')
+  },
+  {
     path:'/detail/:id',
     name:'detail',
     component:() => import ('../components/HomeComponents/detail')

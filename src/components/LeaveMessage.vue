@@ -1,6 +1,6 @@
 <template>
   <div id="message">
-    <marquee style="color:white;" direction="left">
+    <marquee style="color:#333;" direction="left">
       可以给博主大大提点建议他回来的时候就可以看见啦  (｡･∀･)ﾉﾞ嗨 ~
       </marquee>
       <div class="compile">
@@ -21,7 +21,7 @@
               <p>{{item.date}}</p>
             </ListItem>
         </List>
-        <Page style="margin:2rem 0;" :page-size="10" @on-change="Pagechange" :total="count" show-total />
+        <Page class="page" :page-size="10" @on-change="Pagechange" :total="count" show-total />
   </div>
 </template>
 
@@ -88,9 +88,11 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
   width: 100%;
   height: 100%;
     text-align: center;
-    padding-top:6rem;
+    padding-top:2rem;
     .btn {
         margin:1rem;
+        z-index: 5;
+        position: relative;
     }
     .compile {
       margin:2rem;
@@ -104,7 +106,7 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
       .contentItem {
         padding: 2rem;
         position: relative;
-        border-bottom:1px solid rgb(109, 106, 106);
+        border-bottom:1px solid rgb(211, 211, 211);
         p,span,img,a{
           position: absolute;font-size: 0.8rem;
         }
@@ -118,14 +120,18 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
           top: 0.5rem;left: 1.5rem;
         }
         span{
-          left: 8.2rem;bottom: 0.5rem;color:#fff;
+          left: 8.2rem;bottom: 0.5rem;
           
         }
         p {
-          top: 0.5rem;left: 8.2rem;
-          color: #ccc!important;
+          top: 0.5rem;right: 1rem;;
         }
       }
+    }
+    .page {
+      margin:2rem 0;
+      position: relative;
+      z-index: 99;
     }
 }
 </style>

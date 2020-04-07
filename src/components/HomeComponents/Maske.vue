@@ -50,6 +50,7 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
     width: 100%;
     height: 100vh;
      transition: all 0.5s;
+     background: #fff;
    .center{
        position: absolute;
        top: 50%;
@@ -58,18 +59,18 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
        transform: translate(-50%,-50%);
    }
 }
-@media screen and (max-width: 768px) { //如果屏幕宽度小于768像素，则使用大括号内的样式
-    #Maske,
-    .container {
-            height: 46rem !important;
-       }
-}
-@media screen and (max-width: 568px) { //如果屏幕宽度小于568像素，则使用大括号内的样式
-    #Maske,
-    .container {
-            height: 30rem !important;
-       }
-}
+// @media screen and (max-width: 768px) { //如果屏幕宽度小于768像素，则使用大括号内的样式
+//     #Maske,
+//     .container {
+//             height: 46rem !important;
+//        }
+// }
+// @media screen and (max-width: 568px) { //如果屏幕宽度小于568像素，则使用大括号内的样式
+//     #Maske,
+//     .container {
+//             height: 30rem !important;
+//        }
+// }
 .container {
     width: 100%;
     height: 100vh;
@@ -79,7 +80,8 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
     transition: all 0.5s;
     img {
       width: 100%;
-      height: 46rem;
+      // height: 46rem;
+      height: 100vh;
       opacity: .8;
     }
 }
