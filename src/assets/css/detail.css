@@ -15,7 +15,7 @@
     padding: 1.3rem;
     font-size: 1rem;
 }
-pre{
+.markdown-body pre{
     display: block;
     background-color:#f3f3f3;
      padding: .5rem !important;
@@ -24,27 +24,25 @@ pre{
      font-family: Menlo, monospace;
      border-radius: .3rem;
 }
-pre{
-    background-color: #272a2c !important;
-}
-pre >code{
-    border:0px !important;
-    background-color: #272a2c !important;
-    color:#FFF;
-
-}
-code {
+.markdown-body code {
     display: inline-block ;
-    background-color:#fdb9cc;
     border-radius:3px;
     font-size: 12px;
     padding-left: 5px;
     padding-right: 5px;
     color:white;
+    background: #f5587b;
     margin: 0px 3px;
 }
-
-.title-anchor{
+.markdown-body pre{
+    background-color: #272a2c !important;
+}
+.markdown-body pre >code{
+    border:0px !important;
+    background-color: #272a2c !important;
+    color:#FFF;
+}
+.markdown-body .title-anchor{
     color:#888 !important;
     padding:4px !important;
     margin: 0rem !important;
@@ -56,60 +54,53 @@ code {
     text-overflow:ellipsis;
     white-space: nowrap;
 }
-.active{
+.markdown-body .active{
     color:rgb(30, 144, 255) !important;
 }
-.nav-title{
+.markdown-body .nav-title{
     text-align: center;
     color: #888;
     border-bottom: 1px solid rgb(30, 144, 255);
 
 }
-.article-menu{
+.markdown-body .article-menu{
     font-size:12px;
 }
 iframe{
     height: 34rem;
 }
-.detailed-content  img{
+.markdown-body .detailed-content  img{
     width: 100%;
     border:1px solid #f3f3f3;
 }
-.title-level3{
+.markdown-body .title-level3{
     display: none !important;
 }
-.ant-anchor-link-title{
+.markdown-body .ant-anchor-link-title{
     font-size: 12px !important;
 }
-.ant-anchor-wrapper{
+.markdown-body .ant-anchor-wrapper{
     padding: 5px !important;
 }
-h4 {
-    color: rgb(233, 168, 47) !important;
-    margin-top: 0.6rem;
+.markdown-body h4 {
+    color: #292929 !important;
+    margin-top: 1rem;
 }
-h3 {
+.markdown-body h3 {
     color: white !important;
     margin-top: 0.6rem;
 }
-h5 {
-    color: #2adacb !important;
+.markdown-body h5 {
+    color: #204969 !important;
     margin: 1rem 0 0.6rem 0;
     line-height: 1.5rem;
-}
-.markdown-body h5::after {
-    content: ";";
 }
 .markdown-body p {
     position: relative;
     margin: 1rem 0!important;
-    border-left: 3px solid #ccc;
     padding: 0 0.3rem;
 }
 .markdown-body li {
     margin-top: 1rem;
-}
-.markdown-body li::before {
-    content: "Ps: ";
-    color:rgb(238, 223, 8);
+    height: 3rem;
 }

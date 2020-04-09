@@ -60,21 +60,11 @@ export default {
 body,html {
   width: 100%;
   height: 100%;
-  background: transparent;
-}
-.navbar a{
-  transition: all .5s;
-  color: #333;
-  padding-top:0.5rem;
-}
-.navbar a:hover{
-  margin-left: 0.5rem;
-  color: orange;
 }
   #index {
     .header{
       width: 100%;
-      height: 4rem;
+      height: 4.2rem;
       position: absolute;
       top: 0;
       z-index: 999;
@@ -83,7 +73,7 @@ body,html {
     .active,
     .current {
       position: sticky;
-      background:rgb(117, 114, 114);
+      background:rgba(1, 4, 35);
     }
     @keyframes star-opacity {
     0% {

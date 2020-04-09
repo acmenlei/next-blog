@@ -24,7 +24,7 @@
       <Col :xl="9" :lg="10" :md="10" :sm="0" :xs="0">
            <!-- 每日音乐 -->
           <Music class="xl_music"/>
-          <List style="background: rgba(255, 255, 255, 0.8);padding:1rem">
+          <List style="padding:1rem">
               <ListItem style="color:orange;font-weight:bold;border-bottom: 1px solid #ccc;">
                 Recent articles
               </ListItem>
@@ -40,7 +40,7 @@
               </ListItem>
           </List>
           <!-- 个人介绍 -->
-            <h4>Your Profile:</h4>
+            <h4 style="color:orange">Your Profile:</h4>
           <div class="myInfo">
             <div v-if="!username" style="text-align:center;position:relative">
               <img class="xiaomai" width="80" height="80" src="../../assets/images/xiaomai.jpg" alt="">
@@ -85,7 +85,7 @@
             </div>
           </div>
           <!-- 个人介绍结束 -->
-          <h4>My Makefirend:</h4>
+          <h4 style="color:orange">My Makefirend:</h4>
           <Tabs class="tabs" value="name1"> 
         <TabPane label="联系方式" name="name1">
           <i class="iconfont icon-qq" style="color:skyblue;"></i>:755425595 
@@ -231,13 +231,14 @@ import Music from './Music'
 </script>
 <style lang="scss" scoped>
     #card {
-      // padding-top: 2rem;
       .music {
         display: none;
       }
       .xl_music {
         margin-top: 2rem;
         border-top-left-radius: 0.3rem;
+        position: relative;
+        z-index: 5;
       }
       @media screen and(max-width:768px) {
         .music {
@@ -263,11 +264,17 @@ import Music from './Music'
         cursor: pointer;
         transition: all 1s;
         border-bottom: 1px solid #ccc;
+        position: relative;
+        z-index: 5;
+        background: rgba(255, 255, 255, .8);
+        
       }
       .box {
         margin-top: 1.5rem;
          .page {
               padding-left: 1rem;
+              position: relative;
+              z-index: 5;
       }
       }
       .article_Item:hover {
@@ -300,6 +307,8 @@ import Music from './Music'
           border-radius: .4rem;
           padding: 1rem;
           color: #333;
+           position: relative;
+          z-index: 5;
         }
         .myInfo {
           width: 100%;height: 28rem;
@@ -309,6 +318,8 @@ import Music from './Music'
           background: rgba(255, 255, 255, 0.8);
           padding: 1rem;
           border: 1px solid #ccc;
+          position: relative;
+          z-index: 5;
           .SuccessInfo {
             img {
               width: 5rem;
@@ -324,7 +335,7 @@ import Music from './Music'
               color: rgb(173, 173, 173);
               font-weight: bold;
               span {
-                color: #ee932b;
+                color: lightblue;
                 font-weight: bold;
               }
             }
@@ -333,7 +344,7 @@ import Music from './Music'
               border: 0;
               outline: none;
               padding: 0.2rem;
-              color: rgb(247, 96, 154)!important;
+              color: #333;
               transition: all .5s;
               font-weight: bold;
               border-radius: 0.8rem;

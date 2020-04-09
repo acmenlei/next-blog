@@ -24,11 +24,11 @@
         <Input v-model="formInline.value" placeholder="输入验证码" ></Input>
         </FormItem>
         <FormItem>
-            <Button type="primary" @click="handleSubmit('formInline')">登陆</Button>
-            <Button style="margin-left:1rem;" type="default" @click="register">我是新人</Button>
+            <Button class="btns" @click="handleSubmit('formInline')">登陆</Button>
+            <Button class="btns" style="margin-left:1rem;" type="default" @click="register">我是新人</Button>
         </FormItem>
         <FormItem>
-           <p style="color:#ccc;font-size:1rem;">提示: 没有账号可以点击我是新人进行注册,只需要验证邮箱就可以了,欢迎你的加入！</p>
+           <p style="color:#333;font-size:1rem;">提示: 没有账号可以点击我是新人进行注册,只需要验证邮箱就可以了,欢迎你的加入！</p>
         </FormItem>
     </Form>
     </div>
@@ -192,6 +192,14 @@ import { PostMessage } from './NetWork/request'
         display: flex;
         justify-content: center;
         align-items: center;
+        .btns {
+            position: relative;
+            z-index: 5;
+        }
+        .btns:nth-child(1) {
+            background: rgb(53, 138, 235);
+            color: white;
+        }
         .logintitle {
             color: #333 !important;
             font-size: 2rem;

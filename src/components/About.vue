@@ -25,7 +25,7 @@
         width: 50%;
         margin: 2rem 5rem;
         position: relative;
-                    z-index: 99;
+        z-index: 99;
     }
     @media screen and (min-width:768px) {
         img {

@@ -11,6 +11,27 @@
       "font_class": "wenzhang",
       "unicode": "344e",
       "unicode_decimal": 13390
+    },
+    {
+      "icon_id": "2733954",
+      "name": "标题",
+      "font_class": "biaoti",
+      "unicode": "e6e8",
+      "unicode_decimal": 59112
+    },
+    {
+      "icon_id": "3773124",
+      "name": "链接",
+      "font_class": "lianjie",
+      "unicode": "e6b2",
+      "unicode_decimal": 59058
+    },
+    {
+      "icon_id": "6446291",
+      "name": "链接",
+      "font_class": "tianchongxing-",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
     }
   ]
 }

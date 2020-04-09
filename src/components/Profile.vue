@@ -103,6 +103,8 @@ import { PostMessage } from './NetWork/request'
           width: 70%;height: 28rem;
           border-radius: 1rem;
           margin: 6rem auto ;
+          position: relative;
+              z-index: 5;
           .SuccessInfo {
             img {
               width: 8rem;
@@ -129,7 +131,7 @@ import { PostMessage } from './NetWork/request'
               border: 0;
               outline: none;
               padding: 0.2rem;
-              color: lightblue!important;
+              color: rgb(79, 81, 82)!important;
               transition: all .5s;
               font-weight: bold;
               border-radius: 0.2rem;
@@ -139,7 +141,7 @@ import { PostMessage } from './NetWork/request'
               width:80%;
             }
             .active {
-              background: rgb(255, 254, 254)!important;
+              background: transparent!important;
             }
           }
           .editor_Info,

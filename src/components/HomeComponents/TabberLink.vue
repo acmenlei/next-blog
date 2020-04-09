@@ -51,6 +51,8 @@
       color: white;
       font-size: 1rem;
       border-bottom: 0;
+      height: 4.3rem;
+      line-height: 4.2rem;
     }
     .ivu-menu-item:hover {
       background: rgb(53, 50, 50,.5); 

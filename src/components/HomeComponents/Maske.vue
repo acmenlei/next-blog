@@ -3,43 +3,112 @@
       <div ref="maske" id="Maske">
         <Center class="center"/>
       </div>
-    <div ref="container" class="container">
-      <!-- 轮播 -->
-      <swiper :options="swiperOption" ref="mySwiper">
-       <swiper-slide><img src="../../assets/images/swiper1.jpeg" alt=""></swiper-slide>
-       <swiper-slide><img src="../../assets/images/swiper2.jpg" alt=""></swiper-slide>
-       <swiper-slide><img src="../../assets/images/swiper3.jpg" alt=""></swiper-slide>
-       <swiper-slide><img src="../../assets/images/swiper4.jpg" alt=""></swiper-slide>
-       <swiper-slide><img src="../../assets/images/swiper5.jpg" alt=""></swiper-slide>
-       <swiper-slide><img src="../../assets/images/swiper6.jpg" alt=""></swiper-slide>
-       <swiper-slide><img src="../../assets/images/swiper7.jpg" alt=""></swiper-slide>
-       <swiper-slide><img src="../../assets/images/swiper8.jpg" alt=""></swiper-slide>
-       <swiper-slide><img src="../../assets/images/swiper9.jpg" alt=""></swiper-slide>
-       <swiper-slide><img src="../../assets/images/swiper10.jpg" alt=""></swiper-slide>
-       <swiper-slide><img src="../../assets/images/swiper11.jpg" alt=""></swiper-slide>
-      </swiper>
-    </div>
 </div>
 </template>
 <script>
 import Center from './Center'
-import 'swiper/dist/css/swiper.css'
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
   export default {
     name:'maske',
     data () {
       return {
-        swiperOption:{
-          loop:true,
-          autoplay: {
-            delay: 8000,
-            disableOnInteraction: false
-          }
-        }
       };
     },
+    mounted() {
+      var Stars = function(args) {
+    if (args === undefined) args = {};
+    var _scope = this;
+
+    this.stars = [];
+    this.vel = args.vel || 1;
+    this.radius = args.radius || 1;
+    this.alpha = 0.5;
+    this.starsCounter = args.stars || 300;
+    var center = {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2
+    };
+    var canvas, context;
+    this.init = function() {
+        canvas = document.createElement("canvas");
+        document.querySelector('#Maske').appendChild(canvas);
+        context = canvas.getContext("2d");
+        context.lineCap = "round";
+        this.start();
+        this.resize();
+        window.addEventListener("resize", this.resize.bind(this));
+    }
+
+    this.start = function() {
+        this.stars = [];
+        for (var i = 0; i < this.starsCounter; i++) {
+          setTimeout(function(){
+            _scope.stars.push(new Star());
+          }, i*30);
+        }
+    }
+
+    this.resize = function() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        center.x = canvas.width / 2;
+        center.y = canvas.height / 2;
+    }
+    this.animate = function() {
+        window.requestAnimationFrame(this.animate.bind(this));
+        this.render();
+    }
+    this.render = function() {
+        context.fillStyle = 'rgba(1, 4, 35, 0.8)';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.strokeStyle = "white";
+        for (var i = 0; i < this.stars.length; i++) this.stars[i].update();
+    }
+
+    var Star = function() {
+        this.x = center.x;
+        this.y = center.y;
+        this.init = function() {
+            this.radius = Math.random() * _scope.radius;
+            this.x = center.x;
+            this.y = center.y;
+            this.lineWidth = 0;
+            this.vel = {
+                x: Math.random() * 10 - 5,
+                y: Math.random() * 10 - 5
+            }
+        }
+        this.update = function() {
+            this.vel.x *= 1.05;
+            this.vel.y *= 1.05;
+            this.lineWidth += 0.035;
+            this.x0 = this.x;
+            this.y0 = this.y;
+            this.x += this.vel.x;
+            this.y += this.vel.y;
+            this.draw();
+            if (this.isDead()) this.init();
+        }
+        this.draw = function() {
+            context.beginPath();
+            context.moveTo(this.x0, this.y0);
+            context.lineTo(this.x, this.y);
+            context.lineWidth = this.lineWidth;
+            context.stroke();
+        }
+        this.isDead = function() {
+            return (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height);
+        }
+        this.init();
+        return this;
+    }
+    this.init();
+    this.animate();
+    return this;
+}
+new Stars();
+    },
     components: {
-        Center,swiper,swiperSlide
+        Center
     }
   }
 </script>
@@ -50,39 +119,16 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
     width: 100%;
     height: 100vh;
      transition: all 0.5s;
-     background: #fff;
+     canvas {
+      position: absolute;
+      top: 0;
+    }
    .center{
        position: absolute;
-       top: 50%;
+       top: 60%;
        left: 50%;
        z-index: 2;
        transform: translate(-50%,-50%);
    }
-}
-// @media screen and (max-width: 768px) { //如果屏幕宽度小于768像素，则使用大括号内的样式
-//     #Maske,
-//     .container {
-//             height: 46rem !important;
-//        }
-// }
-// @media screen and (max-width: 568px) { //如果屏幕宽度小于568像素，则使用大括号内的样式
-//     #Maske,
-//     .container {
-//             height: 30rem !important;
-//        }
-// }
-.container {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    transition: all 0.5s;
-    img {
-      width: 100%;
-      // height: 46rem;
-      height: 100vh;
-      opacity: .8;
-    }
 }
 </style>

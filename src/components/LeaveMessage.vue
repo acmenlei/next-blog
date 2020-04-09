@@ -96,8 +96,12 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
     }
     .compile {
       margin:2rem;
+      position: relative;
+      z-index: 5;
     }
     .leaveContent {
+      position: relative;
+      z-index: 5;
       img {
         width: 2rem;
         height: 2rem;
@@ -107,11 +111,12 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
         padding: 2rem;
         position: relative;
         border-bottom:1px solid rgb(211, 211, 211);
+        background: #fff;
         p,span,img,a{
           position: absolute;font-size: 0.8rem;
         }
         a{
-          color: rgb(250, 17, 17);
+          color: red;
           left: 4rem;
           top: 1rem;
           font-size: 0.6rem;
@@ -121,7 +126,6 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
         }
         span{
           left: 8.2rem;bottom: 0.5rem;
-          
         }
         p {
           top: 0.5rem;right: 1rem;;

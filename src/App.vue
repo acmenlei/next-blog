@@ -1,32 +1,38 @@
 <template>
   <div id="app">
-    <div id="mydiv"></div>
     <Index />
+           <vue-particles
+           :class="{app_active:this.$route.name === 'home'}"
+            color="#333"
+            :particleOpacity="0.8"
+            :particlesNumber="200"
+            shapeType="circle"
+            :particleSize="4"
+            linesColor="#000"
+            :linesWidth="1"
+            :lineLinked="true"
+            :lineOpacity="0.5"
+            :linesDistance="150"
+            :moveSpeed="2"
+            :hoverEffect="true"
+            hoverMode="grab"
+            :clickEffect="true"
+            clickMode="push"
+            class="lizi"
+      />
   </div>
 </template>
 <script>
 import Index from "./views/index";
-import CanvasParticle from "./components/canvas-particle.js";
+
 export default {
   name: "app",
   data() {
     return {
-      config: {
-        vx: 4,
-        vy: 4,
-        height: 2,
-        width: 2,
-        count: 210,
-        color: "#f2f2f2",
-        stroke: "#f2f2f2",
-        dist: 6000,
-        e_dist: 20000,
-        max_conn: 10
-      }
+      isshow:true
     };
   },
   mounted() {
-    CanvasParticle(this.config);
     this.initSize();
     window.addEventListener("resize", () => {
       this.debounce(this.initSize, 500)();
@@ -67,12 +73,20 @@ export default {
 * {
   margin: 0;
   padding: 0;
-  font-family: PingFangSC-Regular,'Roboto', Verdana, "Open Sans", "Helvetica Neue", "Helvetica", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans CN", "WenQuanYi Micro Hei", Arial, sans-serif;
+  font-family: cursive;
+  box-sizing: border-box;
 }
 #app {
-  #mydiv {
-    position: sticky;
-    top: 0;
+       .lizi {
+         position: fixed;
+         top:0;
+          width: 100vw;
+          height: 100vh;
+          // z-index: -1;
+     }
+  background: transparent;
+  .app_active {
+    z-index: -999;
   }
 }
 </style>

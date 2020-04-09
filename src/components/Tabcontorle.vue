@@ -58,14 +58,15 @@
 <style lang="scss" scoped>
     .MeunTab {
       width: 100%;
-      background: rgb(255, 255, 255);
-      position: absolute;
+      background: #fff;
+      position: fixed;
       top: -35rem;
       z-index: 998;
       transition: all .5s ease-in-out;
-      i,sapn{
+      border-bottom: 1px solid #ccc;
+      i,span{
         font-size: 1.2rem;
-        font-style: italic;
+        font-style:normal;
       }
       i:hover{
         cursor: pointer;

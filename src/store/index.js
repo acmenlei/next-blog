@@ -11,9 +11,5 @@ export default new Vuex.Store({
     updateShow(state,data) {
       state.isshow = data
     }
-  },
-  actions: {
-  },
-  modules: {
   }
 })

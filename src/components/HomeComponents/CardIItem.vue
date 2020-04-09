@@ -1,7 +1,7 @@
 <template>
   <div id="carditem">
         <Card :contentid="id" class="card" >
-            <h3 class="title">{{title}}</h3>
+            <p class="title"> <i class="iconfont icon-lianjie"></i>  {{title}}</p>
             <p ref="lable" class="lable"># {{lable}}</p>
             <p v-html="newcontent" class="content"></p>
             <p class="publictime">{{time}}</p>
@@ -25,7 +25,6 @@
 <script>
 import marked from 'marked'
 import highlight from 'highlight.js'
-// import { getnotedetail } from '../NetWork/request'
   export default {
     name:'carditem',
     props:{
@@ -125,8 +124,11 @@ import highlight from 'highlight.js'
 <style lang="scss" scoped>
 @import url('../../assets/css/detail.css');
 #carditem {
+  @font-face {
+  font-family: '../../assets/font/font_title.ttf';
+  src: url('../../assets/font/font_title.ttf');
+}
   .content {
-      font-family: 'title';
       box-sizing: border-box;
       overflow:hidden;
       -webkit-line-clamp:3;
@@ -149,9 +151,10 @@ import highlight from 'highlight.js'
 
 .card {
   position: relative;
+  z-index: 5;
   cursor:pointer;margin:0.5rem 2rem 2rem 2.5rem;
     border: 0;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 2px #ccc;
 }
 .card> ::before {
@@ -172,23 +175,25 @@ import highlight from 'highlight.js'
   position: absolute;
   right: 0;top:0;
 }
-@font-face {
-  font-family: 'title';
-  src: url('../../assets/font/font_title.ttf');
-}
 .title{
   text-align:center;
   margin-bottom: .5rem;
-  color: #000!important;
-  font-family: 'title';
+  font-family: cursive;
+  font-size: 18px;
+}
+@font-face {
+  font-family: '../../assets/font/font_title.ttf';
+  src: url('../../assets/font/font_title.ttf');
 }
 .lable { 
   text-align: center;
   width: 6rem;
   padding: .2rem;
+  margin-bottom:0.5rem;
   border-radius: .2rem;
   color: white!important;
   font-size: .9rem;
+  font-family: '../../assets/font/font_title.ttf' !important;
 }
 .publictime {
   text-align:right;color:#ccc!important;

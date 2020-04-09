@@ -2,7 +2,10 @@
   <div id="detail">
     <!-- 需要渲染的html -->
      <Row>
-        <Col :xl="15" :lg="14" :md="14" :sm="24" :xs="24">
+        <Col :xl="4" :lg="3" :md="3" :sm="0" :xs="0">
+           <p style="padding:1rem;font-family:cursive;">位置: 详情页</p>
+        </Col>
+        <Col :xl="15" :lg="18" :md="18" :sm="24" :xs="24">
              <div class="markdown-body">
                <div ref="content" class="renderNav" v-html="html"></div>
              </div>
@@ -26,13 +29,6 @@
             </ListItem>
         </List>
         </Col>
-        <Col :xl="9" :lg="10" :md="10" :sm="0" :xs="0">
-         <div v-show="html" class="tabbarlist">  
-           <h3 style="color:white;">文章目录</h3>
-           <div class="navbar" v-html="navbar">
-           </div>
-         </div>
-        </Col>
      </Row>
   </div>
 </template>
@@ -45,7 +41,6 @@ import marked from 'marked'
     data () {
       return {
         html:'',
-        navbar:'',
         value:'',
         arrMesasgeList:[]
       };
@@ -56,7 +51,6 @@ import marked from 'marked'
       getnotedetail(`/note/bynotetext/${this.$route.params.id}`)
       .then( res => {
         this.html = marked(res.data.data.article_data[0].content)
-        this.navbar = marked(res.data.data.article_data[0].navbar)
         this.arrMesasgeList = res.data.data.access_data
         this.$Spin.hide();
         })
@@ -117,23 +111,23 @@ import marked from 'marked'
 <style lang="scss" scoped>
 @import url('../../assets/css/detail.css');
 #detail {
-    padding: 2rem;
-  .tabbarlist {
-    padding:2rem 1rem;
-    margin-left: 4rem;
-    box-shadow: 0 0 1rem #ccc;
-    position: fixed;
-  }
-  .navbar {
-    margin-top: 1rem;
-  }
      .btn {
         margin:1rem;
     }
+    .renderNav {
+      padding: 1rem;
+      background: white;
+      position: relative;
+      z-index: 5;
+    }
     .compile {
       margin:2rem;
+      position: relative;
+      z-index: 5;
     }
     .leaveContent {
+      position: relative;
+      z-index: 5;
       img {
         width: 2rem;
         height: 2rem;

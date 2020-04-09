@@ -90,6 +90,7 @@ import lables from './categoryComponents/lables'
     .lables {
       width: 80%;
       height: 10rem;
+      background: rgb(255, 255, 255, .7);
       margin: 0 auto;
       box-shadow: 0 0 2px rgb(44, 43, 43);
       position: relative;
@@ -105,9 +106,11 @@ import lables from './categoryComponents/lables'
     display: inline-block;
   }
      .detail {
-         background:transparent;
+      background: rgb(255, 255, 255, .7);
          margin-top:1rem;
          border:0;
+         position: relative;
+         z-index: 5;
      }
 }
 </style>
