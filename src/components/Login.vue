@@ -18,7 +18,7 @@
         <Input placeholder="Email" v-model="formInline.email">
         <span slot="append">@qq.com</span>
         </Input>
-        <Button v-text="btntext" :disabled="showBtn" @click.native="sendMail" style="margin:0.5rem 0;" type="primary">发送验证码</Button>
+        <Button v-text="btntext" :disabled="showBtn" @click.native="sendMail" class="btns" style="margin:0.5rem 0;" type="primary">发送验证码</Button>
         </FormItem>
         <FormItem v-if="isshow" prop="value">
         <Input v-model="formInline.value" placeholder="输入验证码" ></Input>

@@ -25,15 +25,21 @@
         top:-10rem;
         left:50%;
         transform: translate(-50%,-50%);
+               @keyframes rotateImg {
+           0% { transform: rotate(0deg); }
+           100% { transform: rotate(360deg); }
+       }
        img {
            border-radius: 50%;
            transition: all 2s;
            box-shadow: 0 0 5px #fff;
            margin-bottom: 0.3rem;
+           animation: rotateImg 5s ease-in-out infinite; 
        }
        img:hover {
            transform: rotate(360deg);
        }
+
     }
     .profile> div{
         text-align: center;

@@ -266,7 +266,7 @@ import Music from './Music'
         border-bottom: 1px solid #ccc;
         position: relative;
         z-index: 5;
-        background: rgba(255, 255, 255, .8);
+        background: transparent;
         
       }
       .box {
@@ -302,7 +302,7 @@ import Music from './Music'
             opacity: .6;
           }
         .tabs {
-          background: rgba(255, 255, 255, 0.8);
+          background: transparent;
           margin-top:1rem;
           border-radius: .4rem;
           padding: 1rem;
@@ -315,9 +315,8 @@ import Music from './Music'
           margin-top: 1rem;
           border-top-left-radius: 0.3rem;
           border-bottom-left-radius: 0.3rem;
-          background: rgba(255, 255, 255, 0.8);
+          background: transparent;
           padding: 1rem;
-          border: 1px solid #ccc;
           position: relative;
           z-index: 5;
           .SuccessInfo {
@@ -347,12 +346,14 @@ import Music from './Music'
               color: #333;
               transition: all .5s;
               font-weight: bold;
-              border-radius: 0.8rem;
+              border-radius: 0.2rem;
+              border-bottom: 1px solid #ccc;
             }
             .info {
               width: 80%;
             }
             .active {
+              border-bottom: 0;
               background: transparent;
             }
           }

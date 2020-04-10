@@ -40,7 +40,6 @@
 .markdown-body pre >code{
     border:0px !important;
     background-color: #272a2c !important;
-    color:#FFF;
 }
 .markdown-body .title-anchor{
     color:#888 !important;
@@ -85,6 +84,9 @@ iframe{
 .markdown-body h4 {
     color: #292929 !important;
     margin-top: 1rem;
+}
+#carditem .content h4 {
+    color: rgb(162, 245, 153);
 }
 .markdown-body h3 {
     color: white !important;

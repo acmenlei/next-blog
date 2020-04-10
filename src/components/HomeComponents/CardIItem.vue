@@ -154,7 +154,7 @@ import highlight from 'highlight.js'
   z-index: 5;
   cursor:pointer;margin:0.5rem 2rem 2rem 2.5rem;
     border: 0;
-    background: rgba(255, 255, 255, 0.8);
+    background: transparent;
     box-shadow: 0 0 2px #ccc;
 }
 .card> ::before {

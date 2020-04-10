@@ -104,7 +104,7 @@ import { PostMessage } from './NetWork/request'
           border-radius: 1rem;
           margin: 6rem auto ;
           position: relative;
-              z-index: 5;
+          z-index: 5;
           .SuccessInfo {
             img {
               width: 8rem;
@@ -122,7 +122,7 @@ import { PostMessage } from './NetWork/request'
               color: rgb(173, 173, 173);
               font-weight: bold;
               span {
-                color: #957ee6;
+                color: lightblue;
                 font-weight: bold;
               }
             }
@@ -131,7 +131,6 @@ import { PostMessage } from './NetWork/request'
               border: 0;
               outline: none;
               padding: 0.2rem;
-              color: rgb(79, 81, 82)!important;
               transition: all .5s;
               font-weight: bold;
               border-radius: 0.2rem;
@@ -141,6 +140,7 @@ import { PostMessage } from './NetWork/request'
               width:80%;
             }
             .active {
+              color: #333;
               background: transparent!important;
             }
           }

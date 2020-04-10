@@ -111,7 +111,7 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
         padding: 2rem;
         position: relative;
         border-bottom:1px solid rgb(211, 211, 211);
-        background: #fff;
+        background: transparent;
         p,span,img,a{
           position: absolute;font-size: 0.8rem;
         }

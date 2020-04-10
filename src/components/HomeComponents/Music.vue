@@ -21,7 +21,6 @@ import { getnotedetail } from '../NetWork/request'
          music_index:1
       };
     },
-
     mounted() {
        this.$nextTick(() => {
           this.getMusic(this.music_index)
@@ -48,7 +47,7 @@ import { getnotedetail } from '../NetWork/request'
 #music_container {
         position: relative;
         margin-top: 1rem;
-        background: rgba(255, 255, 255, 0.8);
+        background: transparent;
         padding:1rem 1.5rem 0 1rem;
         position: relative;
         z-index: 5;

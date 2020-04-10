@@ -90,9 +90,8 @@ import lables from './categoryComponents/lables'
     .lables {
       width: 80%;
       height: 10rem;
-      background: rgb(255, 255, 255, .7);
+      background: transparent;
       margin: 0 auto;
-      box-shadow: 0 0 2px rgb(44, 43, 43);
       position: relative;
       z-index: 3;
     }

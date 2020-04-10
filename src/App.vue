@@ -3,17 +3,17 @@
     <Index />
            <vue-particles
            :class="{app_active:this.$route.name === 'home'}"
-            color="#333"
+            color="#888"
             :particleOpacity="0.8"
-            :particlesNumber="200"
+            :particlesNumber="120"
             shapeType="circle"
             :particleSize="4"
-            linesColor="#000"
+            linesColor="#999"
             :linesWidth="1"
             :lineLinked="true"
             :lineOpacity="0.5"
             :linesDistance="150"
-            :moveSpeed="2"
+            :moveSpeed="1"
             :hoverEffect="true"
             hoverMode="grab"
             :clickEffect="true"
@@ -82,9 +82,8 @@ export default {
          top:0;
           width: 100vw;
           height: 100vh;
-          // z-index: -1;
      }
-  background: transparent;
+        background: #f2f2f2;
   .app_active {
     z-index: -999;
   }
