@@ -74,6 +74,6 @@
       }
     }
     .show {
-      top: 3.8rem;
+      top: 4.2rem;
     }
 </style>

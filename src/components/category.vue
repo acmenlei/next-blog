@@ -88,7 +88,7 @@ import lables from './categoryComponents/lables'
       color: #333!important ;
     }
     .lables {
-      width: 80%;
+      width: 85%;
       height: 10rem;
       background: transparent;
       margin: 0 auto;
@@ -97,8 +97,7 @@ import lables from './categoryComponents/lables'
     }
     .lablecard { 
     text-align: center;
-    width: 6rem;
-    padding: .2rem;
+    padding: 0.5rem;
     border-radius: .2rem;
     color: white!important;
     font-size: .9rem;

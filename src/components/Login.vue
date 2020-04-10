@@ -21,7 +21,7 @@
         <Button v-text="btntext" :disabled="showBtn" @click.native="sendMail" class="btns" style="margin:0.5rem 0;" type="primary">发送验证码</Button>
         </FormItem>
         <FormItem v-if="isshow" prop="value">
-        <Input v-model="formInline.value" placeholder="输入验证码" ></Input>
+        <Input class="put_code" v-model="formInline.value" placeholder="输入验证码" ></Input>
         </FormItem>
         <FormItem>
             <Button class="btns" @click="handleSubmit('formInline')">登陆</Button>
@@ -192,7 +192,8 @@ import { PostMessage } from './NetWork/request'
         display: flex;
         justify-content: center;
         align-items: center;
-        .btns {
+        .btns,
+        .put_code {
             position: relative;
             z-index: 5;
         }
