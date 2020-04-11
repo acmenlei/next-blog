@@ -1,9 +1,5 @@
 <template>
   <div id="center">
-    <div class="profile">
-        <img width="100" height="100" src="../../assets/images/swiper1.jpeg" alt="">
-        <div>Codelei</div>
-    </div>
    <h2 data-text="Welcome to My Blog !"><span>{{text}}</span></h2>
   </div>
 </template>
@@ -18,7 +14,6 @@
   }
 </script>
 <style lang="scss" scoped>
-@import url('../../assets/css/center.css');
 #center {
     .profile {
         position: absolute;
@@ -29,32 +24,7 @@
            0% { transform: rotate(0deg); }
            100% { transform: rotate(360deg); }
        }
-       img {
-           border-radius: 50%;
-           transition: all 2s;
-           box-shadow: 0 0 5px #fff;
-           margin-bottom: 0.3rem;
-           animation: rotateImg 5s ease-in-out infinite; 
-       }
-       img:hover {
-           transform: rotate(360deg);
-       }
-
     }
-    .profile> div{
-        text-align: center;
-        color: white;
-        font-size: 25px;
-        position: relative;
-         background: linear-gradient(to right, lightblue, pink);
-         -webkit-background-clip: text;
-        -moz-background-clip: text;
-        color: transparent;
-    }
-.info .tabbar .head_title::selection{
-  color:deeppink;
-  background-color: #0ff;
-  }
   body {
     display: flex;
     flex-direction: column;

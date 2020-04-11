@@ -75,7 +75,7 @@ import { PostMessage } from './NetWork/request'
       },
       primaryInfo() {
         PostMessage('/user/primaryInfo',
-        {user:this.username,Info:this.MyInfo.info,name:this.MyInfo.name,Imgsrc:this.MyInfo.uploadimg})
+        {token:this.username,Info:this.MyInfo.info,name:this.MyInfo.name,Imgsrc:this.MyInfo.uploadimg})
         .then(res => {
           if(res.data.err == 0) {
             this.flag=false

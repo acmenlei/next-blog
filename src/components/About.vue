@@ -1,36 +1,97 @@
 <template>
   <div id="about">
-      <p>
-         <span style="color:orange">PS</span>:博主是一名在校生,励志成为全栈🐶，所以呀为了提升自己开始写博客，记录一下自己开发过程中遇到的问题，也同时希望能够帮助到你们，emmm非常欢迎你们来学习交流，如果有哪里的内容涉嫌抄袭，
-         请留言或者联系我我马上进行删除，希望各位小伙伴来到这里能够有所收获谢谢，创作不易也需要你们的支持，谢谢！
-      比个心！</p>
-      <img src="../assets/images/cute.gif" alt="">
-      <p>我想说的说完了over~</p>
+    <header> 
+      <Icon type="md-ribbon"></Icon>当前位置: <router-link style="cursor:pointer" tag="span" to="/">首页</router-link> > 云相册<p>(提示: 保存图片请指定图片后缀格式,推荐设置为jpg)</p>
+      </header>
+    <Card class="card" v-for="(item, index) in talkdata" :key="index">
+      {{item.content}}
+            <p>{{item.datetime}}</p>       
+       <img :src="item.imgsrc">
+    </Card>
+    <center>数据已经全部加载完啦...</center>
   </div>
 </template>
 <script>
+import  { getnotedetail } from './NetWork/request'
   export default {
     name:'about',
+    data() {
+      return {
+        talkdata:[]
+      }
+    },
+    mounted() {
+      getnotedetail('/upload/gettalk')
+      .then(res => {
+        if(res.data.err === 0) {
+            this.talkdata = res.data.data;
+        } else {
+          this.$Message.error(res.data.data);
+        }
+      })
+    },
   }
-
 </script>
 <style lang="scss" scoped>
 #about {
-    margin: 10rem 5rem;
-    text-align: center;
+  width: 80%;
+  margin:2rem auto;
+  position: relative;
+  z-index: 5;
+  transition: all 1s;
+  .card {
+    width:36vw;display:inline-block;margin: 0.8rem;
+      img {
+      display: block;
+      width:33vw;
+      height: 60vw;
+      padding-right: 1rem;
+    }
     p {
-        color:#333;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      color: lightgreen;
     }
-    img{
-        width: 50%;
-        margin: 2rem 5rem;
-        position: relative;
-        z-index: 99;
+  }
+  @media screen and(max-width: 1280px){
+    .card {
+      width: 30vw;
+      img {
+        width: 28vw;
+      }
     }
-    @media screen and (min-width:768px) {
-        img {
-            margin: 2rem 0;
-        }
+  }
+  @media screen and(max-width: 786px){
+     .card {
+      width: 35vw;
+      img {
+        width: 32vw;
+      }
     }
+  }
+    @media screen and(max-width: 586px){
+    .card {
+      width: 80vw;
+      img {
+        width: 78vw;
+        padding-right: 3rem;
+      }
+    }
+  }
+  header {
+    padding-bottom: 2rem;
+    position: relative;
+    span:hover {
+      color: lightblue;
+    }
+    p {
+      text-align: center;
+      position: absolute;
+      right: 2.5rem;
+      top: 2.5rem;
+      color:orange;
+    }
+  }
 }
 </style>

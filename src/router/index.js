@@ -52,6 +52,11 @@ const routes = [
     path:'/detail/:id',
     name:'detail',
     component:() => import ('../components/HomeComponents/detail')
+  },
+  {
+    path:'/writeTalk',
+    name:'writeTalk',
+    component:() => import ('../components/aboutComponents/sendcontent.vue')
   }
 ]
 
@@ -76,5 +81,4 @@ router.beforeEach((to,from,next) => {
   }
   next()
 })
-
 export default router

@@ -5,7 +5,7 @@
            :class="{app_active:this.$route.name === 'home'}"
             color="#888"
             :particleOpacity="0.8"
-            :particlesNumber="120"
+            :particlesNumber="150"
             shapeType="circle"
             :particleSize="4"
             linesColor="#999"

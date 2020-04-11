@@ -14,10 +14,10 @@ import Center from './Center'
       };
     },
     mounted() {
+        /* 放射粒子star  */
       var Stars = function(args) {
     if (args === undefined) args = {};
     var _scope = this;
-
     this.stars = [];
     this.vel = args.vel || 1;
     this.radius = args.radius || 1;
@@ -58,7 +58,7 @@ import Center from './Center'
         this.render();
     }
     this.render = function() {
-        context.fillStyle = 'rgba(1, 4, 35, 0.8)';
+        context.fillStyle = '#000';
         context.fillRect(0, 0, canvas.width, canvas.height);
         context.strokeStyle = "white";
         for (var i = 0; i < this.stars.length; i++) this.stars[i].update();
@@ -106,6 +106,7 @@ import Center from './Center'
     return this;
 }
 new Stars();
+/* 放射粒子end */
     },
     components: {
         Center
@@ -124,8 +125,8 @@ new Stars();
       top: 0;
     }
    .center{
-       position: absolute;
-       top: 60%;
+       position: fixed;
+       top:50%;
        left: 50%;
        z-index: 2;
        transform: translate(-50%,-50%);

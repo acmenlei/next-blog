@@ -67,7 +67,7 @@
                 </div><span style="font-size:.6rem">上传头像</span>
               </Upload>
                 <!-- <a>退出登录</!-->
-                <Button style="font-size:0.5rem;margin:0 0 1.5rem 0.5rem;" type="default" @click="modal1 = true">退出登录</Button>
+                <Button style="font-size:0.5rem;margin:0 0 1.5rem 0.5rem;" type="primary" @click="modal1 = true">退出登录</Button>
               <Modal
                   v-model="modal1"
                   title="退出提示"

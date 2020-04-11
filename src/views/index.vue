@@ -14,24 +14,20 @@ import Footer from '../components/Footer'
 import TabContorle  from '../components/Tabcontorle'
 export default {
   name: 'index',
-  data() {
-    return {
-    }
-  },
   components:{
     Header,TabContorle,Footer
   },
   mounted() {
     this.Kanbanmusume()
-    document.addEventListener('click',(e) => {
+    document.onclick = (e) => {
       if(e.target.className=='meun iconfont icon-caidan') {
         this.$store.commit('updateShow',true)
-      }else if(e.target.className=='MeunTab' || e.target.className=='ivu-list-item') {
+      }else if(e.target.className=='MeunTab' || e.target.tagName.toLowerCase()=='img' || e.target.className=='ivu-list-item' || e.target.className == 'profile') {
         return
       } else {
         this.$store.commit('updateShow',false)
       }
-    })
+    }
   },
   methods: {
     Kanbanmusume() {
@@ -73,7 +69,7 @@ body,html {
     .active,
     .current {
       position: sticky;
-      background:rgba(1, 4, 35);
+      background:#000;
     }
     @keyframes star-opacity {
     0% {
