@@ -85,8 +85,11 @@ iframe{
     color: #292929 !important;
     margin-top: 1rem;
 }
+.markdown-body img {
+    width: 100%;
+}
 #carditem .content h4 {
-    color: rgb(162, 245, 153);
+    color: rgb(241, 194, 106);
 }
 .markdown-body h3 {
     color: white !important;

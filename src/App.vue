@@ -73,7 +73,6 @@ export default {
 * {
   margin: 0;
   padding: 0;
-  font-family: cursive;
   box-sizing: border-box;
 }
 #app {

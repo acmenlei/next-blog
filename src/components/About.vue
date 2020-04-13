@@ -1,18 +1,30 @@
 <template>
   <div id="about">
     <header> 
-      <Icon type="md-ribbon"></Icon>当前位置: <router-link style="cursor:pointer" tag="span" to="/">首页</router-link> > 云相册<p>(提示: 保存图片请指定图片后缀格式,推荐设置为jpg)</p>
+      <Icon type="md-ribbon"></Icon>当前位置: <router-link style="cursor:pointer" tag="span" to="/">首页</router-link> > 云相册<p>提示: 保存图片若没有后缀请指定图片后缀格式</p>
       </header>
-    <Card class="card" v-for="(item, index) in talkdata" :key="index">
-      {{item.content}}
-            <p>{{item.datetime}}</p>       
-       <img :src="item.imgsrc">
-    </Card>
+      <waterfall :line-gap="400" :watch="talkdata">
+        <waterfall-slot
+          v-for="(item, index) in talkdata"
+          :width="500"
+          :height="600"
+          :order="index"
+          :key="item.id"
+        >
+        <div class="card">
+            <p class="content">{{item.content}}</p>
+            <p class="time">{{item.datetime}}</p>       
+            <img v-lazy="item.imgsrc">
+          </div>
+        </waterfall-slot>
+      </waterfall>
     <center>数据已经全部加载完啦...</center>
   </div>
 </template>
 <script>
 import  { getnotedetail } from './NetWork/request'
+import Waterfall from 'vue-waterfall/lib/waterfall'
+import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
   export default {
     name:'about',
     data() {
@@ -20,6 +32,7 @@ import  { getnotedetail } from './NetWork/request'
         talkdata:[]
       }
     },
+    components:{ Waterfall,WaterfallSlot },
     mounted() {
       getnotedetail('/upload/gettalk')
       .then(res => {
@@ -29,7 +42,7 @@ import  { getnotedetail } from './NetWork/request'
           this.$Message.error(res.data.data);
         }
       })
-    },
+    }
   }
 </script>
 <style lang="scss" scoped>
@@ -40,43 +53,22 @@ import  { getnotedetail } from './NetWork/request'
   z-index: 5;
   transition: all 1s;
   .card {
-    width:36vw;display:inline-block;margin: 0.8rem;
-      img {
-      display: block;
-      width:33vw;
-      height: 60vw;
-      padding-right: 1rem;
+    position: relative;
+    img {
+      width: 100%;
     }
-    p {
+    .content,
+    .time {
       position: absolute;
-      right: 1rem;
-      top: 1rem;
-      color: lightgreen;
+      top: 15px;
     }
-  }
-  @media screen and(max-width: 1280px){
-    .card {
-      width: 30vw;
-      img {
-        width: 28vw;
-      }
+    .content {
+      left: 32px;
+      color: rgb(44, 164, 233);
     }
-  }
-  @media screen and(max-width: 786px){
-     .card {
-      width: 35vw;
-      img {
-        width: 32vw;
-      }
-    }
-  }
-    @media screen and(max-width: 586px){
-    .card {
-      width: 80vw;
-      img {
-        width: 78vw;
-        padding-right: 3rem;
-      }
+    .time {
+      color: orangered;
+      right: 20px;
     }
   }
   header {
