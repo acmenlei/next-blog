@@ -1,7 +1,10 @@
 <template>
   <div id="card">
     <Row>
-      <Col class="box" :xl="15" :lg="14" :md="14" :sm="24" :xs="24">
+        <Col :xl="2" :lg="2" :md="2" :sm="0" :xs="0">
+            ...
+        </Col>
+      <Col :xl="12" :lg="12" :md="12" :sm="24" :xs="24">
       <Music class="music"/>
         <!-- 文章卡片 -->
           <Card-item 
@@ -21,10 +24,10 @@
          @on-change="Pagechange"  
          show-total />
       </Col>
-      <Col :xl="9" :lg="10" :md="10" :sm="0" :xs="0">
+    <Col :xl="8" :lg="8" :md="8" :sm="0" :xs="0">
            <!-- 每日音乐 -->
           <Music class="xl_music"/>
-          <List style="padding:1rem">
+          <List style="padding:1rem;box-shadow: 0 0 2px #ccc;">
               <ListItem style="color:orange;font-weight:bold;border-bottom: 1px solid #ccc;">
                 Recent articles
               </ListItem>
@@ -35,7 +38,7 @@
               :key="index">
               {{item.title}}
             </ListItem>
-              <ListItem style="color:yellow;font-weight:bold;">
+              <ListItem style="color:#456;font-weight:bold;">
                 ---------不用管我我只是一个表情包😉---------
               </ListItem>
           </List>
@@ -81,7 +84,7 @@
                   <Button style="margin-right:1rem;" @click="updateInfo" type="default">编辑信息</Button>
                   <Button v-show="flag" @click="primaryInfo" type="primary">提交</Button>
                 </p>
-                <p>温馨提示:小主如果点错了,连续按两次编辑信息可以取消编辑哦(。・∀・)ノ</p>
+                <p>温馨提示:如果点错了,连续按两次编辑信息可以取消编辑(。・∀・)ノ</p>
             </div>
           </div>
           <!-- 个人介绍结束 -->
@@ -184,7 +187,25 @@ import Music from './Music'
            })
         }
       },
+      showLoading() {
+        /* 请求数据的加载 */
+          this.$Spin.show({
+            render: (h) => {
+                return h('div', [
+                    h('Icon', {
+                        'class': 'demo-spin-icon-load',
+                        props: {
+                            type: 'ios-loading',
+                            size: 18
+                        }
+                    }),
+                    h('div', '正在努力加载请稍等...')
+                ])
+            }
+        });
+      },
         Pagechange(index) {
+        this.showLoading()
         PageSizeChange('/page/getnotePage',{page:index})
         .then(res => {
           if(res.data.err == 0) {
@@ -193,6 +214,7 @@ import Music from './Music'
           } else {
             this.$Message.error("网络出错了,(ノへ￣、)！")
           }
+          this.$Spin.hide() // 请求完成隐藏遮罩层
         })
       },
       handleSuccess(response) {
@@ -239,6 +261,7 @@ import Music from './Music'
         border-top-left-radius: 0.3rem;
         position: relative;
         z-index: 5;
+      background: transparent;
       }
       @media screen and(max-width:768px) {
         .music {
@@ -266,16 +289,12 @@ import Music from './Music'
         border-bottom: 1px solid #ccc;
         position: relative;
         z-index: 5;
-        background: transparent;
-        
+        color: #333;
       }
-      .box {
-        margin-top: 1.5rem;
-         .page {
-              padding-left: 1rem;
-              position: relative;
-              z-index: 5;
-      }
+      .page {
+        padding-left: 1rem;
+        position: relative;
+        z-index: 10;
       }
       .article_Item:hover {
         color: orange;
@@ -295,30 +314,33 @@ import Music from './Music'
             transform: translate(-50%,-50%);
         }
          .nologinShow {
-           width: 100%;
-            position:absolute;color:#333;
-            top:13rem;left:50%;
-            transform: translate(-50%,-50%);
-            opacity: .6;
+          width: 100%;
+          position:absolute;
+          color: #333;
+          top:15rem;left:50%;
+          transform: translate(-50%,-50%);
+          opacity: .6;
           }
         .tabs {
-          background: transparent;
           margin-top:1rem;
           border-radius: .4rem;
           padding: 1rem;
           color: #333;
            position: relative;
           z-index: 5;
+         background: transparent;
+             box-shadow: 0 0 2px #ccc;
         }
         .myInfo {
           width: 100%;height: 28rem;
           margin-top: 1rem;
           border-top-left-radius: 0.3rem;
           border-bottom-left-radius: 0.3rem;
-          background: transparent;
           padding: 1rem;
           position: relative;
           z-index: 5;
+         background: transparent;
+             box-shadow: 0 0 2px #ccc;
           .SuccessInfo {
             img {
               width: 5rem;
@@ -331,11 +353,11 @@ import Music from './Music'
               text-align: left;
               font-size: .9rem;
               margin-left: 1rem;
-              color: rgb(173, 173, 173);
+              color: rgb(161, 161, 161);
               font-weight: bold;
+              font-family: cursive;
               span {
                 color: lightblue;
-                font-weight: bold;
               }
             }
             .name,
@@ -345,7 +367,6 @@ import Music from './Music'
               padding: 0.2rem;
               color: #333;
               transition: all .5s;
-              font-weight: bold;
               border-radius: 0.2rem;
               border-bottom: 1px solid #ccc;
             }
@@ -353,6 +374,7 @@ import Music from './Music'
               width: 80%;
             }
             .active {
+              color: #333;
               border-bottom: 0;
               background: transparent;
             }

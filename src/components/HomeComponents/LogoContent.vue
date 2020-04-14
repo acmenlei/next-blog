@@ -4,7 +4,7 @@
        <i v-if="MeunisShow" class="meun iconfont icon-caidan"></i>
       <img src="../../assets/logo.png" alt="">
       <p>CODELEI</p>
-       <i v-if="MeunisShow" @click="$router.push('/category')" class="search iconfont icon-icon_xinyong_xianxing_jijin-"></i>
+       <i v-if="MeunisShow" @click="$router.push('/category')" class="search iconfont icon-search"></i>
     </div>
   </div>
 </template>
@@ -41,7 +41,6 @@
         align-items: center;
         padding-top: 0.8rem;
         position: relative;
-        // cursor: pointer;
         p {
           font-size: 1.2rem;
           margin-top: -2rem;
@@ -49,10 +48,10 @@
           color: white !important;
           font-family :'Times New Roman', Times, serif;
            -webkit-touch-callout: none;
-              -webkit-user-select: none;
-              -khtml-user-select: none;
-              -moz-user-select: none;
-              -ms-user-select: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
             user-select: none;
         }
             img {

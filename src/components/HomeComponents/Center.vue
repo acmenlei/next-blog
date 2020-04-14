@@ -1,5 +1,9 @@
 <template>
   <div id="center">
+   <div class="container_img">
+       <img src="../../assets/images/codelei.svg" alt="">
+    </div>
+   <h3>codelei</h3>
    <h2 data-text="Welcome to My Blog !"><span>{{text}}</span></h2>
   </div>
 </template>
@@ -15,16 +19,35 @@
 </script>
 <style lang="scss" scoped>
 #center {
-    .profile {
-        position: absolute;
-        top:-10rem;
-        left:50%;
-        transform: translate(-50%,-50%);
-               @keyframes rotateImg {
-           0% { transform: rotate(0deg); }
-           100% { transform: rotate(360deg); }
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   .container_img {
+       margin-bottom: 2rem;
+   }
+   @font-face {
+       font-family: '../../assets/font/font_title.ttf';
+       src: url('../../assets/font/font_title.ttf');
+   }
+   h3 {
+       font-family: '../../assets/font/font_title.ttf';
+       margin-bottom: 4rem;
+       color: #f2f2f2;
+       font-size: 2rem;
+   }
+   @media screen and(max-width:568px) {
+       .container_img {
+           border-radius: 50%;
+           width: 100px;
+           height: 100px;
+           overflow: hidden;
        }
-    }
+       img {
+           margin-left: -2rem;
+       }
+   }
+}
   body {
     display: flex;
     flex-direction: column;
@@ -124,6 +147,5 @@ h2::after {
     100% {
         transform: translate(-49%, -53%);
     }
-}
 }
 </style>

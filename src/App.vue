@@ -1,19 +1,18 @@
 <template>
   <div id="app">
-    <Index />
+    <Index/>
            <vue-particles
-           :class="{app_active:this.$route.name === 'home'}"
-            color="#888"
-            :particleOpacity="0.8"
-            :particlesNumber="150"
-            shapeType="circle"
+            color="#fff000"
+            :particleOpacity="0.6"
+            :particlesNumber="100"
+            shapeType="star"
             :particleSize="4"
-            linesColor="#999"
+            linesColor="#333"
             :linesWidth="1"
             :lineLinked="true"
-            :lineOpacity="0.5"
+            :lineOpacity="0"
             :linesDistance="150"
-            :moveSpeed="1"
+            :moveSpeed="5"
             :hoverEffect="true"
             hoverMode="grab"
             :clickEffect="true"
@@ -24,7 +23,6 @@
 </template>
 <script>
 import Index from "./views/index";
-
 export default {
   name: "app",
   data() {
@@ -32,48 +30,41 @@ export default {
       isshow:true
     };
   },
-  mounted() {
-    this.initSize();
-    window.addEventListener("resize", () => {
-      this.debounce(this.initSize, 500)();
-    });
-  },
   components: {
     Index
   },
-  methods: {
-    initSize() {
-      let html = document.querySelector("html");
-      if (window.innerWidth >= 992) {
-        html.style.fontSize = "16px";
-      } else if (window.innerWidth >= 768) {
-        html.style.fontSize = "15px";
-      } else if (window.innerWidth >= 576) {
-        html.style.fontSize = "14px";
-      } else if (window.innerWidth < 576) {
-        html.style.fontSize = "10px";
-      } else {
-        html.style.fontSize = "18px";
-      }
-    },
-    debounce(fun, delay) {
-      return function(args) {
-        let that = this;
-        let _args = args;
-        clearTimeout(fun.id);
-        fun.id = setTimeout(() => {
-          fun.call(that, _args);
-        }, delay);
-      };
-    }
   }
-};
 </script>
 <style lang="scss">
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+@media screen and (max-width:1200px) {
+    body,html {
+      font-size:15px ;
+    }
+}
+@media screen and (max-width:992px) {
+    body,html {
+      font-size:14px ;
+    }
+}
+@media screen and (max-width:768px) {
+    body,html {
+      font-size:13px ;
+    }
+}
+@media screen and (max-width:576px) {
+    body,html {
+      font-size:12px ;
+    }
+}
+@media screen and (max-width:400px) {
+    body,html {
+      font-size:11px ;
+    }
 }
 #app {
        .lizi {
@@ -83,8 +74,5 @@ export default {
           height: 100vh;
      }
         background: #f2f2f2;
-  .app_active {
-    z-index: -999;
-  }
 }
 </style>

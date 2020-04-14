@@ -58,7 +58,7 @@ import Center from './Center'
         this.render();
     }
     this.render = function() {
-        context.fillStyle = '#000';
+        context.fillStyle = '#456';
         context.fillRect(0, 0, canvas.width, canvas.height);
         context.strokeStyle = "white";
         for (var i = 0; i < this.stars.length; i++) this.stars[i].update();
@@ -119,7 +119,7 @@ new Stars();
     top: 0;
     width: 100%;
     height: 100vh;
-     transition: all 0.5s;
+    transition: all 0.5s;
      canvas {
       position: absolute;
       top: 0;

@@ -4,7 +4,7 @@
             <p class="title"> <i class="iconfont icon-lianjie"></i>  {{title}}</p>
             <p ref="lable" class="lable"># {{lable}}</p>
             <p v-html="newcontent" class="content"></p>
-            <p class="publictime">{{time}}</p>
+            <p class="publictime">{{time | timeFilter}}</p>
             <p> 
              <Tooltip placement="top" content="点击跳转到详情页查看">
             <Button @click.native="Godetail(article_id,id)" class="readall" type="primary">阅读全文</Button>
@@ -68,9 +68,17 @@ import highlight from 'highlight.js'
       let color3 = parseInt(Math.random()*255)
       this.$refs.lable.style.backgroundColor=`rgba(${color1},${color2},${color3})`
     },
+    filters:{
+      timeFilter(V) {
+        return V.toString().slice(0,10)
+      }
+    },
     methods: {
       Godetail(article_id,id) {
         this.$router.push(`/detail/${article_id}`)
+        localStorage.setItem('detailTitle', this.title)
+        const newTime = this.time.toString().slice(0, 10)
+        localStorage.setItem('detailTime', newTime)
         /* 发送请求 */
         this.$emit('changevisited',id)
       },
@@ -148,11 +156,20 @@ import highlight from 'highlight.js'
       color: rgb(91, 91, 243);
     }
 }
-
+@media screen and (max-width: 568px) {
+    .card {
+      margin-left: 2rem !important;
+    }
+}
+@media screen and (max-width: 798px){
+  .card {
+      margin-left: 2rem !important;
+    }
+}
 .card {
   position: relative;
   z-index: 5;
-  cursor:pointer;margin:0.5rem 2rem 2rem 2.5rem;
+  cursor:pointer;margin:2rem 2rem 2rem 0;
     border: 0;
     background: transparent;
     box-shadow: 0 0 2px #ccc;

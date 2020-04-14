@@ -54,8 +54,8 @@ const routes = [
     component:() => import ('../components/HomeComponents/detail')
   },
   {
-    path:'/writeTalk',
-    name:'writeTalk',
+    path:'/upload/photos',
+    name:'photos',
     component:() => import ('../components/aboutComponents/sendcontent.vue')
   },
   {

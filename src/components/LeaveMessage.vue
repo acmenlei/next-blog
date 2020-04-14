@@ -85,8 +85,9 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
 </script>
 <style lang="scss" scope>
 #message {
-  width: 100%;
-  height: 100%;
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
     text-align: center;
     padding-top:2rem;
     .btn {
@@ -102,6 +103,7 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
     .leaveContent {
       position: relative;
       z-index: 5;
+      background: #f2f2f2;
       img {
         width: 2rem;
         height: 2rem;
@@ -111,7 +113,6 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
         padding: 2rem;
         position: relative;
         border-bottom:1px solid rgb(211, 211, 211);
-        background: transparent;
         p,span,img,a{
           position: absolute;font-size: 0.8rem;
         }
@@ -125,7 +126,7 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
           top: 0.5rem;left: 1.5rem;
         }
         span{
-          left: 8.2rem;bottom: 0.5rem;
+          left: 4rem;bottom: 0.1rem;
         }
         p {
           top: 0.5rem;right: 1rem;;

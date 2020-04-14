@@ -6,7 +6,7 @@
       <waterfall :line-gap="400" :watch="talkdata">
         <waterfall-slot
           v-for="(item, index) in talkdata"
-          :width="500"
+          :width="600"
           :height="600"
           :order="index"
           :key="item.id"

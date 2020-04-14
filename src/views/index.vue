@@ -35,10 +35,10 @@ export default {
       window.L2Dwidget.init({
           pluginRootPath: 'live2dw/',
           pluginJsPath: 'lib/',
-          pluginModelPath: 'live2d-widget-model-z16/assets/',
+          pluginModelPath: 'live2d-widget-model-miku/assets/',
           tagMode: false,
           debug: false,
-          model: { jsonPath: '../live2dw/live2d-widget-model-koharu/assets/koharu.model.json' },
+          model: { jsonPath: '../live2dw/live2d-widget-model-miku/assets/miku.model.json' },
           display: { position: 'right', width: 150, height: 250 },
           mobile: { show: true },
           log: false
@@ -69,7 +69,7 @@ body,html {
     .active,
     .current {
       position: sticky;
-      background:#000;
+      background: rgb(33,33,33,.8);
     }
     @keyframes star-opacity {
     0% {

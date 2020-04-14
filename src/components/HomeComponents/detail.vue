@@ -1,11 +1,15 @@
 <template>
   <div id="detail">
+    <header class="detail_header">
+      <h2> <i class="iconfont icon-lianjie"></i>  {{title}}</h2>
+      <h3 style="padding-top:1rem;">{{time}}</h3>
+    </header>
     <!-- 需要渲染的html -->
      <Row>
-        <Col :xl="4" :lg="3" :md="3" :sm="0" :xs="0">
-           <p style="padding:1rem;font-family:cursive;">位置: 详情页</p>
+        <Col :xl="3" :lg="2" :md="2" :sm="0" :xs="0">
+           <p style="padding:1rem;font-family:cursive;">.</p>
         </Col>
-        <Col :xl="15" :lg="18" :md="18" :sm="24" :xs="24">
+        <Col :xl="18" :lg="20" :md="20" :sm="24" :xs="24">
              <div class="markdown-body">
                <div ref="content" class="renderNav" v-html="html"></div>
              </div>
@@ -42,7 +46,9 @@ import marked from 'marked'
       return {
         html:'',
         value:'',
-        arrMesasgeList:[]
+        arrMesasgeList:[],
+        title:'',
+        time:''
       };
     },
     mounted() {
@@ -54,6 +60,8 @@ import marked from 'marked'
         this.arrMesasgeList = res.data.data.access_data
         this.$Spin.hide();
         })
+        this.title = localStorage.getItem('detailTitle')
+        this.time = localStorage.getItem('detailTime')
     },
     methods: {
       lightEdite() {
@@ -111,11 +119,20 @@ import marked from 'marked'
 <style lang="scss" scoped>
 @import url('../../assets/css/detail.css');
 #detail {
+  .detail_header {
+    height: 20rem;
+    background: linear-gradient(#456, #678);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    color: white;
+  }
      .btn {
         margin:1rem;
     }
     .renderNav {
-      padding: 1rem;
+      padding: 1rem 3rem;
       background: white;
       position: relative;
       z-index: 5;

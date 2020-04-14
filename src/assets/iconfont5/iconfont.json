@@ -1,0 +1,16 @@
+{
+  "id": "1753983",
+  "name": "搜索",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "278298",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    }
+  ]
+}

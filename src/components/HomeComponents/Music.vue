@@ -46,12 +46,15 @@ import { getnotedetail } from '../NetWork/request'
 <style lang="scss" scoped>
 #music_container {
         position: relative;
-        margin-top: 1rem;
+        color: #333;
         background: transparent;
         padding:1rem 1.5rem 0 1rem;
         position: relative;
         z-index: 5;
-        box-sizing: border-box;
+        border-radius: 5px!important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        box-shadow: 0 0 2px #ccc;
         .musicBox {
         height: 8rem;
         width: 100%;
@@ -66,7 +69,7 @@ import { getnotedetail } from '../NetWork/request'
         margin:0 0.5rem;
         position: absolute;
         bottom: 1rem;
-        color:rgb(56, 54, 49);
+        color:#333;
         cursor: pointer;
         font-weight: bold;
       }
@@ -78,6 +81,6 @@ import { getnotedetail } from '../NetWork/request'
       }
       }
       i:hover {
-        color: red!important;
+        color: red !important;
       }
 </style>

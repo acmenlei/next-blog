@@ -81,7 +81,7 @@ import lables from './categoryComponents/lables'
 </script>
 <style lang="scss" scoped>
 #categroy {
-    margin-top: 5rem;
+    margin: 5rem auto 0 auto;
     h3 {
       text-align: center;
       padding:2rem;

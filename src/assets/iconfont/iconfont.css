@@ -6,7 +6,6 @@
   url('iconfont.ttf?t=1583125673361') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
   url('iconfont.svg?t=1583125673361#iconfont') format('svg'); /* iOS 4.1- */
 }
-
 .iconfont {
   font-family: "iconfont" !important;
   font-size: 16px;
@@ -26,11 +25,6 @@
 .icon-caidan:before {
   content: "\e61b";
 }
-
-.icon-sousuo:before {
-  content: "\e608";
-}
-
 .icon-weixin:before {
   content: "\e62e";
 }
