@@ -213,7 +213,7 @@ import highlight from 'highlight.js'
   font-family: '../../assets/font/font_title.ttf' !important;
 }
 .publictime {
-  text-align:right;color:#ccc!important;
+  text-align:right;color:rgb(0, 255, 13)!important;
   margin:1rem 0;
 }
 

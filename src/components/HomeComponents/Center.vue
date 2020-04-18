@@ -1,28 +1,137 @@
 <template>
   <div id="center">
-   <div class="container_img">
-       <img src="../../assets/images/codelei.svg" alt="">
+    <div class="stage">
+        <div class="wrapper">
+            <div class="slash"></div>
+            <div class="sides">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="text">
+                <div class="text--backing">HELLOW</div>
+                <div class="text--left">
+                    <div class="inner">CODELEI</div>
+                </div>
+                <div class="text--right">
+                    <div class="inner">CODELEI</div>
+                </div>
+            </div>
+        </div>
     </div>
-   <h3>codelei</h3>
-   <h2 data-text="Welcome to My Blog !"><span>{{text}}</span></h2>
-  </div>
+    <div class="loading">
+        <span class="status online"></span>
+        <span class="status invisible"></span>
+        <span class="status idle"></span>
+        <span class="status offline"></span>
+    </div>
+    <div class="navgation">
+        <i v-for="(item, index) in navgation" @click="triggerPage(item.path)" :key="index" :class="item.icon">
+            {{item.name}}
+        </i>
+    </div>
+    <div class="talk-method">
+        <i class="iconfont icon-weixin"> : x972761675</i>
+        <i class="iconfont icon-qq"> : 755425595 || 972761675</i>
+    </div>
+</div>
 </template>
 <script>
   export default {
     name:'center',
     data () {
       return {
-        text:'Welcome to My Blog',
+        navgation: [
+            { name:' Article-List',icon:'iconfont icon-wenzhang', path:'/article' },
+            { name:' Demo',icon:'iconfont icon--', path:'/demo' },
+            { name:' LeaveMessage',icon:'iconfont icon-liuyan2', path:'/message' },
+            { name:' Photos',icon:'iconfont icon-biaoti', path:'/about' },
+            { name:' Github',icon:'iconfont icon-wenzhang', path:'https://github.com/Acmenlei' },
+        ]
       };
-    }
+    },
+    methods: {
+        triggerPage(path) {
+            if(path === 'https://github.com/Acmenlei') {
+                window.location.href = path
+            } else {
+                this.$router.push(path)
+            }
+        }
+    },
   }
 </script>
 <style lang="scss" scoped>
+@import url('./lizi/trigger.css');
 #center {
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
+   .navgation,
+   .talk-method {
+       margin: 2rem 0;
+       white-space: nowrap;
+       i {
+           color: white;
+           margin: 0.6rem;
+           font-size: 0.9rem;
+           transition: all 0.6s;
+           cursor: pointer;
+       }
+       i:hover {
+           color: yellow;
+           opacity: .8;
+       }
+   }
+   .talk-method {
+       margin:0;
+   }
+   .loading {
+       margin: 2rem 0 0 0;
+    .status {
+        position: relative;
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin: 10px;
+        }
+        .status.online, .status.online:before {
+        background: #72ff7d;
+        }
+        .status.offline, .status.offline:before {
+        background: #ff4242;
+        }
+        .status.invisible, .status.invisible:before {
+        background: #42e5ff;
+        }
+        .status.idle, .status.idle:before {
+        background: #ffda72;
+        }
+        .status:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: -5px;
+        top: -5px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        animation: pulse 1.5s infinite ease-in;
+        }
+        @keyframes pulse {
+        from {
+            transform: scale(0.5);
+            opacity: 1;
+        }
+        to {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+        }
+   }
    .container_img {
        margin-bottom: 2rem;
    }
@@ -57,95 +166,5 @@
     background-color: #000;
     overflow: hidden;
 }
- 
-h2 {
-    position: relative;
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: calc(20px + 2vw);
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    text-shadow: 0 0 0.15em #1da9cc;
-    user-select: none;
-    white-space: nowrap;
-    filter: blur(0.007em);
-    animation: shake 2.5s linear forwards alternate infinite;
-}
- 
-h2 span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    -webkit-clip-path: polygon(10% 0%, 44% 0%, 70% 100%, 55% 100%);
-            clip-path: polygon(10% 0%, 44% 0%, 70% 100%, 55% 100%);
-}
- 
-h2::before,
-h2::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-}
- 
-h2::before {
-    animation: crack1 2.5s linear forwards alternate infinite;
-    -webkit-clip-path: polygon(0% 0%, 10% 0%, 55% 100%, 0% 100%);
-            clip-path: polygon(0% 0%, 10% 0%, 55% 100%, 0% 100%);
-}
- 
-h2::after {
-    animation: crack2 2.5s linear forwards alternate infinite;
-    -webkit-clip-path: polygon(44% 0%, 100% 0%, 100% 100%, 70% 100%);
-            clip-path: polygon(44% 0%, 100% 0%, 100% 100%, 70% 100%);
-}
- 
-@keyframes shake {
-    5%, 15%, 25%, 35%, 55%, 65%, 75%, 95% {
-        filter: blur(0.018em);
-        transform: translateY(0.018em) rotate(0deg);
-    }
- 
-    10%, 30%, 40%, 50%, 70%, 80%, 90% {
-        filter: blur(0.01em);
-        transform: translateY(-0.018em) rotate(0deg);
-    }
- 
-    20%, 60% {
-        filter: blur(0.03em);
-        transform: translate(-0.018em, 0.018em) rotate(0deg);
-    }
- 
-    45%, 85% {
-        filter: blur(0.03em);
-        transform: translate(0.018em, -0.018em) rotate(0deg);
-    }
- 
-    100% {
-        filter: blur(0.007em);
-        transform: translate(0) rotate(-0.5deg);
-    }
-}
- 
-@keyframes crack1 {
-    0%, 95% {
-        transform: translate(-50%, -50%);
-    }
- 
-    100% {
-        transform: translate(-51%, -48%);
-    }
-}
- 
-@keyframes crack2 {
-    0%, 95% {
-        transform: translate(-50%, -50%);
-    }
- 
-    100% {
-        transform: translate(-49%, -53%);
-    }
-}
+
 </style>

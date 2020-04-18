@@ -49,6 +49,16 @@ const routes = [
     component:() => import('../components/HomeComponents/Card.vue')
   },
   {
+    path:'/demo',
+    name:'demo',
+    component:() => import('../components/Demo.vue')
+  },
+  {
+    path:'/upload/sendDemo',
+    name:'sendDemo',
+    component:() => import('../components/aboutComponents/sendDemo.vue')
+  },
+  {
     path:'/detail/:id',
     name:'detail',
     component:() => import ('../components/HomeComponents/detail')

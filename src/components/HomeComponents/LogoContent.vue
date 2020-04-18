@@ -1,36 +1,16 @@
 <template>
   <div id="logocontent">
     <div class="logo_name">
-       <i v-if="MeunisShow" class="meun iconfont icon-caidan"></i>
-      <img src="../../assets/logo.png" alt="">
-      <p>CODELEI</p>
-       <i v-if="MeunisShow" @click="$router.push('/category')" class="search iconfont icon-search"></i>
+       <i class="meun iconfont icon-caidan"></i>
+       <img v-show="$route.name !== 'home'" src="../../assets/logo.png" alt="">
+       <p v-show="$route.name !== 'home'">CODELEI</p>
+       <i @click="$router.push('/category')" class="search iconfont icon-search"></i>
     </div>
   </div>
 </template>
 <script>
   export default {
     name:'logo',
-    data () {
-      return {
-          MeunisShow:false,
-      };
-    },
-    mounted() {
-            this.PageInit()
-            window.addEventListener('resize',() => {
-              this.PageInit()
-            })
-    },
-    methods: {
-         PageInit() {
-            if(window.innerWidth <= 992) {
-            this.MeunisShow = true
-            }else {
-            this.MeunisShow = false
-          }
-          }
-    },
   }
 </script>
 <style lang="scss" scoped>
@@ -54,17 +34,23 @@
             -ms-user-select: none;
             user-select: none;
         }
-            img {
-              width: 5.5rem;
-              height: 7.5rem;
-              margin-top: -2.5rem;
-               -webkit-touch-callout: none;
-              -webkit-user-select: none;
-              -khtml-user-select: none;
-              -moz-user-select: none;
-              -ms-user-select: none;
-            user-select: none;
-            }
+          img {
+            width: 5.5rem;
+            height: 7.5rem;
+            margin-top: -2.5rem;
+              -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+          user-select: none;
+          }
+    }
+    @media screen and(max-width:992px) {
+         .meun,
+        .search {
+          display: block !important;
+        }
     }
     .meun,
     .search {
@@ -72,6 +58,7 @@
         font-size: 1.5rem;
         cursor: pointer;
         color: white;
+        display: none;
         }
     .meun {
         top: .5rem;
@@ -86,12 +73,6 @@
     .meun:hover,
     .search:hover {
         color: rgb(100, 177, 240);
-    }
-    #Meun {
-      width: 35rem;
-      height: 100vh;
-      background: url('../../assets/images/menu_bg.jpeg') no-repeat center;
-      background-size: 100% 100%;
     }
     }
 </style>

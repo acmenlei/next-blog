@@ -1,6 +1,5 @@
 <template>
-      <div :class="{show:$store.state.isshow}"
-           class="MeunTab">
+      <div :class="{show:$store.state.isshow}" class="MeunTab">
               <div class="profile">
                 <img width="100" height="100" src="../assets/images/swiper1.jpeg" alt="">
                 <div class="profile">Codelei</div>
@@ -12,6 +11,9 @@
               </ListItem>
             <ListItem>
               <i @click="$router.push('/home')" class="iconfont icon-shouyex"> 首页</i>
+            </ListItem>
+            <ListItem>
+              <i @click="$router.push('/demo')" class="iconfont icon--"> Demo</i>
             </ListItem>
             <ListItem>
               <i @click="$router.push('/about')" class="iconfont icon-biaoti"> 云相册</i>
@@ -45,7 +47,7 @@
     },
     methods: {
         skip() {
-      if(localStorage.getItem('username')) {
+          if(localStorage.getItem('username')) {
               this.$router.push('/logined')
               return
             }
@@ -61,16 +63,21 @@
 <style lang="scss" scoped>
 @import url('../assets/css/tabcontorl.css');
     .MeunTab {
-      width:25rem;
+      width:23rem;
       height: 100vh;
       background: #f2f2f2;
       position: fixed;
       left: -35rem;
       top: 4.2rem;
       z-index: 998;
-      transition: all .5s ease-in-out;
-      border-bottom: 1px solid #ccc;
       border-right: 1px solid #ccc;
+      transition: all .5s ease-in-out;
+      // background: url('../assets/images/timg.jpg') no-repeat center;
+      // background-size: cover;
+      // .ivu-list-item {
+      //   border-bottom: none;
+      //   color: white;
+      // }
       i,span{
         font-size: 1.2rem;
         font-style:normal;
@@ -87,7 +94,7 @@
         color: white;
         font-size: 25px;
         position: relative;
-         background: linear-gradient(blue, rgb(241, 154, 168));
+         background: linear-gradient(yellow,red );
          -webkit-background-clip: text;
         -moz-background-clip: text;
         color: transparent;

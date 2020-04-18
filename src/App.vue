@@ -12,7 +12,7 @@
             :lineLinked="true"
             :lineOpacity="0"
             :linesDistance="150"
-            :moveSpeed="5"
+            :moveSpeed="3"
             :hoverEffect="true"
             hoverMode="grab"
             :clickEffect="true"
@@ -70,8 +70,8 @@ export default {
        .lizi {
          position: fixed;
          top:0;
-          width: 100vw;
-          height: 100vh;
+         width: 100vw;
+         height: 100vh;
      }
         background: #f2f2f2;
 }

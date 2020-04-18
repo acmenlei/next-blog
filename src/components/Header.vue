@@ -6,7 +6,7 @@
         <Logo-content/>
         </Col>
         <!-- 顶部导航菜单 -->
-        <Col class="link_meta" :xl="18" :lg="20" :md="0" :sm="0" :xs="0" order="2">
+        <Col v-show="active" class="link_meta" :xl="18" :lg="20" :md="0" :sm="0" :xs="0" order="2">
           <Tabbar-link/>
         </Col>
     </Row>
@@ -20,6 +20,11 @@ import LogoContent from './HomeComponents/LogoContent'
     data () {
       return {
       };
+    },
+    computed: {
+      active() {
+        return this.$route.name !== 'home'
+      }
     },
     components: {TabbarLink,LogoContent},
   }

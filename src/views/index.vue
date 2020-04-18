@@ -1,6 +1,6 @@
 <template>
   <div id="index">
-      <Header :class="{active:this.$route.name != 'home' || $store.state.isshow}" class="header"/>
+     <Header :class="{active:$route.name != 'home' || $store.state.isshow}" class="header"/>
      <keep-alive exclude="detail,profile">
      <router-view/>
      </keep-alive>
@@ -64,12 +64,12 @@ body,html {
       position: absolute;
       top: 0;
       z-index: 999;
-      transition: all 1s;
+      transition: all 0.6s;
     }
     .active,
     .current {
       position: sticky;
-      background: rgb(33,33,33,.8);
+      background: rgba(23, 23, 24, 0.8);
     }
     @keyframes star-opacity {
     0% {
