@@ -44,10 +44,10 @@
       return {
         navgation: [
             { name:' Article-List',icon:'iconfont icon-wenzhang', path:'/article' },
-            { name:' Demo',icon:'iconfont icon--', path:'/demo' },
+            { name:' Demo',icon:'iconfont icon-data_selfservice', path:'/demo' },
             { name:' LeaveMessage',icon:'iconfont icon-liuyan2', path:'/message' },
-            { name:' Photos',icon:'iconfont icon-biaoti', path:'/about' },
-            { name:' Github',icon:'iconfont icon-wenzhang', path:'https://github.com/Acmenlei' },
+            { name:' Photos',icon:'iconfont icon-xiangce', path:'/about' },
+            { name:' Github',icon:'iconfont icon-GitHub', path:'https://github.com/Acmenlei' },
         ]
       };
     },

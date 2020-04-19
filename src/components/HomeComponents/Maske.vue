@@ -22,7 +22,6 @@ export default {
   width: 100%;
   height: 100vh;
   transition: all 0.5s;
-  // background: rgb(100, 124, 231);
   .center {
     position: fixed;
     top: 50%;
@@ -33,19 +32,36 @@ export default {
   .bg {
     width: 100%;
     height: 100vh;
+    animation: opcity 0.5s linear;
     background: url('../../assets/images/maskeBG.jpg') no-repeat center;
     background-size: cover;
-    z-index: -999;
+    z-index: -99;
   }
   .bg::after {
-    content:"";
-    width:100%;
-    height:100%;
-    position:absolute;
-    left:0;
-    top:0;
+    content:'';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
     background:inherit;
-    filter:blur(4px);
+    filter: blur(3px);
+  }
+  @keyframes opcity {
+    0% { transform: translateX(-100%) }
+    100% {  transform: translateX(0%) }
+  }
+  @media screen and (max-width: 987px) {
+  .bg {
+    animation: opcity 0.5s linear;
+    background: rgb(243, 87, 160);
+  }
+  }
+  @media screen and (max-width: 568px) {
+  .bg {
+    animation: opcity 0.5s linear;
+    background: rgb(134, 87, 243);
+  }
   }
 }
 </style>
