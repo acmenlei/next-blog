@@ -21,7 +21,12 @@ export default {
     document.onclick = (e) => {
       if(e.target.className=='meun iconfont icon-caidan') {
         this.$store.commit('updateShow',true)
-      }else if(e.target.className=='MeunTab' || e.target.tagName.toLowerCase()=='img' || e.target.className=='ivu-list-item' || e.target.className == 'profile') {
+      }else if(
+        e.target.className=='MeunTab' || 
+        e.target.tagName.toLowerCase()=='img' || 
+        e.target.className=='ivu-list-item' || 
+        e.target.className == 'profile'
+        ) {
         return
       } else {
         this.$store.commit('updateShow',false)
