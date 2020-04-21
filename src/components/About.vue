@@ -1,30 +1,19 @@
 <template>
   <div id="about">
     <header> 
-      <Icon type="md-ribbon"></Icon>当前位置: <router-link style="cursor:pointer" tag="span" to="/">首页</router-link> > 云相册<p>提示: 保存图片若没有后缀请指定图片后缀格式</p>
+      <Icon type="md-ribbon"></Icon>当前位置: <router-link style="cursor:pointer" tag="span" to="/">首页</router-link> > 云相册
       </header>
-      <waterfall :line-gap="400" :watch="talkdata">
-        <waterfall-slot
-          v-for="(item, index) in talkdata"
-          :width="600"
-          :height="600"
-          :order="index"
-          :key="item.id"
-        >
-        <div class="card">
-            <p class="content">{{item.content}}</p>
-            <p class="time">{{item.datetime}}</p>       
-            <img v-lazy="item.imgsrc">
+        <div id="container">
+          <div class="card" v-for="(item, index) in talkdata" :key="index">
+            <img v-lazy="item.imgsrc">  
+            <p>{{item.content}}</p>
+            <p>{{item.datetime}}</p>
           </div>
-        </waterfall-slot>
-      </waterfall>
-    <center>数据已经全部加载完啦...</center>
+      </div>
   </div>
 </template>
 <script>
 import  { getnotedetail } from './NetWork/request'
-import Waterfall from 'vue-waterfall/lib/waterfall'
-import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
   export default {
     name:'about',
     data() {
@@ -32,7 +21,6 @@ import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
         talkdata:[]
       }
     },
-    components:{ Waterfall,WaterfallSlot },
     mounted() {
       getnotedetail('/upload/gettalk')
       .then(res => {
@@ -42,7 +30,7 @@ import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
           this.$Message.error(res.data.data);
         }
       })
-    }
+    },
   }
 </script>
 <style lang="scss" scoped>
@@ -52,37 +40,54 @@ import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
   position: relative;
   z-index: 5;
   transition: all 1s;
-  .card {
-    position: relative;
-    img {
+  #container {
+    width: 100%;
+    columns: 4;
+    .card {
       width: 100%;
+      background: #f2f2f2;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      break-inside:avoid;
+      padding: 0.6rem;
+      margin-top:0.5rem;
+    img {
+      max-width: 100%;
     }
-    .content,
-    .time {
-      position: absolute;
-      top: 15px;
+    p:nth-child(2) {
+      color:orange;
     }
-    .content {
-      left: 32px;
-      color: rgb(44, 164, 233);
+    p:nth-child(3) {
+      text-align: right;
+      color: lightgreen;
     }
-    .time {
-      color: orangered;
-      right: 20px;
+    p:nth-child(3)::before {
+      content:'From--';
     }
+  }
+  }
+    @media screen and (max-width: 1200px){
+      #container {
+        columns:3 ;
+      }
+  }
+    @media screen and (max-width: 900px){
+      #container {
+        columns:2 ;
+      }
+  }
+      @media screen and (max-width: 600px){
+      #container {
+        columns:1 ;
+      }
   }
   header {
     padding-bottom: 2rem;
     position: relative;
     span:hover {
       color: lightblue;
-    }
-    p {
-      text-align: center;
-      position: absolute;
-      right: 2.5rem;
-      top: 2.5rem;
-      color:orange;
     }
   }
 }

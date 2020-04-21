@@ -15,9 +15,9 @@
     data () {
       return {
           LinkList:[{name:"首页",imageURL:"md-home",path:'/'},{name:"文章列表",imageURL:'ios-bookmarks-outline',path:'/article'},
-                    {name:"Demo",imageURL:"md-bulb",path:'/demo'},{name:"云相册",imageURL:'md-ribbon',path:'/about'},
-                    {name:"分类",imageURL:'md-infinite',path:'/category'},{name:"留言",imageURL:'md-mail',path:'/message'},
-                    {name:"GitHub",imageURL:'logo-github',path:'https://github.com/Acmenlei'},{name:"登陆 / 注册",imageURL:'md-happy',path:'/login'}
+                    {name:"Demo",imageURL:"logo-nodejs",path:'/demo'},{name:"云相册",imageURL:'md-images',path:'/about'},
+                    {name:"分类",imageURL:'ios-keypad',path:'/category'},{name:"留言板",imageURL:'ios-create',path:'/message'},
+                    {name:"GitHub",imageURL:'logo-github',path:'https://github.com/Acmenlei'},{name:"登陆 / 注册",imageURL:"md-contact",path:'/login'}
           ]
       };
     },

@@ -36,8 +36,7 @@
                 <ListItem ref="replyItem" class="replyItem">
                 <p class="number_id">{{j+1}} 楼</p>
                 <p class="reply_access">
-                  <img :src="replyitem.user_imgsrc"> 回复<a> @{{replyitem.reply_name}}</a>:
-                  <p class="content">{{replyitem.content}}</p>
+                  <p class="content"><img :src="replyitem.user_imgsrc"> 回复<a> @{{replyitem.reply_name}}</a>:{{replyitem.content}}</p>
                 </p>
               <p class="reply_name">{{replyitem.name}}</p>
               <p class="reply_time">{{replyitem.datetime}}</p>
@@ -123,6 +122,7 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
         handelInputContent() {
           const token = localStorage.getItem('username')
           if(!token) return this.$Message.error('您还没有登陆呢！')
+          if(!this.replyValue) return this.$Message.error('内容不能为空呀,请输入内容！')
           this.replyInfo.replyValue = this.replyValue
           PostMessage('/message/replyInfo', { replyInfo: this.replyInfo, token: token})
           .then( res => {
@@ -182,6 +182,7 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
           top: 1rem;        
         }
        span {
+          padding-right: 3rem;
           left: 4rem;bottom: 0.1rem;
        }
         img {
@@ -221,18 +222,17 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
             right: 0.8rem;
           }
           .reply_access {
-            margin-top: 0.5rem;
+            margin-top: 1rem;
             white-space: nowrap;
           }
           p.content {
-            margin-top: 1.65rem;
             padding-left: 0.5rem;
             padding-right: 3rem;
             text-align: left;
           }
           p.reply_name {
             position: absolute;
-            left: 2.3rem;
+            left: 2.8rem;
             font-size: 0.8rem;
             color: pink;
           }

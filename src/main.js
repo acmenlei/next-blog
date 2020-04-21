@@ -12,7 +12,6 @@ import  './components/HomeComponents/clicklove/clicklove'
 import 'highlight.js/styles/solarized-dark.css'
 import Vuelazyload from 'vue-lazyload'
 import VueParticles from 'vue-particles'
-
 Vue.config.productionTip = false
 Vue.use(VueParticles)
 // 图片懒加载
