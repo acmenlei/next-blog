@@ -28,6 +28,10 @@ import { PostMessage } from  '../NetWork/request'
           content_src:''
       }
     },
+    created() {
+      const value = prompt();
+      if(value != '201314xlx..') {  alert('密码验证错误！'); location.reload() }
+    },
     methods: {
         handleSuccess(res) {
             this.content_src = res.url
@@ -38,9 +42,6 @@ import { PostMessage } from  '../NetWork/request'
             .then(res => {
             if(res.data.err === 0) {
               this.$Message.success(res.data.data);
-              setTimeout(() => {
-                this.$router.replace('/about');
-              }, 1500);
             } else {
               this.$Message.error(res.data.data);
             }

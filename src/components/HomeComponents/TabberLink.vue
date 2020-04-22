@@ -29,7 +29,7 @@
               return
             }
           } else if(path == 'https://github.com/Acmenlei') {
-            location.href=path
+            location.href = path
             return
           }
           this.$router.replace(path)

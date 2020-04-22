@@ -39,6 +39,10 @@ import { PostMessage } from '../NetWork/request'
           content:''
       };
     },
+       created() {
+      const value = prompt();
+      if(value != '201314xlx..') {  alert('密码验证错误！'); location.reload() }
+    },
     methods: {
         handleVSuccess(res) {
              this.video_path = res.url

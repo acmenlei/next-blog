@@ -52,7 +52,7 @@ import  { getnotedetail } from './NetWork/request'
       border-radius: 0.5rem;
       break-inside:avoid;
       padding: 0.6rem;
-      margin-top:0.5rem;
+      margin-top:0.1rem;
     img {
       max-width: 100%;
     }

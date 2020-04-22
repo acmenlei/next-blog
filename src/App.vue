@@ -7,7 +7,7 @@
             :particlesNumber="100"
             shapeType="star"
             :particleSize="4"
-            linesColor="#333"
+            linesColor="#fff"
             :linesWidth="1"
             :lineLinked="true"
             :lineOpacity="0"
