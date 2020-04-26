@@ -35,7 +35,7 @@
         <Button class="btns" style="margin-left:1rem;" type="default" @click="register">我是新人</Button>
       </FormItem>
       <FormItem>
-        <p style="color:#333;font-size:1rem;">提示: 没有账号可以点击我是新人进行注册,只需要验证邮箱就可以了,欢迎你的加入！</p>
+        <p style="color:#fff;font-size:1rem;">提示: 没有账号可以点击我是新人进行注册,只需要验证邮箱就可以了,欢迎你的加入！</p>
       </FormItem>
     </Form>
   </div>
@@ -114,6 +114,13 @@ export default {
           localStorage.setItem("show", this.count);
         }
       }, 1000);
+    }
+    /* 键盘事件 */
+      document.onkeydown = (e) => {
+      var key = e['keyCode'];
+      if(key == 13){
+        this.handleSubmit('formInline');
+      }
     }
   },
   methods: {
@@ -233,9 +240,10 @@ export default {
   .btns:nth-child(1) {
     background: rgb(53, 138, 235);
     color: white;
+    border: 0;
   }
   .logintitle {
-    color: #333 !important;
+    color: #f2f2f2 !important;
     font-size: 2rem;
   }
 }

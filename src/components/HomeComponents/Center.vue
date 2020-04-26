@@ -43,6 +43,7 @@
     data () {
       return {
         navgation: [
+            { name:' Login',icon:'iconfont icon-touxiang', path:'/login' },
             { name:' Article-List',icon:'iconfont icon-wenzhang', path:'/article' },
             { name:' Demo',icon:'iconfont icon-data_selfservice', path:'/demo' },
             { name:' LeaveMessage',icon:'iconfont icon-liuyan2', path:'/message' },
@@ -75,13 +76,13 @@
        white-space: nowrap;
        i {
            color: white;
-           margin: 0.6rem;
+           margin: 0.3rem;
            font-size: 0.9rem;
            transition: all 0.6s;
            cursor: pointer;
        }
        i:hover {
-           color: yellow;
+           color: rgb(66, 245, 135);
            opacity: .8;
        }
    }

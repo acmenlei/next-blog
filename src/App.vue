@@ -67,12 +67,12 @@ export default {
     }
 }
 #app {
-       .lizi {
+      .lizi {
          position: fixed;
          top:0;
          width: 100vw;
          height: 100vh;
      }
-        background: #f2f2f2;
+    background: #456;
 }
 </style>

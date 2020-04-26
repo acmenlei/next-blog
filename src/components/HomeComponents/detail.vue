@@ -14,7 +14,7 @@
                <div ref="content" class="renderNav" v-html="html"></div>
              </div>
          <div class="compile">
-           <p style="color:#333!important;padding:1rem 0">用户评论：</p>
+           <p style="color:#f2f2f2!important;padding:1rem 0">用户评论：</p>
          <Input v-model="value" maxlength="100" 
           show-word-limit type="textarea" 
           placeholder="你想说些什么呢..." 
@@ -119,9 +119,10 @@ import marked from 'marked'
 <style lang="scss" scoped>
 @import url('../../assets/css/detail.css');
 #detail {
+  background: #333;
   .detail_header {
     height: 20rem;
-    background: linear-gradient(#456, #678);
+    // background: linear-gradient(#456, #678);
     display: flex;
     justify-content: center;
     align-items:center;
@@ -136,6 +137,7 @@ import marked from 'marked'
       background: white;
       position: relative;
       z-index: 5;
+      border-radius: 10px;
     }
     .compile {
       margin:2rem;
@@ -153,9 +155,10 @@ import marked from 'marked'
       .contentItem {
         padding: 2rem;
         position: relative;
-        border-bottom:1px solid rgb(224, 224, 224);
+        border-bottom:1px solid #666;
         p,span,img,a{
           position: absolute;font-size: 0.8rem;
+          color: #f2f2f2;
         }
         a{
           color: rgb(250, 17, 17);

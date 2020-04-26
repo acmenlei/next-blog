@@ -1,9 +1,10 @@
 <template>
   <div id="carditem">
         <Card :contentid="id" class="card" >
-            <p class="title"> <i class="iconfont icon-lianjie"></i>  {{title}}</p>
+           <p class="title"> <i class="iconfont icon-lianjie"></i>  {{title}}</p>
             <p ref="lable" class="lable"># {{lable}}</p>
-            <p v-html="newcontent" class="content"></p>
+            <div class="img"><img :src="Itemimg" alt="封面"></div>
+            <p v-html="content" class="content"></p>
             <p class="publictime">{{time | timeFilter}}</p>
             <p> 
              <Tooltip placement="top" content="点击跳转到详情页查看">
@@ -23,8 +24,6 @@
   </div>
 </template>
 <script>
-import marked from 'marked'
-import highlight from 'highlight.js'
   export default {
     name:'carditem',
     props:{
@@ -35,6 +34,9 @@ import highlight from 'highlight.js'
         type:String,default:'',required:true
       },
       content:{
+        type:String,default:'',required:true
+      },
+      Itemimg:{
         type:String,default:'',required:true
       },
       lable:{
@@ -62,7 +64,6 @@ import highlight from 'highlight.js'
       };
     },
     mounted() {
-      this.lightEdite()
       let color1 = parseInt(Math.random()*255)
       let color2 = parseInt(Math.random()*255)
       let color3 = parseInt(Math.random()*255)
@@ -81,26 +82,6 @@ import highlight from 'highlight.js'
         localStorage.setItem('detailTime', newTime)
         /* 发送请求 */
         this.$emit('changevisited',id)
-      },
-      lightEdite() {
-        highlight.initHighlightingOnLoad();
-      var rendererMD = new marked.Renderer();
-        marked.setOptions({
-          renderer: rendererMD,
-          gfm: true,
-          tables: true,
-          breaks: false,
-          pedantic: false,
-          sanitize: false,
-          smartLists: true,
-          smartypants: false
-        })
-        /* 初始化marked颜色高亮 */
-        marked.setOptions({
-          highlight: function (code){
-          return highlight.highlightAuto(code).value
-        }
-        })
       },
       likeArticle(id) {
         if(localStorage.getItem('username')) {
@@ -121,10 +102,7 @@ import highlight from 'highlight.js'
         return function(id) {
           return localStorage.getItem(`like${id}`) == id
         }
-      },
-      newcontent() {
-        return marked(this.content.toString().substring(0,300)+'...')
-      },
+      }
    }
   }
 
@@ -141,14 +119,14 @@ import highlight from 'highlight.js'
       overflow:hidden;
       -webkit-line-clamp:3;
       text-overflow:ellipsis; 
-      color: #333;
+      color: #f2f2f2;
 }
 .likeStyle {
   color: rgb(91, 91, 243);
 }
 .box {
   text-align:right;
-  color: #333!important;
+  color: #f2f2f2!important;
   i {
       margin: 0 0.5rem;
     }
@@ -172,7 +150,16 @@ import highlight from 'highlight.js'
   cursor:pointer;margin:2rem 2rem 2rem 0;
     border: 0;
     background: transparent;
-    box-shadow: 0 0 2px #ccc;
+    box-shadow: 0 0 2px #333;
+    .img {
+      width: 100%;
+      height: 70%;
+      overflow: hidden;
+      img {
+       width: 100%;
+       border-radius: 5px;
+    }
+    }
 }
 .card> ::before {
   content:"";
@@ -197,6 +184,7 @@ import highlight from 'highlight.js'
   margin-bottom: .5rem;
   font-family: cursive;
   font-size: 18px;
+  color: #f2f2f2;
 }
 @font-face {
   font-family: '../../assets/font/font_title.ttf';
@@ -214,7 +202,6 @@ import highlight from 'highlight.js'
 }
 .publictime {
   text-align:right;color:rgb(0, 255, 13)!important;
-  margin:1rem 0;
 }
 
 .readall {

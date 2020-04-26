@@ -54,24 +54,51 @@ const routes = [
     component:() => import('../components/Demo.vue')
   },
   {
-    path:'/upload/sendDemo',
-    name:'sendDemo',
-    component:() => import('../components/aboutComponents/sendDemo.vue')
-  },
-  {
     path:'/detail/:id',
     name:'detail',
     component:() => import ('../components/HomeComponents/detail')
   },
   {
-    path:'/upload/photos',
-    name:'photos',
-    component:() => import ('../components/aboutComponents/sendcontent.vue')
-  },
-  {
-    path:'/upload/images/972761675',
-    name:'images',
-    component:() => import ('../components/noteUpload/ImageUpload.vue')
+    path:'/admin/article',
+    name:'admin',
+    component:() => import ('../admin/articleEditor.vue'),
+    children:[
+      {
+        path:'/admin/article/upload/demo',
+        name:'sendDemo',
+        component:() => import('../admin/sendDemo.vue')
+      },
+      {
+        path:'/admin/article/upload/photos',
+        name:'photos',
+        component:() => import ('../admin/sendcontent.vue')
+      },
+      {
+        path:'/admin/article/upload/images',
+        name:'images',
+        component:() => import ('../admin/ImageUpload.vue')
+      },
+      {
+        path:'/admin/article/upload/articlePublish',
+        name:'articlePublish',
+        component:() => import ('../admin/articlePublish.vue')
+      },
+      {
+        path:'/admin/article/upload/articleManage',
+        name:'articleManage',
+        component:() => import ('../admin/articleManage.vue')
+      },
+      {
+        path:'/admin/article/upload/users',
+        name:'UserManage',
+        component:() => import ('../admin/UserManage.vue')
+      },
+      {
+        path:'/admin/article/upload/articleupdate/:id',
+        name:'articleupdate',
+        component:() => import ('../admin/updateArticle.vue')
+      }
+    ]
   }
 ]
 

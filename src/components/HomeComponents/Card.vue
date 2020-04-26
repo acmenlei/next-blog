@@ -1,17 +1,18 @@
 <template>
   <div id="card">
     <Row>
-        <Col :xl="2" :lg="2" :md="2" :sm="0" :xs="0">
+        <Col :xl="4" :lg="3" :md="2" :sm="0" :xs="0">
             ...
         </Col>
-      <Col :xl="12" :lg="12" :md="12" :sm="24" :xs="24">
+      <Col :xl="8" :lg="9" :md="10" :sm="24" :xs="24">
       <Music class="music"/>
         <!-- 文章卡片 -->
           <Card-item 
           @changevisited="changevisite"
           @changelike="changeliked" v-for="(item, index) in lists"
         :title="item.title" :time ="item.time"
-        :content="item.content" :lable="item.lable" 
+        :Itemimg="item.article_img"
+        :content="item.article_brief" :lable="item.lable" 
         :visited="item.visited" :like="item.like_Star"
         :id="item.id" :article_id="item.article_id"
         :accessPulish_count="item.accessPulish_count"
@@ -24,11 +25,11 @@
          @on-change="Pagechange"  
          show-total />
       </Col>
-    <Col :xl="8" :lg="8" :md="8" :sm="0" :xs="0">
+    <Col :xl="8" :lg="9" :md="10" :sm="0" :xs="0">
            <!-- 每日音乐 -->
           <Music class="xl_music"/>
-          <List style="padding:1rem;box-shadow: 0 0 2px #ccc;">
-              <ListItem style="color:orange;font-weight:bold;border-bottom: 1px solid #ccc;">
+          <List style="padding:1rem;box-shadow: 0 0 2px #333;">
+              <ListItem style="color:orange;font-weight:bold;">
                 Recent articles
               </ListItem>
             <ListItem 
@@ -38,7 +39,7 @@
               :key="index">
               {{item.title}}
             </ListItem>
-              <ListItem style="color:#456;font-weight:bold;">
+              <ListItem style="color:yellow;font-weight:bold;">
                 ---------不用管我我只是一个表情包😉---------
               </ListItem>
           </List>
@@ -110,6 +111,9 @@
         </TabPane>
         </Tabs>
       </Col>
+              <Col :xl="4" :lg="3" :md="2" :sm="0" :xs="0">
+            ...
+        </Col>
     </Row>
   </div>
 </template>
@@ -286,10 +290,9 @@ import Music from './Music'
       .article_Item {
         cursor: pointer;
         transition: all 1s;
-        border-bottom: 1px solid #ccc;
         position: relative;
         z-index: 5;
-        color: #333;
+        color: #f2f2f2;
       }
       .page {
         padding-left: 1rem;
@@ -316,7 +319,7 @@ import Music from './Music'
          .nologinShow {
           width: 100%;
           position:absolute;
-          color: #333;
+          color: #f2f2f2;
           top:15rem;left:50%;
           transform: translate(-50%,-50%);
           opacity: .6;
@@ -325,11 +328,11 @@ import Music from './Music'
           margin-top:1rem;
           border-radius: .4rem;
           padding: 1rem;
-          color: #333;
+          color: #f2f2f2;
            position: relative;
           z-index: 5;
          background: transparent;
-             box-shadow: 0 0 2px #ccc;
+             box-shadow: 0 0 2px #333;
         }
         .myInfo {
           width: 100%;height: 28rem;
@@ -340,20 +343,20 @@ import Music from './Music'
           position: relative;
           z-index: 5;
          background: transparent;
-             box-shadow: 0 0 2px #ccc;
+             box-shadow: 0 0 2px #333;
           .SuccessInfo {
             img {
               width: 5rem;
               height: 5rem;
               border-radius: 50%;
-              box-shadow: 0 0 5px #ccc;
+              box-shadow: 0 0 5px #333;
               margin: 1rem 0 0 1rem;
             }
             p{
               text-align: left;
               font-size: .9rem;
               margin-left: 1rem;
-              color: rgb(161, 161, 161);
+              color: yellow;
               font-weight: bold;
               font-family: cursive;
               span {
@@ -374,7 +377,7 @@ import Music from './Music'
               width: 80%;
             }
             .active {
-              color: #333;
+              color: #f2f2f2;
               border-bottom: 0;
               background: transparent;
             }

@@ -1,6 +1,6 @@
 <template>
   <div id="message">
-    <marquee style="color:#333;" direction="left">
+    <marquee style="color:#f2f2f2;" direction="left">
       可以给博主大大提点建议他回来的时候就可以看见啦  (｡･∀･)ﾉﾞ嗨 ~
       </marquee>
       <div class="compile">
@@ -36,7 +36,7 @@
                 <ListItem ref="replyItem" class="replyItem">
                 <p class="number_id">{{j+1}} 楼</p>
                 <p class="reply_access">
-                  <p class="content"><img :src="replyitem.user_imgsrc"> 回复<a> @{{replyitem.reply_name}}</a>:{{replyitem.content}}</p>
+                  <p class="content"><img :src="replyitem.user_imgsrc"> 回复<a> @{{replyitem.reply_name}}</a>: {{replyitem.content}}</p>
                 </p>
               <p class="reply_name">{{replyitem.name}}</p>
               <p class="reply_time">{{replyitem.datetime}}</p>
@@ -163,7 +163,7 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
     .leaveContent {
       position: relative;
       z-index: 5;
-      background: #f2f2f2;
+      background: #456;
       img {
         width: 2rem;
         height: 2rem;
@@ -172,8 +172,9 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
       .contentItem {
         padding: 2rem;
         position: relative;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid #666;
         p,span,img,a{
+          color: #f2f2f2;
           position: absolute;font-size: 0.8rem;
         }
         a{
@@ -204,7 +205,7 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
           color: blue;
         }
         .replyContent {
-          border-bottom:1px solid #dfdada;
+          border-bottom:1px solid #666;
           padding-left:50px;
           font-size: 0.8rem;
           .replyItem {
@@ -229,24 +230,25 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
             padding-left: 0.5rem;
             padding-right: 3rem;
             text-align: left;
+            color: #f2f2f2;
           }
           p.reply_name {
             position: absolute;
             left: 2.8rem;
             font-size: 0.8rem;
-            color: pink;
+            color: red;
           }
           p.reply_time {
             position: absolute;
             left: 8rem;
             font-size: 0.8rem;
-            color: #ccc;
+            color: #f2f2f2;
           }
           p.number_id {
             position: absolute;
             right: 4rem;
             top: 1rem;
-            color: #333;
+            color: #f2f2f2;
           }
           }
         }

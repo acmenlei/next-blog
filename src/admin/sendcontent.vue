@@ -1,11 +1,12 @@
 <template>
   <div class="send_content">
+     <h2>上传照片到相册</h2>
       <!-- 内容 -->
       <Input v-model="content" 
       maxlength="300" 
       show-word-limit type="textarea" 
       placeholder="Enter something..." 
-      style="width: 50%" />
+      style="width: 500px;" />
       <!-- 图片上传 -->
       <p>
           <img v-show="content_src" :src="content_src" alt="说说图片">
@@ -19,7 +20,7 @@
   </div>
 </template>
 <script>
-import { PostMessage } from  '../NetWork/request'
+import { PostMessage } from  '../components/NetWork/request'
   export default {
     name:'sendcontent',
     data () {
@@ -27,10 +28,6 @@ import { PostMessage } from  '../NetWork/request'
           content:'',
           content_src:''
       }
-    },
-    created() {
-      const value = prompt();
-      if(value != '201314xlx..') {  alert('密码验证错误！'); location.reload() }
     },
     methods: {
         handleSuccess(res) {
@@ -56,10 +53,15 @@ import { PostMessage } from  '../NetWork/request'
 </script>
 <style lang="scss" scoped>
 .send_content {
+    padding-top: 5rem;
     position: relative;
     z-index: 5;
-    margin-top: 2rem;
-    text-align: center;
+    h2 {
+      color: white;
+      font-family: cursive;
+      padding:2rem 0;
+      white-space: nowrap;
+    }
     button {
         margin-top: 2rem;
     }

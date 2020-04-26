@@ -1,10 +1,10 @@
 <template>
  <div class="myInfo">
-            <h4 style="color:orange;margin-bottom:1rem;">下面这些就是小主的个人信息啦(●ˇ∀ˇ●)~</h4>
-            <div v-if="!username" style="text-align:center;padding-top:8rem">
+            <div v-if="!username" style="text-align:center;padding-top:8rem;color:white">
               糟糕，小主你还没有登陆检测不到信息! ~§(*￣▽￣*)§~
             </div>
             <div v-if="username"  class="SuccessInfo">
+              <h4 style="color:orange;margin-bottom:1rem;">下面这些就是小主的个人信息啦(●ˇ∀ˇ●)~</h4>
                 <img :src="MyInfo.uploadimg" alt="这是头像啦啦啦">
               <Upload
                 v-show="flag"
@@ -119,7 +119,7 @@ import { PostMessage } from './NetWork/request'
               text-align: left;
               font-size: 1.2rem;
               margin:1rem;
-              color: rgb(173, 173, 173);
+              color: #f2f2f2;
               font-weight: bold;
               span {
                 color: lightblue;
@@ -140,7 +140,7 @@ import { PostMessage } from './NetWork/request'
               width:80%;
             }
             .active {
-              color: #333;
+              color: #f2f2f2;
               background: transparent!important;
             }
           }

@@ -9,7 +9,7 @@
            :lable="item" />
     </div>
       <div v-if="Itemlist.length">
-        <h3 style="color:#999 !important;">搜索结果...</h3>
+        <h3 style="color:#f2f2f2 !important;">搜索结果...</h3>
         <Card class="detail" v-for="(item, index) in Itemlist" :key="index" :bordered="false">
             <p style="color:orange;margin:0.5rem;border:0;">{{item.title}}</p>
             <span class="lablecard" style="background:purple"># {{item.lable}}</span>
@@ -85,7 +85,7 @@ import lables from './categoryComponents/lables'
     h3 {
       text-align: center;
       padding:2rem;
-      color: #333!important ;
+      color: #f2f2f2!important ;
     }
     .lables {
       width: 85%;

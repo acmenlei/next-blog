@@ -1,6 +1,6 @@
 <template>
   <div id="demo">
-    <h4>Ps：博主写的一些小demo,有兴趣的同学看看</h4>
+    <h4>Ps：日常小demo与源码分享</h4>
     <div v-for="(item, index) in demoList" :key="index" class="demoItem">
       <video id="video" controls preload="none" :poster="item.video_pic">
         <source :src="item.video_path" type="video/mp4" />
@@ -8,7 +8,7 @@
       <footer>
         <p>{{item.content}}</p>
         <span>{{item.datetime}}</span>
-        <button @click="CatCode(item.code_path)">查看源码</button>
+        <Button type="success" @click.native="CatCode(item.code_path)">查看源码</Button>
       </footer>
     </div>
     <Page class="page" :page-size="6" @on-change="Pagechange" />
@@ -79,16 +79,19 @@ export default {
     left: 50%;
     top: 1rem;
     transform: translateX(-50%);
+    color:#f2f2f2;
+    font-family: cursive;
   }
   .demoItem {
     width: 30%;
     margin: 1rem;
     padding: 0.8rem;
     height: 20rem;
-    background: #f2f2f2;
+    background: transparent;
     border-radius: 0.5rem;
-    border: 1px solid #ccc;
+    box-shadow:0 0 3px #333;
     position: relative;
+    color: #f2f2f2;
     #video {
       border-radius: 0.5rem;
       position: relative;
@@ -104,24 +107,14 @@ export default {
         font-size: 1rem;
       }
       button {
-        background: rgb(101, 155, 255);
-        border: none;
-        outline: none;
-        border-radius: 0.2rem;
-        color: white;
-        padding: 0.3rem 0.5rem;
-        font-size: 0.8rem;
-        position: absolute;
-        right: 0.5rem;
-        bottom: 5px;
-        cursor: pointer;
+        position: relative;
         z-index: 9;
+        float: right;
       }
       span {
-        position: absolute;
-        bottom: 5px;
-        right: 6.5rem;
-        color: lightgreen;
+        display:inline-block;
+        margin-top:0.5rem;
+        color:lightgreen;
       }
     }
   }

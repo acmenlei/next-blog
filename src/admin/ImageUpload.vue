@@ -1,6 +1,7 @@
 <template>
   <div class="imageUpload">
       <!-- 图片上传 -->
+      <h2>图片上传工具</h2>
       <p>
           <img v-show="src" :src="src" alt="笔记中的图片"/>
       </p>
@@ -18,10 +19,6 @@
           src:''
       }
     },
-    created() {
-      const value = prompt();
-      if(value != '201314xlx..') {  alert('密码验证错误！'); location.reload() }
-    },
     methods: {
         handleSuccess(res) {
             this.src = res.url
@@ -34,8 +31,13 @@
 .imageUpload {
     position: relative;
     z-index: 5;
-    margin-top: 2rem;
-    text-align: center;
+    padding-top: 5rem;
+    h2 {
+      color: white;
+      font-family: cursive;
+      padding:2rem 0;
+      white-space: nowrap;
+    }
     img {
         margin-top: 2rem;
          width: 80px;

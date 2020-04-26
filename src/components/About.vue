@@ -35,24 +35,22 @@ import  { getnotedetail } from './NetWork/request'
 </script>
 <style lang="scss" scoped>
 #about {
-  width: 80%;
+  width: 90%;
   margin:2rem auto;
   position: relative;
   z-index: 5;
   transition: all 1s;
   #container {
     width: 100%;
-    columns: 4;
+    columns: 5;
     .card {
       width: 100%;
       background: #f2f2f2;
       overflow: hidden;
       position: relative;
       border: 1px solid #ccc;
-      border-radius: 0.5rem;
       break-inside:avoid;
       padding: 0.6rem;
-      margin-top:0.1rem;
     img {
       max-width: 100%;
     }
@@ -67,6 +65,11 @@ import  { getnotedetail } from './NetWork/request'
       content:'From--';
     }
   }
+  }
+  @media screen and (max-width: 1500px){
+      #container {
+        columns:4 ;
+      }
   }
     @media screen and (max-width: 1200px){
       #container {
@@ -86,6 +89,7 @@ import  { getnotedetail } from './NetWork/request'
   header {
     padding-bottom: 2rem;
     position: relative;
+    color: #f2f2f2;
     span:hover {
       color: lightblue;
     }

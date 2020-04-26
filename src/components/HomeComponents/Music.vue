@@ -47,7 +47,7 @@ export default {
 <style lang="scss" scoped>
 #music_container {
   position: relative;
-  color: #333;
+  color: #f2f2f2;
   background: transparent;
   padding: 1rem 1.5rem 0 1rem;
   position: relative;
@@ -55,7 +55,7 @@ export default {
   border-radius: 5px !important;
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
-  box-shadow: 0 0 2px #ccc;
+    box-shadow: 0 0 2px #333;
   .musicBox {
     height: 8rem;
     width: 100%;
@@ -70,7 +70,7 @@ export default {
     margin: 0 0.5rem;
     position: absolute;
     bottom: 1rem;
-    color: #333;
+    color: #f2f2f2;
     cursor: pointer;
     font-weight: bold;
   }
