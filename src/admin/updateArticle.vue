@@ -34,7 +34,6 @@ import { PostMessage,getnotedetail } from '../components/NetWork/request'
         getnotedetail('/note/getArticleInfo/'+id).then(res => {
             if(res.data.err == 0) {
                 this.articleDate = res.data.message[0]
-                console.log(res.data.message)
                 this.$Message.success('文章信息提取完成!')
             } else {
                 this.$Message.error(res.data.message)

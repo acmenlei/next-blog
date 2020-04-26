@@ -89,7 +89,6 @@ import { PostMessage } from '../components/NetWork/request'
             const obj = this.articleDate
             const path = this.articleDate.categroy + Math.floor(Math.random()*2000000)
             obj.articlePath = path
-            console.log(this.articleDate);
             PostMessage('/note/articlePublish', obj)
             .then(res =>{
                 if(res.data.err == 0) {
