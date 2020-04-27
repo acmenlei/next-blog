@@ -2,13 +2,12 @@
   <div id="carditem">
         <Card :contentid="id" class="card" >
            <p class="title"> <i class="iconfont icon-lianjie"></i>  {{title}}</p>
-            <p ref="lable" class="lable"># {{lable}}</p>
             <div class="img"><img :src="Itemimg" alt="封面"></div>
             <p v-html="content" class="content"></p>
             <p class="publictime">{{time | timeFilter}}</p>
             <p> 
              <Tooltip placement="top" content="点击跳转到详情页查看">
-            <Button @click.native="Godetail(article_id,id)" class="readall" type="primary">阅读全文</Button>
+            <Button @click.native="Godetail(article_id,id)" class="readall" type="info">阅读全文</Button>
             </Tooltip>
             <p class="box">
               <i @click="likeArticle(id)" 
@@ -39,9 +38,6 @@
       Itemimg:{
         type:String,default:'',required:true
       },
-      lable:{
-        type:String,default:'',required:true
-      },
       visited:{
         type:Number,default:999,required:true
       },
@@ -62,12 +58,6 @@
       return {
         flag:true,
       };
-    },
-    mounted() {
-      let color1 = parseInt(Math.random()*255)
-      let color2 = parseInt(Math.random()*255)
-      let color3 = parseInt(Math.random()*255)
-      this.$refs.lable.style.backgroundColor=`rgba(${color1},${color2},${color3})`
     },
     filters:{
       timeFilter(V) {
@@ -110,16 +100,14 @@
 <style lang="scss" scoped>
 @import url('../../assets/css/detail.css');
 #carditem {
-  @font-face {
-  font-family: '../../assets/font/font_title.ttf';
-  src: url('../../assets/font/font_title.ttf');
-}
   .content {
       box-sizing: border-box;
       overflow:hidden;
       -webkit-line-clamp:3;
       text-overflow:ellipsis; 
       color: #f2f2f2;
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
 }
 .likeStyle {
   color: rgb(91, 91, 243);
@@ -127,6 +115,7 @@
 .box {
   text-align:right;
   color: #f2f2f2!important;
+  margin-bottom: 1rem;
   i {
       margin: 0 0.5rem;
     }
@@ -136,7 +125,10 @@
 }
 @media screen and (max-width: 568px) {
     .card {
-      margin-left: 2rem !important;
+      margin: 1rem 2rem !important;
+    }
+    .content {
+      font-size: 1.1rem;
     }
 }
 @media screen and (max-width: 798px){
@@ -147,13 +139,15 @@
 .card {
   position: relative;
   z-index: 5;
-  cursor:pointer;margin:2rem 2rem 2rem 0;
-    border: 0;
-    background: transparent;
-    box-shadow: 0 0 2px #333;
+  cursor:pointer;
+  margin:2rem 1rem 1rem 0;
+  border: none;
+  background: rgb(34, 34, 34,.6);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
     .img {
       width: 100%;
-      height: 70%;
+      height: 13.5rem;
       overflow: hidden;
       img {
        width: 100%;
@@ -165,8 +159,8 @@
   content:"";
   width: 30px;
   height: 30px;
-  border-top: 3px solid yellow;
-  border-left: 3px solid lightgreen;
+  border-top: 2px solid yellow;
+  border-left: 2px solid lightgreen;
   position: absolute;
   left: 0;top:0;
 }
@@ -174,8 +168,8 @@
   content:"";
   width: 30px;
   height: 30px;
-  border-top: 3px solid blue;
-  border-right: 3px solid red;
+  border-top: 2px solid blue;
+  border-right: 2px solid red;
   position: absolute;
   right: 0;top:0;
 }
@@ -185,20 +179,6 @@
   font-family: cursive;
   font-size: 18px;
   color: #f2f2f2;
-}
-@font-face {
-  font-family: '../../assets/font/font_title.ttf';
-  src: url('../../assets/font/font_title.ttf');
-}
-.lable { 
-  text-align: center;
-  width: 6rem;
-  padding: .2rem;
-  margin-bottom:0.5rem;
-  border-radius: .2rem;
-  color: white!important;
-  font-size: .9rem;
-  font-family: '../../assets/font/font_title.ttf' !important;
 }
 .publictime {
   text-align:right;color:rgb(0, 255, 13)!important;

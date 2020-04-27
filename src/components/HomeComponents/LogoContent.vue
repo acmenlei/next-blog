@@ -2,7 +2,7 @@
   <div id="logocontent">
     <div class="logo_name">
        <i class="meun iconfont icon-caidan"></i>
-       <img v-show="$route.name !== 'home'" src="../../assets/logo.png" alt="">
+       <img v-show="$route.name !== 'home'" src="../../assets/images/logo.gif" alt="">
        <p v-show="$route.name !== 'home'">CODELEI</p>
        <i @click="$router.push('/category')" class="search iconfont icon-search"></i>
     </div>
@@ -21,23 +21,18 @@
         align-items: center;
         padding-top: 0.8rem;
         position: relative;
+        user-select: none;
         p {
           font-size: 1.2rem;
-          margin-top: -2rem;
+          margin-top: -1rem;
           font-weight: bold;
-          color: white !important;
-          font-family :'Times New Roman', Times, serif;
-           -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+          animation: triggerColor 7s infinite alternate;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
           img {
-            width: 5.5rem;
-            height: 7.5rem;
-            margin-top: -2.5rem;
+            width: 6rem;
+            height: 6rem;
+            margin-top: -2.2rem;
               -webkit-touch-callout: none;
             -webkit-user-select: none;
             -khtml-user-select: none;
@@ -45,6 +40,14 @@
             -ms-user-select: none;
           user-select: none;
           }
+    }
+    @keyframes triggerColor {
+        0% { color: lightblue; }
+        20% { color: lightgreen; }
+        40% { color: lightyellow; }
+        60% { color: lightcoral; }
+        80% { color: lightslategrey; }
+        100% { color: lightseagreen; }
     }
     @media screen and(max-width:992px) {
          .meun,

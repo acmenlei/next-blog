@@ -54,13 +54,7 @@ export default {
   @media screen and (max-width: 987px) {
   .bg {
     animation: opcity 0.5s linear;
-    background: rgb(243, 87, 160);
-  }
-  }
-  @media screen and (max-width: 568px) {
-  .bg {
-    animation: opcity 0.5s linear;
-    background: rgb(134, 87, 243);
+    background: rgb(34, 34, 34);
   }
   }
 }

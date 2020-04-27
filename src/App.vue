@@ -73,6 +73,6 @@ export default {
          width: 100vw;
          height: 100vh;
      }
-    background: #456;
+    background: #333;
 }
 </style>

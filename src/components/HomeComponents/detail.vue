@@ -122,7 +122,6 @@ import marked from 'marked'
   background: #333;
   .detail_header {
     height: 20rem;
-    // background: linear-gradient(#456, #678);
     display: flex;
     justify-content: center;
     align-items:center;
@@ -137,7 +136,7 @@ import marked from 'marked'
       background: white;
       position: relative;
       z-index: 5;
-      border-radius: 10px;
+      border-radius: 5px;
     }
     .compile {
       margin:2rem;

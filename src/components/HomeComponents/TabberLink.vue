@@ -47,7 +47,7 @@
         white-space: nowrap;
     }
     .ivu-menu-item{
-      color: white;
+      color: #f2f2f2;
       font-size: 1rem;
       border-bottom: 0;
       height: 4.3rem;
@@ -55,6 +55,7 @@
     }
     .ivu-menu-item:hover {
       background: rgb(53, 50, 50,.5); 
+      color: yellow;
     }
     /* 清除导航下划线 */
     .ivu-menu-light {

@@ -86,8 +86,8 @@ export default {
     width: 30%;
     margin: 1rem;
     padding: 0.8rem;
-    height: 20rem;
-    background: transparent;
+    height: 22rem;
+    background: rgb(34, 34, 34,.8);
     border-radius: 0.5rem;
     box-shadow:0 0 3px #333;
     position: relative;
@@ -96,24 +96,23 @@ export default {
       border-radius: 0.5rem;
       position: relative;
       width: 100%;
-      height: 70%;
+      height: 66%;
       outline: none;
       z-index: 2;
     }
     footer {
       width: 100%;
       padding: 0.5rem 0;
+      display: flex;
+      flex-direction: column;
       p {
-        font-size: 1rem;
+        font-size: 12px;
       }
       button {
         position: relative;
-        z-index: 9;
-        float: right;
+        z-index: 5;
       }
       span {
-        display:inline-block;
-        margin-top:0.5rem;
         color:lightgreen;
       }
     }
@@ -124,7 +123,7 @@ export default {
       height: 18rem;
     }
   }
-  @media screen and(max-width: 595px) {
+  @media screen and(max-width: 568px) {
     .demoItem {
       width: 100%;
       height: 25rem;

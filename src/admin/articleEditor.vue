@@ -32,7 +32,9 @@
         </Col>
     </Row>
       </div>
-          <router-view class="childrenRouter"/>
+      <div class="childrenRouter">
+          <router-view/>
+      </div>
   </div>
 </template>
 

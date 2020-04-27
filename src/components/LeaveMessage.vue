@@ -163,7 +163,6 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
     .leaveContent {
       position: relative;
       z-index: 5;
-      background: #456;
       img {
         width: 2rem;
         height: 2rem;
@@ -172,7 +171,7 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
       .contentItem {
         padding: 2rem;
         position: relative;
-        border-bottom: 1px solid #666;
+        border-bottom: 1px solid #444;
         p,span,img,a{
           color: #f2f2f2;
           position: absolute;font-size: 0.8rem;
@@ -205,7 +204,7 @@ import { PostMessage,PageSizeChange } from './NetWork/request'
           color: blue;
         }
         .replyContent {
-          border-bottom:1px solid #666;
+          border-bottom:1px solid #444;
           padding-left:50px;
           font-size: 0.8rem;
           .replyItem {

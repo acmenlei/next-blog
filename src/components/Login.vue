@@ -35,7 +35,7 @@
         <Button class="btns" style="margin-left:1rem;" type="default" @click="register">我是新人</Button>
       </FormItem>
       <FormItem>
-        <p style="color:#fff;font-size:1rem;">提示: 没有账号可以点击我是新人进行注册,只需要验证邮箱就可以了,欢迎你的加入！</p>
+        <p style="color:#333;font-size:1rem;">提示: 没有账号可以点击我是新人进行注册,只需要验证邮箱就可以了,欢迎你的加入！</p>
       </FormItem>
     </Form>
   </div>
@@ -177,7 +177,7 @@ export default {
       });
     },
     register() {
-      this.isshow = true;
+      this.isshow = !this.isshow;
     },
     sendMail() {
       /* 发送邮箱验证码 */
@@ -243,7 +243,7 @@ export default {
     border: 0;
   }
   .logintitle {
-    color: #f2f2f2 !important;
+    color: #333 !important;
     font-size: 2rem;
   }
 }

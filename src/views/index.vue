@@ -1,5 +1,5 @@
 <template>
-  <div id="index" :class="{adminCssStyle: $route.path.includes('detail')}">
+  <div id="index" :class="{adminCssStyle: $route.path.includes('login')}">
      <Header :class="{active:$route.name != 'home' || $store.state.isshow}" class="header"/>
      <keep-alive exclude="detail,profile">
      <router-view/>
@@ -60,6 +60,6 @@ body,html {
     }
   }
   .adminCssStyle {
-    background: #333!important;
+    background: #f2f2f2!important;
   }
 </style>

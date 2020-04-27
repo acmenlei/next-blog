@@ -1,8 +1,11 @@
 <template>
   <div id="card">
-    <Row>
+   <div class="card_content">
+      <Row>
         <Col :xl="4" :lg="3" :md="2" :sm="0" :xs="0">
-            ...
+      <header> 
+        <Icon type="md-ribbon"></Icon>当前位置: <router-link style="cursor:pointer" tag="span" to="/">首页</router-link> > 文章列表
+      </header>
         </Col>
       <Col :xl="8" :lg="9" :md="10" :sm="24" :xs="24">
       <Music class="music"/>
@@ -12,7 +15,7 @@
           @changelike="changeliked" v-for="(item, index) in lists"
         :title="item.title" :time ="item.time"
         :Itemimg="item.article_img"
-        :content="item.article_brief" :lable="item.lable" 
+        :content="item.article_brief"
         :visited="item.visited" :like="item.like_Star"
         :id="item.id" :article_id="item.article_id"
         :accessPulish_count="item.accessPulish_count"
@@ -43,8 +46,9 @@
                 ---------不用管我我只是一个表情包😉---------
               </ListItem>
           </List>
+           <my-makefriends/>
           <!-- 个人介绍 -->
-            <h4 style="color:orange">Your Profile:</h4>
+            <h4 style="color:orange;margin-left:1rem;margin-top:1rem;">Your Profile:</h4>
           <div class="myInfo">
             <div v-if="!username" style="text-align:center;position:relative">
               <img class="xiaomai" width="80" height="80" src="../../assets/images/xiaomai.jpg" alt="">
@@ -88,39 +92,16 @@
                 <p>温馨提示:如果点错了,连续按两次编辑信息可以取消编辑(。・∀・)ノ</p>
             </div>
           </div>
-          <!-- 个人介绍结束 -->
-          <h4 style="color:orange">My Makefirend:</h4>
-          <Tabs class="tabs" value="name1"> 
-        <TabPane label="联系方式" name="name1">
-          <i class="iconfont icon-qq" style="color:skyblue;"></i>:755425595 
-          <i class="iconfont icon-weixin" style="color:green;"></i>:x972761675
-          <br>
-          🙆‍♂️ 有问题欢迎小伙伴来学习讨论~
-          <br>
-          博客文章内容主要就是我在开发中遇到的一些常见的问题，记录下来让自己有个印象，应该也可以帮到你们，欢迎你们的光临，多多支持，over~
-        </TabPane>
-        <TabPane label="打游戏call我" name="name3">
-          ps: 博主也是很热爱游戏的哈,欢迎小伙伴骚扰 \(￣︶￣*\)) 。。
-          <br>
-          <i class="iconfont icon--" style="color:yellow"></i>
-          王者荣耀 ：vx, qq我都有,你喜欢怎么躺？
-          <br>
-          小伙伴们有什么好玩的游戏可以留言安利一下啦😁~
-          <br>
-          over!
-        </TabPane>
-        </Tabs>
       </Col>
-              <Col :xl="4" :lg="3" :md="2" :sm="0" :xs="0">
-            ...
-        </Col>
     </Row>
+   </div>
   </div>
 </template>
 <script>
 import { getnotedetail ,PostMessage,PageSizeChange } from '../NetWork/request'
 import CardItem from './CardIItem'
 import Music from './Music'
+import myMakefriends from './MyMakefriend'
   export default {
     name:'card',
     data () {
@@ -135,7 +116,7 @@ import Music from './Music'
         value:'',
       };
     },
-    components: {CardItem,Music},
+    components: {CardItem,Music, myMakefriends},
     mounted() {
       /* 默认请求第一页 */
       this.Pagechange(1)
@@ -257,6 +238,17 @@ import Music from './Music'
 </script>
 <style lang="scss" scoped>
     #card {
+        header {
+          padding-bottom: 2rem;
+          position: relative;
+          color: #f2f2f2;
+          z-index: 5;
+          white-space: nowrap;
+          margin: 0.5rem;
+          span:hover {
+            color: lightblue;
+          }
+        }
       .music {
         display: none;
       }
@@ -324,19 +316,8 @@ import Music from './Music'
           transform: translate(-50%,-50%);
           opacity: .6;
           }
-        .tabs {
-          margin-top:1rem;
-          border-radius: .4rem;
-          padding: 1rem;
-          color: #f2f2f2;
-           position: relative;
-          z-index: 5;
-         background: transparent;
-             box-shadow: 0 0 2px #333;
-        }
         .myInfo {
           width: 100%;height: 28rem;
-          margin-top: 1rem;
           border-top-left-radius: 0.3rem;
           border-bottom-left-radius: 0.3rem;
           padding: 1rem;
