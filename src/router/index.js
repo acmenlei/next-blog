@@ -59,6 +59,11 @@ const routes = [
     component:() => import ('../components/HomeComponents/detail')
   },
   {
+    path:'/admin/login',
+    name:'adminlogin',
+    component:() => import ('../admin/adminLogin.vue')
+  },
+  {
     path:'/admin/article',
     name:'admin',
     component:() => import ('../admin/articleEditor.vue'),
@@ -119,6 +124,15 @@ router.beforeEach((to,from,next) => {
   if(to.path=="/login") {
       if(localStorage.getItem('username')) {
         router.replace({name:'logined'})
+      }
+  }
+  next()
+})
+/* 管理系统守卫 */
+router.beforeEach((to,from,next) => {
+  if(to.path=="/admin/article") {
+      if(!localStorage.getItem('a_u')) {
+        router.replace({name:'adminlogin'})
       }
   }
   next()

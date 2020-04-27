@@ -1,5 +1,6 @@
 <template>
  <div class="articleManage">
+     <h2>文章列表详情信息：</h2>
         <Table border :columns="columns12" :data="data6">
         <template slot-scope="{ row }" slot="title">
             <strong>{{ row.title }}</strong>
@@ -72,9 +73,12 @@ import { PageSizeChange } from '../components/NetWork/request'
 </script>
 <style lang="scss" scoped>
 .articleManage {
-    padding-top: 2rem;
+    padding-top: 4rem;
     padding-right: 15rem;
     position: relative;
     z-index: 99;
+    h2 {
+        margin-bottom: 1rem;
+    }
 }
 </style>

@@ -2,13 +2,10 @@
   <div id="carditem">
         <Card :contentid="id" class="card" >
            <p class="title"> <i class="iconfont icon-lianjie"></i>  {{title}}</p>
-            <div class="img"><img :src="Itemimg" alt="封面"></div>
+            <div class="img" @click="Godetail(article_id,id)"><img :src="Itemimg" alt="封面"></div>
             <p v-html="content" class="content"></p>
-            <p class="publictime">{{time | timeFilter}}</p>
+            <p class="publictime"><Icon type="ios-timer" /> {{time | timeFilter}}</p>
             <p> 
-             <Tooltip placement="top" content="点击跳转到详情页查看">
-            <Button @click.native="Godetail(article_id,id)" class="readall" type="info">阅读全文</Button>
-            </Tooltip>
             <p class="box">
               <i @click="likeArticle(id)" 
               class="iconfont icon-dianzan"
@@ -100,22 +97,12 @@
 <style lang="scss" scoped>
 @import url('../../assets/css/detail.css');
 #carditem {
-  .content {
-      box-sizing: border-box;
-      overflow:hidden;
-      -webkit-line-clamp:3;
-      text-overflow:ellipsis; 
-      color: #f2f2f2;
-      font-size: 0.9rem;
-      margin-top: 0.2rem;
-}
 .likeStyle {
   color: rgb(91, 91, 243);
 }
 .box {
   text-align:right;
-  color: #f2f2f2!important;
-  margin-bottom: 1rem;
+  color: #333;
   i {
       margin: 0 0.5rem;
     }
@@ -123,18 +110,11 @@
       color: rgb(91, 91, 243);
     }
 }
-@media screen and (max-width: 568px) {
-    .card {
-      margin: 1rem 2rem !important;
-    }
-    .content {
-      font-size: 1.1rem;
-    }
-}
-@media screen and (max-width: 798px){
-  .card {
-      margin-left: 2rem !important;
-    }
+.card:hover {
+  transition: transform 1s;
+  transform: scale(0.97);
+  opacity: .7;
+  color: #333;
 }
 .card {
   position: relative;
@@ -142,46 +122,68 @@
   cursor:pointer;
   margin:2rem 1rem 1rem 0;
   border: none;
-  background: rgb(34, 34, 34,.6);
+  background: rgb(255, 255, 255,.8);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+      .content {
+      color: #333;
+      font-size: 0.9rem;
+      margin: 0.2rem 0;
+    }
     .img {
       width: 100%;
-      height: 13.5rem;
       overflow: hidden;
       img {
        width: 100%;
        border-radius: 5px;
+       opacity: .9;
+    }
+    }
+}
+@media screen and (max-width: 798px){
+  .card {
+      margin:2rem 1rem 1rem 1rem!important;
+     .content {
+      font-size: 1rem;
+    }
+    }
+}
+@media screen and (max-width: 575px) {
+    .card {
+      margin: 1rem 3rem!important;
+          .content {
+      font-size: 1.1rem;
     }
     }
 }
 .card> ::before {
   content:"";
-  width: 30px;
-  height: 30px;
-  border-top: 2px solid yellow;
-  border-left: 2px solid lightgreen;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid orange;
+  border-left: 2px solid green;
   position: absolute;
   left: 0;top:0;
 }
 .card> ::after {
   content:"";
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-top: 2px solid blue;
   border-right: 2px solid red;
   position: absolute;
   right: 0;top:0;
 }
 .title{
-  text-align:center;
   margin-bottom: .5rem;
   font-family: cursive;
   font-size: 18px;
-  color: #f2f2f2;
+  color: #333;
 }
 .publictime {
-  text-align:right;color:rgb(0, 255, 13)!important;
+  color:rgb(229, 255, 0);
+  position: absolute;
+  bottom: 1rem;
 }
 
 .readall {

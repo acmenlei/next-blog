@@ -4,7 +4,7 @@
            <vue-particles
             color="#fff000"
             :particleOpacity="0.6"
-            :particlesNumber="100"
+            :particlesNumber="150"
             shapeType="star"
             :particleSize="4"
             linesColor="#fff"

@@ -94,14 +94,12 @@ import { getnotedetail, PostMessage } from '../components/NetWork/request'
 </script>
 <style lang="scss" scoped>
 .articleManage {
+    padding-top: 5rem;
     padding-right: 15rem;
     position: relative;
     z-index: 99;
-        h2 {
-        color: white;
-        font-family: cursive;
-        padding:2rem 0 1rem 0;
-        white-space: nowrap;
+    h2 {
+        margin-bottom: 1rem;
     }
 }
 </style>

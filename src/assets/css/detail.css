@@ -17,7 +17,6 @@
 }
 .markdown-body pre{
     display: block;
-    background-color:#f3f3f3;
      padding: .5rem !important;
      overflow-y: auto;
      font-weight: 300;
@@ -30,8 +29,6 @@
     font-size: 12px;
     padding-left: 5px;
     padding-right: 5px;
-    color:white;
-    background: #f5587b;
     margin: 0px 3px;
 }
 .markdown-body pre{
@@ -39,6 +36,7 @@
 }
 .markdown-body pre >code{
     border:0px !important;
+    color: white;
     background-color: #272a2c !important;
 }
 .markdown-body .title-anchor{
@@ -104,6 +102,13 @@ iframe{
     position: relative;
     margin: 1rem 0!important;
     padding: 0 0.3rem;
+    line-height: 28px;
+}
+.markdown-body p>code {
+    color:red;
+    background: rgb(252, 215, 215);
+    height: 20px;
+    line-height: 20px;
 }
 .markdown-body li {
     margin-top: 1rem;

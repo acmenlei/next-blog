@@ -47,15 +47,15 @@ export default {
 <style lang="scss" scoped>
 #music_container {
   position: relative;
-  color: #f2f2f2;
-  background: transparent;
+  color: #333;
+  background: rgb(255, 255, 255,.8);
   padding: 1rem 1.5rem 0 1rem;
+  margin-right: 1rem;
   position: relative;
   z-index: 5;
-  border-radius: 5px !important;
-  border-bottom-left-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-    box-shadow: 0 0 2px #333;
+  border-radius: .4rem!important;
+  border-bottom-left-radius: 0!important;
+  border-bottom-right-radius: 0!important;
   .musicBox {
     height: 8rem;
     width: 100%;
@@ -70,7 +70,7 @@ export default {
     margin: 0 0.5rem;
     position: absolute;
     bottom: 1rem;
-    color: #f2f2f2;
+    color: #333;
     cursor: pointer;
     font-weight: bold;
   }

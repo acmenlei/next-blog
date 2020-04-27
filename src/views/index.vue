@@ -1,11 +1,14 @@
 <template>
-  <div id="index" :class="{adminCssStyle: $route.path.includes('login')}">
-     <Header :class="{active:$route.name != 'home' || $store.state.isshow}" class="header"/>
+  <div id="index" :class="{adminCssStyle: $route.path.includes('login') || $route.path.includes('admin')}">
+     <Header 
+          v-if="!$route.path.includes('admin')"
+          :class="{active:$route.name != 'home' || $store.state.isshow}" 
+          class="header"/>
      <keep-alive exclude="detail,profile">
      <router-view/>
      </keep-alive>
     <Tab-contorle/>
-    <Footer/>
+    <Footer v-if="!$route.path.includes('admin')"/>
   </div>
 </template>
 <script>
@@ -60,6 +63,6 @@ body,html {
     }
   }
   .adminCssStyle {
-    background: #f2f2f2!important;
+    background: #fff!important;
   }
 </style>

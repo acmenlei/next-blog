@@ -1,25 +1,25 @@
 <template>
   <div class="publish">
       <div class="container">
-          <h2>文章内容编辑与发表</h2>
-          <p>文章标题:</p>
+          <h2><i class="iconfont icon-wenzhang"></i> 文章内容编辑与发表</h2>
+          <p><i class="iconfont icon-lianjie"></i> 文章标题:</p>
         <Input v-model="articleDate.title" style="width:80%"  placeholder="请输入文章标题..." />
           <p><img v-show="articleDate.article_img" :src="articleDate.article_img" alt="笔记中的图片"/></p>
         <Upload action="http://39.107.50.117:3000/upload/imageUpload"
         :on-success="handleSuccess">
             <Button icon="ios-cloud-upload-outline">选择文章封面图片</Button>
         </Upload>
-        <p>文章简介:</p>
+        <p><i class="iconfont icon-lianjie"></i> 文章简介:</p>
         <Input v-model="articleDate.article_brief" style="width:80%" type="textarea" :rows="4" placeholder="请输入文章简介..." />
-        <p>文章主体内容:</p>
-        <Input v-model="articleDate.content" style="width:80%" type="textarea" :rows="8" placeholder="请输入文章主体内容..." />
-        <p>文章类别:</p>
+        <p><i class="iconfont icon-lianjie"></i> 文章主体内容:</p>
+        <Input v-model="articleDate.content" style="width:80%" type="textarea" :rows="16" placeholder="请输入文章主体内容..." />
+        <p><i class="iconfont icon-lianjie"></i> 文章类别:</p>
         <Select v-model="articleDate.lable" style="width:200px">
         <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
         <div class="event-Button">
             <Button @click.native="handelPublish" type="primary">修改</Button>
-            <Button type="default">取消</Button>
+            <Button @click.native="handelCancel">取消</Button>
         </div>
       </div>
   </div>
@@ -99,6 +99,9 @@ import { PostMessage,getnotedetail } from '../components/NetWork/request'
                     this.$Message.error(res.data.message)
                 }
             })
+        },
+        handelCancel() {
+            this.$router.back()
         }
     }
   }
@@ -109,19 +112,17 @@ import { PostMessage,getnotedetail } from '../components/NetWork/request'
         .container {
             position: relative;
             z-index: 99;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
             img {
                 width: 400px;
                 height: 300px;
             }
-        h2 {
-            color: white;
-            font-family: cursive;
-            padding:2rem 0 1rem 0;
-            white-space: nowrap;
-        }
         p {
-            color: white;
+            color: #333;
             margin: 1rem 0;
+            font-weight: bold;
         }
         .event-Button {
             margin-top: 1rem;

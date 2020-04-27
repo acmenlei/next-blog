@@ -34,15 +34,14 @@
 </script>
 <style scoped>
 .title {
-    color:orange;margin:1rem 0 0 1rem;
+    color:orange;margin:1rem 0 1rem 1rem;
     }
         .tabs {
           border-radius: .4rem;
           padding: 1rem;
-          color: #f2f2f2;
            position: relative;
           z-index: 5;
-         background: transparent;
-             box-shadow: 0 0 2px #333;
+          color: #333;
+        background: rgb(255, 255, 255,.8);
         }
 </style>

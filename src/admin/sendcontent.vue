@@ -56,19 +56,13 @@ import { PostMessage } from  '../components/NetWork/request'
     padding-top: 5rem;
     position: relative;
     z-index: 5;
-    h2 {
-      color: white;
-      font-family: cursive;
-      padding:2rem 0;
-      white-space: nowrap;
-    }
     button {
-        margin-top: 2rem;
+        margin-top: 1rem;
     }
     img {
         margin-top: 2rem;
-         width: 80px;
-         height: 80px;
+         width: 200px;
+         height: 200px;
     }
 }
 </style>

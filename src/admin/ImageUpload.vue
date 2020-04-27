@@ -32,16 +32,10 @@
     position: relative;
     z-index: 5;
     padding-top: 5rem;
-    h2 {
-      color: white;
-      font-family: cursive;
-      padding:2rem 0;
-      white-space: nowrap;
-    }
     img {
         margin-top: 2rem;
-         width: 80px;
-         height: 80px;
+         width: 200px;
+         height: 200px;
     }
 }
 </style>

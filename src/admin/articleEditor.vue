@@ -1,7 +1,7 @@
 <template>
   <div class="articleEditor">
       <div class="navgation">
-       <Row>
+       <Row>        
         <Col span="8">
             <Menu theme="dark" style="height:100vh;width:260px;"  active-name="1-2" :open-names="['1','2','3']">
                 <Submenu name="1">
@@ -28,40 +28,62 @@
                     <MenuItem @click.native="$router.push('/admin/article/upload/images')" name="3-2">上传图片</MenuItem>
                     <MenuItem @click.native="$router.push('/admin/article/upload/demo')" name="3-3">发表Demo</MenuItem>
                 </Submenu>
+                <Submenu  name="4">
+                    <template slot="title">
+                        <Icon type="md-aperture" />
+                        <span @click="exitSys">退出管理系统</span>
+                    </template>
+                </Submenu>
             </Menu>
         </Col>
     </Row>
       </div>
+      <Modal
+        v-model="ModelisShow"
+        title="退出确认"
+        @on-ok="handelOK">
+        <p>确定要退出博客管理系统吗？</p>
+    </Modal>
       <div class="childrenRouter">
           <router-view/>
       </div>
   </div>
 </template>
-
 <script>
   export default {
     name:'articleEditor',
-    beforeCreate() {
-        const value = prompt();
-        if(value != '201314xlx..') return location.reload()
+    data() {
+        return {
+        ModelisShow:false
+    }
+    },
+    methods:{
+        exitSys() {
+            this.ModelisShow = true
+        },
+        handelOK() {
+            localStorage.removeItem('a_u')
+            this.$router.replace('/admin/login')
+        }
     }
   }
 </script>
 <style lang="scss" scoped>
     .articleEditor {
-        width: 100%;
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
         .navgation {
-            position: sticky;
-            top: 4.2rem;
-            height: 0;
+            position: fixed;
+            top: 0;
             z-index: 99;
         }
         .childrenRouter {
+            flex: 1;
             z-index: 99;
             width: calc(100%-260px);
             margin-left: 260px;
             padding-left: 50px;
-            padding-bottom: 100px;
         }
     }
 </style>

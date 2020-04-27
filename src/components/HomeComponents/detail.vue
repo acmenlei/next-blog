@@ -1,7 +1,7 @@
 <template>
   <div id="detail">
     <header class="detail_header">
-      <h2> <i class="iconfont icon-lianjie"></i>  {{title}}</h2>
+      <h2 style="font-size:1.3rem"> <i class="iconfont icon-lianjie"></i>  {{title}}</h2>
       <h3 style="padding-top:1rem;">{{time}}</h3>
     </header>
     <!-- 需要渲染的html -->

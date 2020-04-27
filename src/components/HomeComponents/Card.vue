@@ -7,7 +7,7 @@
         <Icon type="md-ribbon"></Icon>当前位置: <router-link style="cursor:pointer" tag="span" to="/">首页</router-link> > 文章列表
       </header>
         </Col>
-      <Col :xl="8" :lg="9" :md="10" :sm="24" :xs="24">
+      <Col :xl="8" :lg="9" :md="10" :sm="12" :xs="24">
       <Music class="music"/>
         <!-- 文章卡片 -->
           <Card-item 
@@ -28,10 +28,10 @@
          @on-change="Pagechange"  
          show-total />
       </Col>
-    <Col :xl="8" :lg="9" :md="10" :sm="0" :xs="0">
+    <Col :xl="8" :lg="9" :md="10" :sm="12" :xs="0">
            <!-- 每日音乐 -->
           <Music class="xl_music"/>
-          <List style="padding:1rem;box-shadow: 0 0 2px #333;">
+          <List style="padding:1rem; background: rgb(255, 255, 255,.8);margin-right:1rem;">
               <ListItem style="color:orange;font-weight:bold;">
                 Recent articles
               </ListItem>
@@ -42,11 +42,11 @@
               :key="index">
               {{item.title}}
             </ListItem>
-              <ListItem style="color:yellow;font-weight:bold;">
+              <ListItem style="color:green;font-weight:bold;">
                 ---------不用管我我只是一个表情包😉---------
               </ListItem>
           </List>
-           <my-makefriends/>
+           <my-makefriends style="margin-right: 1rem;"/>
           <!-- 个人介绍 -->
             <h4 style="color:orange;margin-left:1rem;margin-top:1rem;">Your Profile:</h4>
           <div class="myInfo">
@@ -257,9 +257,9 @@ import myMakefriends from './MyMakefriend'
         border-top-left-radius: 0.3rem;
         position: relative;
         z-index: 5;
-      background: transparent;
+        background: rgb(255, 255, 255,.8);
       }
-      @media screen and(max-width:768px) {
+      @media screen and(max-width:575px) {
         .music {
           display: block;
           margin: 1rem 2rem;
@@ -284,7 +284,7 @@ import myMakefriends from './MyMakefriend'
         transition: all 1s;
         position: relative;
         z-index: 5;
-        color: #f2f2f2;
+        color: #333;
       }
       .page {
         padding-left: 1rem;
@@ -311,26 +311,23 @@ import myMakefriends from './MyMakefriend'
          .nologinShow {
           width: 100%;
           position:absolute;
-          color: #f2f2f2;
+          color: #333;
           top:15rem;left:50%;
           transform: translate(-50%,-50%);
           opacity: .6;
           }
         .myInfo {
-          width: 100%;height: 28rem;
-          border-top-left-radius: 0.3rem;
-          border-bottom-left-radius: 0.3rem;
+          width: 96%;height: 28rem;
           padding: 1rem;
           position: relative;
           z-index: 5;
-         background: transparent;
-             box-shadow: 0 0 2px #333;
+          border-radius: .4rem;
+        background: rgb(255, 255, 255,.8);
           .SuccessInfo {
             img {
               width: 5rem;
               height: 5rem;
               border-radius: 50%;
-              box-shadow: 0 0 5px #333;
               margin: 1rem 0 0 1rem;
             }
             p{

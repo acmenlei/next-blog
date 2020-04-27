@@ -82,23 +82,12 @@ import { PostMessage } from '../components/NetWork/request'
 <style lang="scss" scoped>
  .sendDemo {
    padding: 2rem;
-    h2 {
-      color: white;
-      font-family: cursive;
-      padding:2rem 0;
-      white-space: nowrap;
-    }
+   h2 {
+     margin-bottom: 1rem;
+   }
      .demoItem {
          position: relative;
          z-index: 99;
-     }
-     @media screen and (min-width:1000px){
-       .contentPublish{
-           height: 200px;
-           position: absolute;
-           bottom: -14rem;
-           left:5rem;
-         }
      }
  }
 </style>
