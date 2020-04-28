@@ -16,7 +16,7 @@
     "view-design": "^4.0.0",
     "vue": "^2.6.11",
     "vue-lazyload": "^1.3.3",
-    "vue-router": "^3.1.5",
+    "vue-router": "^3.0.7",
     "vuex": "^3.1.2"
   },
   "devDependencies": {

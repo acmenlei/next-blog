@@ -23,7 +23,7 @@ export default {
   height: 100vh;
   transition: all 0.5s;
   .center {
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     z-index: 2;

@@ -113,12 +113,6 @@ const router = new VueRouter({
   routes
 })
 
-/* 防止路由重复报错 */
-const originalPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err)
-}
-
 /* 全局导航守卫 */
 router.beforeEach((to,from,next) => {
   if(to.path=="/login") {

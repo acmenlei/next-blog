@@ -85,7 +85,7 @@ export default {
   .demoItem {
     width: 30%;
     margin: 1rem;
-    padding: 0.8rem;
+    // padding: 0.8rem;
     height: 22rem;
     background: rgb(34, 34, 34,.8);
     border-radius: 0.5rem;
@@ -102,15 +102,16 @@ export default {
     }
     footer {
       width: 100%;
-      padding: 0.5rem 0;
       display: flex;
       flex-direction: column;
+      padding: 0.4rem;
       p {
         font-size: 12px;
       }
       button {
         position: relative;
         z-index: 5;
+        flex:1;
       }
       span {
         color:lightgreen;

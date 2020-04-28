@@ -335,7 +335,7 @@ import myMakefriends from './MyMakefriend'
               font-weight: bold;
               font-family: cursive;
               span {
-                color: lightblue;
+                color: #000;
               }
             }
             .name,
@@ -352,7 +352,7 @@ import myMakefriends from './MyMakefriend'
               width: 80%;
             }
             .active {
-              color: #f2f2f2;
+              color: #333;
               border-bottom: 0;
               background: transparent;
             }

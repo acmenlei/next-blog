@@ -5,7 +5,7 @@
           :class="{active:$route.name != 'home' || $store.state.isshow}" 
           class="header"/>
      <keep-alive exclude="detail,profile">
-     <router-view/>
+     <router-view :class="{router_content: $route.name !== 'home'}"/>
      </keep-alive>
     <Tab-contorle/>
     <Footer v-if="!$route.path.includes('admin')"/>
@@ -48,6 +48,9 @@ body,html {
   height: 100%;
 }
   #index {
+    .router_content {
+       animation: animate 2s;
+    }
     .header{
       width: 100%;
       height: 4.2rem;
@@ -60,6 +63,11 @@ body,html {
     .current {
       position: sticky;
       background: rgba(23, 23, 24, 0.8);
+      animation: animate 1s;
+    }
+    @keyframes animate {
+      0% { opacity: 0; transform: translateY(-50px);}
+      100% { opacity: 1; transform: translateY(0);}
     }
   }
   .adminCssStyle {
