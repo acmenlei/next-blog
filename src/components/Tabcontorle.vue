@@ -65,27 +65,33 @@
     .MeunTab {
       width:23rem;
       height: 100vh;
-      background: #f2f2f2;
+      background: url('../assets/images/wetherSon.jpg') no-repeat center;
+      background-size: cover;
       position: fixed;
       left: -35rem;
       top: 4.2rem;
       z-index: 998;
-      border-right: 1px solid #ccc;
+      border-right: 1px solid lightblue;
       transition: all .5s ease-in-out;
-      // background: url('../assets/images/timg.jpg') no-repeat center;
-      // background-size: cover;
-      // .ivu-list-item {
-      //   border-bottom: none;
-      //   color: white;
-      // }
+      .ivu-list-item {
+        border-bottom: 0;
+      }
       i,span{
         font-size: 1.2rem;
         font-style:normal;
         margin-left: 1rem;
+        color: yellow;
       }
+      @media screen and (min-width:992px) {
+        i,span{
+          font-size: 1rem;
+          font-style:normal;
+          margin-left: 1rem;
+        }
+  }
       i:hover{
         cursor: pointer;
-        color: rgb(97, 171, 241);
+        color: rgb(108, 6, 240);
       }
       .profile{
         text-align: center;
@@ -113,5 +119,10 @@
     }
     .show {
       left: 0;
+      animation: borderFlex .9s;
+    }
+    @keyframes borderFlex {
+      0%{ border-top-right-radius:500px;height: 0;}
+      100%{ border-top-right-radius:0;height: 100vh;}
     }
 </style>

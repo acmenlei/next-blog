@@ -13,14 +13,13 @@
           <Card-item 
           @changevisited="changevisite"
           @changelike="changeliked" v-for="(item, index) in lists"
-        :title="item.title" :time ="item.time"
-        :Itemimg="item.article_img"
-        :content="item.article_brief"
-        :visited="item.visited" :like="item.like_Star"
-        :id="item.id" :article_id="item.article_id"
-        :accessPulish_count="item.accessPulish_count"
-        :key="index"
-        ></Card-item>
+          :title="item.title" :time ="item.time"
+          :Itemimg="item.article_img"
+          :content="item.article_brief"
+          :visited="item.visited" :like="item.like_Star"
+          :id="item.id" :article_id="item.article_id"
+          :accessPulish_count="item.accessPulish_count"
+          :key="index"/>
          <Page ref="page" 
          :total="count" 
          :page-size="3" 
@@ -31,24 +30,22 @@
     <Col :xl="8" :lg="9" :md="10" :sm="12" :xs="0">
            <!-- 每日音乐 -->
           <Music class="xl_music"/>
+          <!-- 最近文章 -->
           <List style="padding:1rem; background: rgb(255, 255, 255,.8);margin-right:1rem;">
-              <ListItem style="color:orange;font-weight:bold;">
-                Recent articles
-              </ListItem>
-            <ListItem 
+              <ListItem style="color:orange;font-weight:bold;">Recent articles</ListItem>
+              <ListItem 
               class="article_Item"
               @click.native="timeArticle(item.article_id)"
               v-for="(item, index) in navList" 
               :key="index">
               {{item.title}}
             </ListItem>
-              <ListItem style="color:green;font-weight:bold;">
-                ---------不用管我我只是一个表情包😉---------
-              </ListItem>
+              <ListItem style="color:green;font-weight:bold;"> ---------不用管我我只是一个表情包😉---------</ListItem>
           </List>
+          <!-- 交友信息 -->
            <my-makefriends style="margin-right: 1rem;"/>
           <!-- 个人介绍 -->
-            <h4 style="color:orange;margin-left:1rem;margin-top:1rem;">Your Profile:</h4>
+        <h4 style="color:orange;margin-left:1rem;margin-top:1rem;">Your Profile:</h4>
           <div class="myInfo">
             <div v-if="!username" style="text-align:center;position:relative">
               <img class="xiaomai" width="80" height="80" src="../../assets/images/xiaomai.jpg" alt="">
@@ -74,7 +71,7 @@
                     <Icon type="ios-camera" size="20"></Icon>
                 </div><span style="font-size:.6rem">上传头像</span>
               </Upload>
-                <!-- <a>退出登录</!-->
+                <!-- 退出登录 -->
                 <Button style="font-size:0.5rem;margin:0 0 1.5rem 0.5rem;" type="primary" @click="modal1 = true">退出登录</Button>
               <Modal
                   v-model="modal1"

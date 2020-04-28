@@ -46,6 +46,7 @@ export default {
     top: 0;
     background:inherit;
     filter: blur(3px);
+        opacity: .7;
   }
   @keyframes opcity {
     0% { transform: translateX(-100%) }

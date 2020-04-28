@@ -150,7 +150,7 @@
 }
 @media screen and (max-width: 575px) {
     .card {
-      margin: 1rem 3rem!important;
+      margin:1rem 2rem!important;
           .content {
       font-size: 1.1rem;
     }
