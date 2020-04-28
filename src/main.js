@@ -9,7 +9,6 @@ import './assets/iconfont3/iconfont.css'
 import './assets/iconfont4/iconfont.css'
 import './assets/iconfont5/iconfont.css'
 import  './components/HomeComponents/clicklove/clicklove'
-import 'highlight.js/styles/solarized-dark.css'
 import Vuelazyload from 'vue-lazyload'
 import VueParticles from 'vue-particles'
 Vue.config.productionTip = false

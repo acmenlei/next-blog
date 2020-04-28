@@ -40,6 +40,8 @@
 import { getnotedetail, PostMessage } from '../NetWork/request'
 import highlight from 'highlight.js'
 import marked from 'marked'
+import 'highlight.js/styles/monokai-sublime.css'
+import 'h'
   export default {
     name:'detail',
     data () {
@@ -132,8 +134,8 @@ import marked from 'marked'
         margin:1rem;
     }
     .renderNav {
-      padding: 1rem 3rem;
-      background: white;
+      padding: 1rem;
+      background: #f2f2f2;
       position: relative;
       z-index: 5;
       border-radius: 5px;

@@ -32,12 +32,12 @@
     margin: 0px 3px;
 }
 .markdown-body pre{
-    background-color: #272a2c !important;
+    background-color: #333333 !important;
 }
 .markdown-body pre >code{
     border:0px !important;
     color: white;
-    background-color: #272a2c !important;
+    background-color: #333333 !important;
 }
 .markdown-body .title-anchor{
     color:#888 !important;
@@ -80,17 +80,24 @@ iframe{
     padding: 5px !important;
 }
 .markdown-body h4 {
-    color: #292929 !important;
+    color: #7e06ee !important;
     margin-top: 1rem;
 }
 .markdown-body img {
-    width: 100%;
+    width: 50%;
+    box-shadow: 0 0 2px #333;
+    margin-top: 0.5rem;
+}
+@media screen and (max-width: 587px) {
+    .markdown-body img {
+        width: 100%;
+    }
 }
 #carditem .content h4 {
     color: rgb(241, 194, 106);
 }
 .markdown-body h3 {
-    color: white !important;
+    color: #000 !important;
     margin-top: 0.6rem;
 }
 .markdown-body h5 {
@@ -102,14 +109,14 @@ iframe{
     position: relative;
     margin: 1rem 0!important;
     padding: 0 0.3rem;
-    line-height: 28px;
+    color: #000;
 }
-.markdown-body p>code {
+.markdown-body p>code,
+.markdown-body li>code {
     color:red;
     background: rgb(252, 215, 215);
-    height: 20px;
-    line-height: 20px;
 }
+
 .markdown-body li {
     margin-top: 1rem;
     height: 3rem;
