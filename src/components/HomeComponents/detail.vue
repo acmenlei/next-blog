@@ -5,7 +5,7 @@
         <i class="iconfont icon-lianjie"></i>
         {{title}}
       </h2>
-      <h3 style="padding-top:1rem;"><Icon type="ios-timer" /> {{time}}</h3>
+      <h3 style="padding-top:1rem;"><Icon type="ios-timer" /> {{time | dateFilter}}</h3>
       <div class="tags">
         <Tag :color="bgColor[index]" v-for="(item,index) in lablesList" :key="index">{{item}}</Tag>
       </div>
@@ -46,6 +46,7 @@ import marked from "marked";
 import "highlight.js/styles/monokai-sublime.css";
 import QrcodeVue from "qrcode.vue";
 import replyOrpublish from '../ReplyOrPublish/replyOrpublish'
+import moment from 'moment'
 export default {
   name: "detail",
   data() {
@@ -79,6 +80,7 @@ export default {
       qrcode: false
     };
   },
+  filters:{ dateFilter(val) { return moment(val).format('YYYY-MM-DD') } },
   components: { QrcodeVue,replyOrpublish },
   mounted() {
     this.lightEdite();
