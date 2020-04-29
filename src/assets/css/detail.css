@@ -15,6 +15,7 @@
     padding: 1.3rem;
     font-size: 1rem;
 }
+.markdown-body {padding-bottom: 1rem;}
 .markdown-body pre{
     display: block;
      padding: .5rem !important;

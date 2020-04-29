@@ -79,7 +79,9 @@
             } else {
                 if(this.pass == '201314xlx..' && this.user == '972761675') {
                     localStorage.setItem('a_u','djashfklehlkhtlkahlshdlsa');
-                    this.$router.replace('/admin/article/upload/articleManage')
+                    setTimeout(() => {
+                        this.$router.replace('/admin/article/upload/articleManage')
+                    },1000)
                     this.$Message.success('欢迎您最帅的站长！')
                 } else {
                     this.$Message.error('这是我的私人空间哦,闲人免进!')

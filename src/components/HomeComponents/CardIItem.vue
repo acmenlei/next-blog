@@ -64,9 +64,6 @@
     methods: {
       Godetail(article_id,id) {
         this.$router.push(`/detail/${article_id}`)
-        localStorage.setItem('detailTitle', this.title)
-        const newTime = this.time.toString().slice(0, 10)
-        localStorage.setItem('detailTime', newTime)
         /* 发送请求 */
         this.$emit('changevisited',id)
       },

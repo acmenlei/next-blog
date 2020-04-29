@@ -45,7 +45,7 @@
         navgation: [
             { name:' Login',icon:'iconfont icon-touxiang', path:'/login' },
             { name:' Article-List',icon:'iconfont icon-wenzhang', path:'/article' },
-            { name:' Demo',icon:'iconfont icon-data_selfservice', path:'/demo' },
+            { name:' Demo',icon:'iconfont icon-anli', path:'/demo' },
             { name:' LeaveMessage',icon:'iconfont icon-liuyan2', path:'/message' },
             { name:' Photos',icon:'iconfont icon-xiangce', path:'/about' },
             { name:' Github',icon:'iconfont icon-GitHub', path:'https://github.com/Acmenlei' },

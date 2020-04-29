@@ -7,7 +7,7 @@
       </video>
       <footer>
         <p>{{item.content}}</p>
-        <span>{{item.datetime}}</span>
+        <span>{{item.datetime | dateFilter}}</span>
         <Button type="success" @click.native="CatCode(item.code_path)">查看源码</Button>
       </footer>
     </div>
@@ -16,6 +16,7 @@
 </template>
 <script>
 import { PageSizeChange } from "./NetWork/request";
+import moment from 'moment'
 export default {
   name: "demo",
   data() {
@@ -24,6 +25,11 @@ export default {
       index: 1
     };
   },
+    filters:{
+      dateFilter(val) {
+         return moment(val).format('YYYY-MM-DD HH:mm:ss')
+      }
+    },
   mounted() {
     this.getPage(this.index);
   },

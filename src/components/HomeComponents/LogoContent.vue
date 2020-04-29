@@ -58,20 +58,17 @@
     .meun,
     .search {
         position: absolute;
-        font-size: 1.5rem;
+        font-size: 2rem;
         cursor: pointer;
         color: white;
         display: none;
+        top: .5rem;
         }
     .meun {
-        top: .5rem;
         left: 3rem;
-        font-size: 2rem;
     }
     .search {
-        top: 1.1rem;
         right: 3rem;
-        font-weight: bold;
     }
     .meun:hover,
     .search:hover {

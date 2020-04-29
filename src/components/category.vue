@@ -14,7 +14,7 @@
             <p style="color:orange;margin:0.5rem;border:0;">{{item.title}}</p>
             <span class="lablecard" style="background:purple"># {{item.lable}}</span>
             <p style="color:#333 !important">{{item.content}}</p>
-            <p style="margin:1rem">{{item.time}}</p>
+            <p style="margin:1rem">{{item.time | dateFilter}}</p>
             <p> 
              <Tooltip placement="top" content="点击跳转到详情页查看">
             <Button type="primary" @click.native="Godetail(item.id,item.article_id,item)">阅读全文</Button>
@@ -27,6 +27,7 @@
 <script>
 import { getnotedetail,PostMessage } from './NetWork/request'
 import lables from './categoryComponents/lables'
+import moment from 'moment'
   export default {
     name:'category',
     data () {
@@ -34,6 +35,11 @@ import lables from './categoryComponents/lables'
         lableList:[],
          Itemlist:[],
       };
+    },
+    filters:{
+      dateFilter(val) {
+        return moment(val).format('YYYY-MM-DD');
+      }
     },
     mounted() {
       getnotedetail('/note/getlables')
