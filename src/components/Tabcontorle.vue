@@ -80,7 +80,7 @@
         font-size: 1.2rem;
         font-style:normal;
         margin-left: 1rem;
-        color: yellow;
+        color: rgb(255, 0, 106);
       }
       @media screen and (min-width:992px) {
         i,span{
@@ -91,7 +91,7 @@
   }
       i:hover{
         cursor: pointer;
-        color: rgb(108, 6, 240);
+        color: rgb(56, 255, 6);
       }
       .profile{
         text-align: center;

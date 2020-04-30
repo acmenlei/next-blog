@@ -58,7 +58,7 @@ export default {
       arrMesasgeList: [],
       title: "",
       time: "",
-      bgColor:['magenta','blue','red','cyan','volcano','yellow',],
+      bgColor:['magenta','blue','red','cyan','volcano','yellow'],
       shareIcon: [
         {
           content: "分享到微博",
@@ -201,7 +201,7 @@ export default {
       margin-right: 1rem;
     }
     i {
-      padding: 0.6rem;
+      padding: 0.6rem 0.63rem;
       border-radius: 50%;
       font-size: 1.4rem;
       margin: 0 1rem;

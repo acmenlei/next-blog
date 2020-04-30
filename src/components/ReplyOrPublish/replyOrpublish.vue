@@ -21,7 +21,8 @@
           </Modal>
             <div v-for="(item, index) in messageData" :key="index">
               <ListItem ref="contentItem" class="contentItem">
-               <p class="number_id">{{index+1}} 楼</p>
+               <p v-if="publishURL == '/note/accessPulish'" class="number_id">{{index+1}} 楼</p>
+               <p v-if="publishURL == '/message/leavemessage'" class="number_id">{{item.id}} 楼</p>
               <img :src="item.Imgsrc"> 
                <a>{{item.name}}</a>
                <span>{{item.value}}</span>
@@ -210,7 +211,7 @@ import moment from 'moment'
           top: 0.5rem;right: 1rem;;
         }
         p.number_id{
-        right:9rem;
+        right:10rem;
       }
       }
        p.reply {
