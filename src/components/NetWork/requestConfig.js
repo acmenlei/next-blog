@@ -13,6 +13,9 @@ function PageConfig(path,parmas) {
         baseURL:'http://39.107.50.117:3000',
         timeout:5000
     })
+    // instance.interceptors.request.use(config => {
+    //     return config
+    // })
     return instance({
         url:path,
         params:parmas

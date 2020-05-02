@@ -1,6 +1,5 @@
 <template>
   <div id="demo">
-    <h4>Ps：日常小demo与源码分享</h4>
     <div v-for="(item, index) in demoList" :key="index" class="demoItem">
       <video id="video" controls preload="none" :poster="item.video_pic">
         <source :src="item.video_path" type="video/mp4" />
@@ -79,15 +78,6 @@ export default {
   flex-wrap: wrap;
   position: relative;
   padding: 3rem 0;
-  h4 {
-    width: 30rem;
-    position: absolute;
-    left: 50%;
-    top: 1rem;
-    transform: translateX(-50%);
-    color:#f2f2f2;
-    font-family: cursive;
-  }
   .demoItem {
     width: 30%;
     margin: 1rem;

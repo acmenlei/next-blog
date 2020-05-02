@@ -1,10 +1,10 @@
 <template>
  <div class="myInfo">
-            <div v-if="!username" style="text-align:center;padding-top:8rem;color:white">
-              糟糕，小主你还没有登陆检测不到信息! ~§(*￣▽￣*)§~
+            <div v-if="!username" style="text-align:center;padding-top:8rem;">
+              糟糕，您还没有登陆检测不到信息! ~§(*￣▽￣*)§~
             </div>
             <div v-if="username"  class="SuccessInfo">
-              <h4 style="color:orange;margin-bottom:1rem;">下面这些就是小主的个人信息啦(●ˇ∀ˇ●)~</h4>
+              <h4 style="color:orange;margin-bottom:1rem;">下面这些就是您的个人信息啦(●ˇ∀ˇ●)~</h4>
                 <img :src="MyInfo.uploadimg" alt="这是头像啦啦啦">
               <Upload
                 v-show="flag"
@@ -35,7 +35,7 @@
                   <Button class="editor_Info" @click="updateInfo" type="default">编辑信息</Button>
                   <Button class="primary" v-show="flag" @click="primaryInfo" type="primary">提交</Button>
                 </p>
-                <p>温馨提示:小主如果点错了,连续按两次编辑信息可以取消编辑哦(。・∀・)ノ</p>
+                <p>温馨提示:如果点错了,连续按两次编辑信息可以取消编辑哦(。・∀・)ノ</p>
             </div>
           </div>
 </template>
@@ -119,7 +119,6 @@ import { PostMessage } from './NetWork/request'
               text-align: left;
               font-size: 1.2rem;
               margin:1rem;
-              color: #f2f2f2;
               font-weight: bold;
               span {
                 color: lightblue;
@@ -135,12 +134,12 @@ import { PostMessage } from './NetWork/request'
               font-weight: bold;
               border-radius: 0.2rem;
               margin-left: 0.2rem;
+              background: #f2f2f2;
             }
             .info {
               width:80%;
             }
             .active {
-              color: #f2f2f2;
               background: transparent!important;
             }
           }

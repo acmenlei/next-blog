@@ -2,7 +2,7 @@
   <div id="Login">
     <Form ref="formInline" :model="formInline" :rules="ruleInline" :lable-width="80">
       <FormItem>
-        <div class="logintitle">欢迎加入codelei的小家庭!</div>
+        <div :style="{color:Color}" class="logintitle">欢迎加入codelei的小家庭!</div>
       </FormItem>
       <FormItem prop="user">
         <Input type="text" v-model="formInline.user" placeholder="Username">
@@ -35,7 +35,7 @@
         <Button class="btns" style="margin-left:1rem;" type="default" @click="register">我是新人</Button>
       </FormItem>
       <FormItem>
-        <p style="color:#333;font-size:1rem;">提示: 没有账号可以点击我是新人进行注册,只需要验证邮箱就可以了,欢迎你的加入！</p>
+        <p :style="{color:Color}" style="font-size:1rem;">提示: 没有账号可以点击我是新人进行注册,只需要验证邮箱就可以了,欢迎你的加入！</p>
       </FormItem>
     </Form>
   </div>
@@ -98,6 +98,11 @@ export default {
       }
     };
   },
+    computed:{
+      Color() {
+        return this.$store.state.Color
+      }
+    },
   mounted() {
     if (localStorage.getItem("show")) {
       this.showBtn = true;
@@ -243,7 +248,6 @@ export default {
     border: 0;
   }
   .logintitle {
-    color: #333 !important;
     font-size: 2rem;
   }
 }

@@ -91,7 +91,7 @@ import moment from 'moment'
     h3 {
       text-align: center;
       padding:2rem;
-      color: #f2f2f2!important ;
+      color: rgba(4, 226, 60, 0.8)!important ;
     }
     .lables {
       width: 85%;

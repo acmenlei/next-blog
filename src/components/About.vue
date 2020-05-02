@@ -1,6 +1,6 @@
 <template>
   <div id="about">
-    <header> 
+    <header :style="{color: Color}"> 
       <Icon type="md-ribbon"></Icon>当前位置: <router-link style="cursor:pointer" tag="span" to="/">首页</router-link> > 云相册
       </header>
         <div id="container">
@@ -19,6 +19,11 @@ import  { getnotedetail } from './NetWork/request'
     data() {
       return {
         talkdata:[]
+      }
+    },
+    computed:{
+      Color() {
+        return this.$store.state.Color
       }
     },
     mounted() {
@@ -81,15 +86,9 @@ import  { getnotedetail } from './NetWork/request'
         columns:2 ;
       }
   }
-      @media screen and (max-width: 600px){
-      #container {
-        columns:1 ;
-      }
-  }
   header {
     padding-bottom: 2rem;
     position: relative;
-    color: #f2f2f2;
     span:hover {
       color: lightblue;
     }

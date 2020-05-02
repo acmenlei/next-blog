@@ -1,7 +1,7 @@
 <template>
   <div class="myinfo">
       <!-- 个人介绍结束 -->
-          <h4 class="title">My Makefirend:</h4>
+          <p class="title"><Icon type="ios-contacts-outline" /> My Makefirend:</p>
           <Tabs class="tabs" value="name1"> 
         <TabPane label="联系方式" name="name1">
           <i class="iconfont icon-qq" style="color:skyblue;"></i>:755425595 
@@ -32,16 +32,28 @@
   }
 
 </script>
-<style scoped>
-.title {
-    color:orange;margin:1rem 0 1rem 1rem;
+<style lang="scss" scoped>
+.myinfo {
+  border: 1px solid #ccc;
+  width: 100%;
+  border-radius: 5px;
+  .title {
+    background: #fff;
+    line-height:20px;
+    padding:0.5rem;
+    border-bottom:1.5px solid lightseagreen;
+    font-size: .8rem;
+  }
+  .tabs {
+    padding: .5rem;
+    position: relative;
+    z-index: 5;
+    background: #fff;
+    color: #333;
+    .ivu-tabs-tabpane {
+      font-size: .8rem;
     }
-        .tabs {
-          border-radius: .4rem;
-          padding: 1rem;
-           position: relative;
-          z-index: 5;
-          color: #333;
-        background: rgb(255, 255, 255,.8);
-        }
+
+  }
+}
 </style>

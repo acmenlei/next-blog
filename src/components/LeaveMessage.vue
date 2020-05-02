@@ -1,6 +1,6 @@
 <template>
   <div id="message">
-    <marquee style="color:#f2f2f2;" direction="left">
+    <marquee style="color:orange;" direction="left">
       可以给博主大大提点建议他回来的时候就可以看见啦  (｡･∀･)ﾉﾞ嗨 ~
     </marquee>
         <replyOrpublish 

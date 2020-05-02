@@ -69,7 +69,7 @@
       background-size: cover;
       position: fixed;
       left: -35rem;
-      top: 4.2rem;
+      top: 3rem;
       z-index: 998;
       border-right: 1px solid lightblue;
       transition: all .5s ease-in-out;

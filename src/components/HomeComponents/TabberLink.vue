@@ -15,8 +15,8 @@
     data () {
       return {
           LinkList:[{name:"首页",imageURL:"md-home",path:'/'},{name:"文章列表",imageURL:'ios-bookmarks-outline',path:'/article'},
-                    {name:"Demo",imageURL:"logo-nodejs",path:'/demo'},{name:"云相册",imageURL:'md-images',path:'/about'},
-                    {name:"分类",imageURL:'ios-keypad',path:'/category'},{name:"留言板",imageURL:'ios-create',path:'/message'},
+                    {name:"Demo",imageURL:"logo-youtube",path:'/demo'},{name:"云相册",imageURL:'md-images',path:'/about'},
+                    {name:"个人信息",imageURL:'md-person',path:'/profile'},{name:"留言板",imageURL:'ios-create',path:'/message'},
                     {name:"GitHub",imageURL:'logo-github',path:'https://github.com/Acmenlei'},{name:"登陆 / 注册",imageURL:"md-contact",path:'/login'}
           ]
       };
@@ -38,6 +38,10 @@
   }
 </script>
 <style lang="scss" scoped>
+@font-face {
+  font-family: '../../assets/font/Helvetica-Neue-UltraLight-2.ttf';
+  src: url('../../assets/font/Helvetica-Neue-UltraLight-2.ttf');
+}
 #tabbarLink {
     .tabbar {
         background: transparent;
@@ -48,13 +52,13 @@
     }
     .ivu-menu-item{
       color: #f2f2f2;
-      font-size: 1rem;
+      font-size: .7rem;
       border-bottom: 0;
-      height: 4.3rem;
-      line-height: 4.2rem;
+      height: 3.2rem;
+      line-height: 2.2rem;
+      font-family: '../../assets/font/Helvetica-Neue-UltraLight-2.ttf';
     }
     .ivu-menu-item:hover {
-      background: rgb(53, 50, 50,.5); 
       color: yellow;
     }
     /* 清除导航下划线 */

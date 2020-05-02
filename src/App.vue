@@ -1,24 +1,6 @@
 <template>
   <div id="app">
     <Index/>
-           <vue-particles
-            color="#fff000"
-            :particleOpacity="0.6"
-            :particlesNumber="150"
-            shapeType="star"
-            :particleSize="4"
-            linesColor="#fff"
-            :linesWidth="1"
-            :lineLinked="true"
-            :lineOpacity="0"
-            :linesDistance="150"
-            :moveSpeed="3"
-            :hoverEffect="true"
-            hoverMode="grab"
-            :clickEffect="true"
-            clickMode="push"
-            class="lizi"
-      />
   </div>
 </template>
 <script>
@@ -36,10 +18,15 @@ export default {
   }
 </script>
 <style lang="scss">
+@font-face {
+  font-family: './assets/font/Helvetica-Neue-UltraLight-2.ttf';
+  src: url('./assets/font/Helvetica-Neue-UltraLight-2.ttf');
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: './assets/font/Helvetica-Neue-UltraLight-2.ttf';
 }
 @media screen and (max-width:1200px) {
     body,html {
@@ -73,6 +60,5 @@ export default {
          width: 100vw;
          height: 100vh;
      }
-    background: #333;
 }
 </style>

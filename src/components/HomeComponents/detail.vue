@@ -1,11 +1,14 @@
 <template>
   <div id="detail">
-    <header class="detail_header">
+    <header class="detail_header" :style="{color: Color}">
       <h2 style="font-size:1.3rem">
         <i class="iconfont icon-lianjie"></i>
         {{title}}
       </h2>
-      <h3 style="padding-top:1rem;"><Icon type="ios-timer" /> {{time | dateFilter}}</h3>
+      <h3 style="padding-top:1rem;">
+        <Icon type="ios-timer" />
+        {{time | dateFilter}}
+      </h3>
       <div class="tags">
         <Tag :color="bgColor[index]" v-for="(item,index) in lablesList" :key="index">{{item}}</Tag>
       </div>
@@ -20,7 +23,7 @@
           <div ref="content" class="renderNav" v-html="html"></div>
         </div>
         <div class="detail_share">
-          <span>分享文章:</span>
+          <span :style="{color: Color}">分享文章:</span>
           <Tooltip
             v-for="(item, index) in shareIcon"
             :key="index"
@@ -31,9 +34,10 @@
           </Tooltip>
           <QrcodeVue v-show="qrcode" class="erweima" :value="detailURL" />
         </div>
-        <reply-orpublish 
-            :messageData='arrMesasgeList' publishURL='/note/accessPulish' 
-            replyURL='/note/replyInfo'
+        <reply-orpublish
+          :messageData="arrMesasgeList"
+          publishURL="/note/accessPulish"
+          replyURL="/note/replyInfo"
         />
       </Col>
     </Row>
@@ -45,8 +49,8 @@ import highlight from "highlight.js";
 import marked from "marked";
 import "highlight.js/styles/monokai-sublime.css";
 import QrcodeVue from "qrcode.vue";
-import replyOrpublish from '../ReplyOrPublish/replyOrpublish'
-import moment from 'moment'
+import replyOrpublish from "../ReplyOrPublish/replyOrpublish";
+import moment from "moment";
 export default {
   name: "detail",
   data() {
@@ -58,7 +62,7 @@ export default {
       arrMesasgeList: [],
       title: "",
       time: "",
-      bgColor:['magenta','blue','red','cyan','volcano','yellow'],
+      bgColor: ["magenta", "blue", "red", "cyan", "volcano", "yellow"],
       shareIcon: [
         {
           content: "分享到微博",
@@ -80,19 +84,23 @@ export default {
       qrcode: false
     };
   },
-  filters:{ dateFilter(val) { return moment(val).format('YYYY-MM-DD') } },
-  components: { QrcodeVue,replyOrpublish },
+  filters: {
+    dateFilter(val) {
+      return moment(val).format("YYYY-MM-DD");
+    }
+  },
+  components: { QrcodeVue, replyOrpublish },
   mounted() {
     this.lightEdite();
     this.$Spin.show();
     getnotedetail(`/note/bynotetext/${this.$route.params.id}`).then(res => {
-      const baseURL = res.data.message
+      const baseURL = res.data.message;
       this.html = marked(baseURL.content[0].content);
       this.share_brief = baseURL.content[0].article_brief;
       this.share_img = baseURL.content[0].article_img;
       this.title = baseURL.content[0].title;
       this.time = baseURL.content[0].time;
-      this.arrMesasgeList = baseURL.data
+      this.arrMesasgeList = baseURL.data;
       this.$Spin.hide();
     });
   },
@@ -101,8 +109,14 @@ export default {
       return window.location.href;
     },
     lablesList() {
-      const regExep = /\w\w*/g
-      return this.title.match(regExep)
+      const regExep = /\w\w*/g;
+      return this.title.match(regExep);
+    },
+    TypeChange() {
+      return this.$store.state.fontColor;
+    },
+    Color() {
+      return this.$store.state.Color;
     }
   },
   methods: {
@@ -180,7 +194,6 @@ export default {
 <style lang="scss" scoped>
 @import url("../../assets/css/detail.css");
 #detail {
-  background: #333;
   .detail_share {
     position: relative;
     z-index: 99;
@@ -191,13 +204,13 @@ export default {
     .erweima {
       position: absolute;
       top: -130px;
-      background: #444;
+      background: #fff;
       padding: 0.4rem 0.4rem 0 0.4rem;
       border-radius: 0.1rem;
-      border: 1px solid #333;
+      border: 1px solid #ccc;
     }
     span {
-      color: white;
+      color: #333;
       margin-right: 1rem;
     }
     i {
@@ -247,7 +260,6 @@ export default {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: white;
     .tags {
       margin-top: 0.5rem;
     }

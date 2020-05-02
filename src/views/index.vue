@@ -1,5 +1,8 @@
 <template>
-  <div id="index" :class="{adminCssStyle: $route.path.includes('login') || $route.path.includes('admin')}">
+  <div id="index" :class="{adminCssStyle: $route.path.includes('admin')}">
+    <div v-show="!TypeChange" class="moon"></div>
+    <div v-show="TypeChange"  class="night"></div>
+    <light @changeBackground="changeBG"/>
      <Header 
           v-if="!$route.path.includes('admin')"
           :class="{active:$route.name != 'home' || $store.state.isshow}" 
@@ -15,10 +18,11 @@
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import TabContorle  from '../components/Tabcontorle'
+import light from '../components/highlight/light'
 export default {
   name: 'index',
   components:{
-    Header,TabContorle,Footer
+    Header,TabContorle,Footer,light
   },
   mounted() {
     document.onclick = (e) => {
@@ -35,6 +39,16 @@ export default {
         this.$store.commit('updateShow',false)
       }
     }
+  },
+  methods:{
+    changeBG() {
+     this.$store.commit('updatefont', !this.$store.state.fontColor)
+    }
+  },
+  computed: {
+    TypeChange() {
+      return this.$store.state.fontColor
+    }
   }
 }
 </script>
@@ -48,12 +62,27 @@ body,html {
   height: 100%;
 }
   #index {
+    .moon,.night {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: -1;
+    }
+    .night {
+      // background:linear-gradient(#111,purple);
+      background: url('../assets/images/night.gif') center;
+    }
+    .moon {
+      background: url('../assets/images/light.jpg') center;
+    }
     .router_content {
        animation: animate 2s;
     }
     .header{
       width: 100%;
-      height: 4.2rem;
+      height: 3rem;
       position: absolute;
       top: 0;
       z-index: 999;
@@ -62,7 +91,7 @@ body,html {
     .active,
     .current {
       position: sticky;
-      background: rgba(23, 23, 24, 0.8);
+      background: rgba(23, 23, 24);
       animation: animate 1s;
     }
     @keyframes animate {

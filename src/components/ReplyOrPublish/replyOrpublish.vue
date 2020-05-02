@@ -20,7 +20,7 @@
             <Input v-model="replyValue" type="textarea" placeholder="输入回复内容..." />
           </Modal>
             <div v-for="(item, index) in messageData" :key="index">
-              <ListItem ref="contentItem" class="contentItem">
+              <ListItem ref="contentItem" class="contentItem" :style="{color: Color}">
                <p v-if="publishURL == '/note/accessPulish'" class="number_id">{{index+1}} 楼</p>
                <p v-if="publishURL == '/message/leavemessage'" class="number_id">{{item.id}} 楼</p>
               <img :src="item.Imgsrc"> 
@@ -31,14 +31,14 @@
             </ListItem>
             <!-- 回复 -->
              <div class="replyContent" v-for="(replyitem, j) in item.replyAccess" :key="j">
-                <ListItem ref="replyItem" class="replyItem">
-                <p class="number_id">{{j+1}} 楼</p>
+                <ListItem ref="replyItem" class="replyItem" >
+                <p :style="{color: Color}" class="number_id">{{j+1}} 楼</p>
                 <p class="reply_access">
-                  <p class="content">
+                  <p :style="{color: Color}" class="content">
                     <img :src="replyitem.user_imgsrc"> 回复<a> @{{replyitem.reply_name}}</a>: {{replyitem.content}}</p>
                 </p>
               <p class="reply_name">{{replyitem.name}}</p>
-              <p class="reply_time">{{replyitem.datetime | dateFilter}}</p>
+              <p :style="{color: Color}" class="reply_time">{{replyitem.datetime | dateFilter}}</p>
               <p @click="SetPaddingReply(replyitem, item,  j)" class="reply">回复</p>
             </ListItem>
              </div>
@@ -81,6 +81,11 @@ import moment from 'moment'
     filters:{
       dateFilter(val) {
          return moment(val).format('YYYY-MM-DD HH:mm:ss')
+      }
+    },
+    computed:{
+      Color() {
+        return this.$store.state.Color
       }
     },
     methods: {
@@ -190,9 +195,8 @@ import moment from 'moment'
       .contentItem {
         padding: 2rem;
         position: relative;
-        border-bottom: 1px solid #444;
+        border-bottom: 1px solid #bbb;
         p,span,img,a{
-          color: #f2f2f2;
           position: absolute;font-size: 0.8rem;
         }
         a{
@@ -223,7 +227,7 @@ import moment from 'moment'
           color: blue;
         }
         .replyContent {
-          border-bottom:1px solid #444;
+          border-bottom:1px solid #bbb;
           padding-left:50px;
           font-size: 0.8rem;
           .replyItem {
@@ -248,7 +252,7 @@ import moment from 'moment'
             padding-left: 0.5rem;
             padding-right: 3rem;
             text-align: left;
-            color: #f2f2f2;
+            color: #333;
           }
           p.reply_name {
             position: absolute;
@@ -260,13 +264,13 @@ import moment from 'moment'
             position: absolute;
             left: 8rem;
             font-size: 0.8rem;
-            color: #f2f2f2;
+            color: #333;
           }
           p.number_id {
             position: absolute;
             right: 4rem;
             top: 1rem;
-            color: #f2f2f2;
+            color: #333;
           }
           }
         }

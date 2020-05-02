@@ -1,6 +1,6 @@
 <template>
   <div id="music_container">
-    <h4 style="color:orange">Music Recommend</h4>
+    <p><Icon type="ios-musical-notes" /> 音乐鉴赏</p>
     <span class="introduce">谁还不是个优雅不失风度的人呢，看电脑累了吧，给你推荐一首好听的音乐，闭一下眼睛听首音乐放松放松吧。</span>
     <iframe
       frameborder="no"
@@ -46,30 +46,35 @@ export default {
 </script>
 <style lang="scss" scoped>
 #music_container {
+  width: 100%;
+  margin-bottom: 1rem;
+  background: #fff;
+  padding:.5rem;
+  border: 1px solid #ccc;
   position: relative;
-  color: #333;
-  background: rgb(255, 255, 255,.8);
-  padding: 1rem 1.5rem 0 1rem;
-  margin-right: 1rem;
-  position: relative;
-  z-index: 5;
-  border-radius: .4rem!important;
+  font-size: .8rem;
+  border-radius: 8px!important;
   border-bottom-left-radius: 0!important;
   border-bottom-right-radius: 0!important;
+  p {
+      font-size: .8rem;
+      padding:0.5rem;
+      border-bottom:1.5px solid lightseagreen;
+  }
   .musicBox {
-    height: 8rem;
+    height: 7.2rem;
     width: 100%;
-    margin-bottom: 3rem;
+    border-radius: 8px;
   }
   .introduce {
     display: inline-block;
     padding: 1rem 0;
   }
-  i {
-    font-size: 1.5rem;
+  i.prev_Button,i.next_Button {
+    font-size: 1rem;
     margin: 0 0.5rem;
     position: absolute;
-    bottom: 1rem;
+    bottom: 0.5rem;
     color: #333;
     cursor: pointer;
     font-weight: bold;

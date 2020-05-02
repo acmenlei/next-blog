@@ -22,6 +22,7 @@ export default {
   width: 100%;
   height: 100vh;
   transition: all 0.5s;
+  z-index: 5;
   .center {
     position: absolute;
     top: 50%;

@@ -23,8 +23,8 @@
         position: relative;
         user-select: none;
         p {
-          font-size: 1.2rem;
-          margin-top: -1rem;
+          font-size: 1rem;
+          margin-bottom: 2.5rem;
           font-weight: bold;
           animation: triggerColor 7s infinite alternate;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -58,17 +58,17 @@
     .meun,
     .search {
         position: absolute;
-        font-size: 2rem;
+        font-size: 1.5rem;
         cursor: pointer;
         color: white;
         display: none;
-        top: .5rem;
+        top: .4rem;
         }
     .meun {
-        left: 3rem;
+        left: 2rem;
     }
     .search {
-        right: 3rem;
+        right: 2rem;
     }
     .meun:hover,
     .search:hover {
