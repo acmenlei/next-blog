@@ -1,7 +1,7 @@
 <template>
   <div id="carditem">
         <div class="md-title"><p class="title"> <i class="iconfont icon-lianjie"></i>  {{title}}</p></div>
-         <img @click="detailPage(article_id, id)" :src="Itemimg" alt="封面">
+         <img @click="detailPage(article_id)" :src="Itemimg" alt="封面">
         <Card :contentid="id" class="card">
            <p class="title"><i class="iconfont icon-lianjie"></i>  {{title}}</p>
             <p v-html="content" class="content"></p>
@@ -73,10 +73,8 @@
       }
     },
     methods: {
-      detailPage(article_id,id) {
+      detailPage(article_id) {
         this.$router.push(`/detail/${article_id}`)
-        /* 发送请求 */
-        this.$emit('changevisited',id)
       },
       likeArticle(id) {
         if(localStorage.getItem('username')) {

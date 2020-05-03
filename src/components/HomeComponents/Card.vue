@@ -19,7 +19,6 @@
           <div class="card-left">
             <!-- 文章卡片 -->
             <Card-item
-              @changevisited="changevisite"
               @changelike="changeliked"
               v-for="(item, index) in lists"
               :title="item.title"
@@ -163,17 +162,6 @@ export default {
                 "网络好像有点差劲呢！小主稍后再来咱们不急！(ノへ￣、)"
               );
             }
-          });
-        }
-      });
-    },
-    changevisite(id) {
-      this.lists.forEach(element => {
-        if (element.id == id) {
-          element.visited += 1;
-          PostMessage("/note/noteVisited", {
-            visitedNum: element.visited,
-            id: id
           });
         }
       });
