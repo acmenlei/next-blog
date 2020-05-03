@@ -57,7 +57,7 @@ export default {
   border-bottom-left-radius: 0!important;
   border-bottom-right-radius: 0!important;
   p {
-      font-size: .8rem;
+      font-size: 14px;
       padding:0.5rem;
       border-bottom:1.5px solid lightseagreen;
   }

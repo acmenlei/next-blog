@@ -42,7 +42,7 @@
     line-height:20px;
     padding:0.5rem;
     border-bottom:1.5px solid lightseagreen;
-    font-size: .8rem;
+    font-size: 14px;
   }
   .tabs {
     padding: .5rem .8rem;

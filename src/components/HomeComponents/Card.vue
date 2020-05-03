@@ -4,7 +4,6 @@
       <Col :xl="3" :lg="3" :md="2" :sm="1" :xs="0">
         <header>
           .
-          <!-- <Icon type="md-ribbon"></Icon>当前位置: <router-link style="cursor:pointer" tag="span" to="/">首页</router-link> > 文章列表 -->
         </header>
       </Col>
       <Col :xl="12" :lg="13" :md="12" :sm="12" :xs="24">
@@ -48,6 +47,12 @@
       <Col :xl="5" :lg="5" :md="8" :sm="10" :xs="0">
         <div class="right-box">
           <div class="card-right">
+            <!-- 搜索框区 -->
+            <div class="search">
+              <input placeholder="输入文章关键词搜索.." type="text" v-model="likeSearch">
+              <button class="search-btn" @click="searchLike">search</button>
+            </div>
+            <!-- 分类区 -->
             <div class="categroy-lable">
               <div class="title">
                 <Icon type="ios-keypad" />分类
@@ -61,6 +66,7 @@
                 :key="index"
               >{{item}}</Tag>
             </div>
+            <!-- 最近文章区 -->
             <div class="time-article">
               <div class="title">
                 <Icon type="ios-timer" />最近文章
@@ -73,10 +79,14 @@
                 :key="index"
               >
                 <Tooltip content="点击跳转到详情">{{item.title}}</Tooltip>
+                <span>
+                  <Icon type="ios-clock-outline" />
+                  {{item.time | dateFilter}}
+                </span>
               </div>
             </div>
             <Music />
-            <!-- 交友信息 -->
+            <!-- 交友信息区 -->
             <my-makefriends style="margin-right: 1rem;" />
           </div>
         </div>
@@ -89,6 +99,8 @@ import { getnotedetail, PostMessage, PageSizeChange } from "../NetWork/request";
 import CardItem from "./CardIItem";
 import Music from "./Music";
 import myMakefriends from "./MyMakefriend";
+import moment from "moment";
+import debounce from '../debounce/debounce'
 export default {
   name: "card",
   data() {
@@ -103,20 +115,42 @@ export default {
       modal1: false,
       value: "",
       lablesList: [],
+      likeSearch:'',
       bgColor: ["magenta", "blue", "red", "cyan", "volcano", "yellow"]
     };
   },
   components: { CardItem, myMakefriends, Music },
+  filters: {
+    dateFilter(V) {
+      return moment(V).format("YYYY-MM-DD");
+    }
+  },
   mounted() {
     /* 默认请求第一页 */
     this.Pagechange(1);
     getnotedetail("/note/gettimenoteList").then(res => {
       this.navList = res.data;
     });
-    // this.getInfo();
     this.getlables();
   },
   methods: {
+    searchLike: debounce(function() {
+      if(!this.likeSearch) return this.$Message.error('搜索内容不能为空的呀~');
+      this.likesearchTool()
+    },800),
+    // 搜索工具
+    likesearchTool() {
+      PostMessage('/note/like_article_search',{ value: this.likeSearch })
+      .then(res => {
+        if(res.data.err === 0) {
+          this.lists = res.data.message
+          this.count = res.data.message.length
+          this.$Message.success('查询内容成功!')
+        } else {
+          this.$Message.error(res.data.message) // 未知错误
+        }
+      })
+    },
     getlables() {
       getnotedetail("/note/getlables").then(res => {
         if (res.data.err == 0) {
@@ -293,6 +327,32 @@ export default {
   .right-box {
     margin: 2rem 1rem;
     .card-right {
+      .search {
+        width: 100%;
+        margin-bottom: 1rem;
+        input,.search-btn {
+          outline: none;
+          border: 1px solid #ccc;
+        }
+        input {
+          width: 76%;
+          border-right: none;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+          padding: 4px 0;
+          text-indent: 5px;
+        }
+        button.search-btn {
+          cursor: pointer;
+          width: 24%;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          background: deepskyblue;
+          color: white;
+          height: 32px;
+          font-size: 13px;
+        }
+      }
       .categroy-lable,
       .time-article {
         font-size: 14px;
@@ -331,12 +391,25 @@ export default {
           cursor: pointer;
           color: #555;
           border-bottom: 1px solid #ccc;
-          transition: background 0.6s;
+          transition: all 0.6s;
           font-size: 13px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          span {
+            font-size: 12px;
+            color: purple;
+            font-weight: bold;
+            white-space: nowrap;
+          }
         }
         .ItemList:hover {
           background: #f2f2f2;
           color: lightgreen;
+          padding-left: .8rem;
+        }
+        .ItemList:last-child {
+          border-bottom: none;
         }
       }
     }

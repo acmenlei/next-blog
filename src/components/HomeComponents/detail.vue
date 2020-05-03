@@ -1,16 +1,23 @@
 <template>
   <div id="detail">
+    <!-- 标题 -->
     <header class="detail_header" :style="{color: Color}">
       <h2 style="font-size:1.3rem">
         <i class="iconfont icon-lianjie"></i>
         {{title}}
       </h2>
+      <!-- 时间 -->
       <h3 style="padding-top:1rem;">
         <Icon type="ios-timer" />
         {{time | dateFilter}}
       </h3>
+      <!-- 标签 -->
       <div class="tags">
         <Tag :color="bgColor[index]" v-for="(item,index) in lablesList" :key="index">{{item}}</Tag>
+      </div>
+      <!-- 绚丽小球 -->
+      <div class="ball">
+            <span :style="{background: ballColor[index]}" v-for="(item, index) in 3" :key="index"></span>
       </div>
     </header>
     <!-- 需要渲染的html -->
@@ -81,7 +88,8 @@ export default {
           direction: "top"
         }
       ],
-      qrcode: false
+      qrcode: false,
+      ballColor:['orangered', 'yellow', 'lightgreen']
     };
   },
   filters: {
@@ -260,6 +268,15 @@ export default {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+      .ball {
+        margin-top: 1rem;
+        span {
+          display: inline-block;
+          width: 12px;height: 12px;
+          border-radius: 50%;
+          margin: 0 0.2rem;
+        }
+    }
     .tags {
       margin-top: 0.5rem;
     }
@@ -269,8 +286,12 @@ export default {
   margin: 1rem;
 }
 .renderNav {
+  border-top: 1.5px dashed lightgreen;
+  border-left: 1.5px dashed skyblue;
+  border-right: 1.5px dashed lightsalmon;
+  border-bottom: 1.5px dashed pink;
   padding: 1rem;
-  background: #f2f2f2;
+  background: #fff;
   position: relative;
   z-index: 5;
   border-radius: 5px;
