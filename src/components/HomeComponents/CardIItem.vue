@@ -1,10 +1,23 @@
 <template>
   <div id="carditem">
-        <div class="md-title"><p class="title"> <i class="iconfont icon-lianjie"></i>  {{title}}</p></div>
+        <div class="md-title">
+          <!-- md尺寸的小球 -->
+          <div class="right-around md-ball">
+            <span :style="{background: ballColor[index]}" v-for="(item, index) in 3" :key="index"></span>
+          </div>
+          <p class="title"> <i class="iconfont icon-lianjie"></i>  {{title}}</p>
+        </div>
          <img @click="detailPage(article_id)" :src="Itemimg" alt="封面">
         <Card :contentid="id" class="card">
+          <!-- xl尺寸显示的三个小球 -->
+          <div class="right-around xl-ball">
+            <span :style="{background: ballColor[index]}" v-for="(item, index) in 3" :key="index"></span>
+          </div>
+          <!-- 文章标题 -->
            <p class="title"><i class="iconfont icon-lianjie"></i>  {{title}}</p>
+            <!-- 文章简介 -->
             <p v-html="content" class="content"></p>
+            <!-- 文章发布时间，点赞数，访问量 -->
             <div class="article-item-icon">
               <div class="access_me"><img src="../../assets/images/swiper1.jpeg" alt=""><p>磊崽</p></div>
               <p class="publictime"><Icon type="ios-clock-outline" /> {{time | timeFilter}}</p>
@@ -18,11 +31,11 @@
               <i class="iconfont icon-fangwen"></i><span>{{visited}}</span>
             </p>
             </div>
+            <!-- 文章标签 -->
             <div class="tags">
               <Tag color="cyan">{{lable}}</Tag>
               <Tag :color="bgColor[index]" v-for="(item,index) in lablesList" :key="index">{{item}}</Tag>
       </div>
-            
     </Card>
   </div>
 </template>
@@ -65,6 +78,7 @@
       return {
         flag:true,
         bgColor:['magenta','blue','red','cyan','volcano','yellow'],
+        ballColor:['orangered', 'yellow', 'lightgreen']
       };
     },
     filters:{
@@ -110,9 +124,23 @@
     flex-wrap: nowrap;
     border-bottom: 1px solid #ccc;
     .md-title { 
-      display: none; font-size: 1.1rem;
+      display: none; font-size: 16px;
       margin: 1rem 0;
       color: #333;
+    }
+      .md-ball {
+        margin-right: 1rem;
+        display: none;
+      }
+     .right-around {
+        float:right;
+        span {
+          display: inline-block;
+          width: 12px;height: 12px;
+          border-radius: 50%;
+          margin: 0 0.2rem;
+          border: 1px solid #f2f2f2;
+        }
       }
     .card {
       display: flex;
@@ -121,12 +149,12 @@
       padding: 1rem 0 0 0;
       border: 0;
       .title {
-        font-size: 1rem;
+        font-size: 16px;
         margin: 1rem 0;
         color: #333;
       }
       .content {
-        font-size: .9rem;
+        font-size: 14px;
       }
       .article-item-icon {
         display: flex;
@@ -174,9 +202,7 @@
     }
     img {
       width: 14rem;
-      margin: .4rem;
       padding: .4rem;
-      border: .5px solid transparent;
       border-radius: 10px;
       cursor: pointer;
     }
@@ -184,6 +210,12 @@
   @media screen and (max-width:992px) {
       #carditem {
         flex-direction: column;
+        .md-ball {
+          display: inline;
+        }
+        .xl-ball {
+          display: none;
+        }
         .md-title {
           display: block;
           p {
@@ -196,7 +228,6 @@
           }
         }
         img {
-          flex: 1;
           width: 92%;
           margin: 0;
           margin:0 1rem;

@@ -16,7 +16,7 @@
               <i @click="$router.push('/demo')" class="iconfont icon--"> Demo</i>
             </ListItem>
             <ListItem>
-              <i @click="$router.push('/about')" class="iconfont icon-biaoti"> 云相册</i>
+              <i @click="$router.push('/photos')" class="iconfont icon-biaoti"> 云相册</i>
             </ListItem>
             <ListItem>
               <i @click="$router.push('/message')" class="iconfont icon-liuyan2"> 留言板</i>
@@ -61,7 +61,6 @@
 
 </script>
 <style lang="scss" scoped>
-@import url('../assets/css/tabcontorl.css');
     .MeunTab {
       width:23rem;
       height: 100vh;

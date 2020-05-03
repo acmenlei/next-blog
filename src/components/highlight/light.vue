@@ -33,7 +33,7 @@ export default {
   position: relative;
   background-color: #000000;
   width: 2px;
-  height: 150px;
+  height: 100px;
   left: 50%;
   margin-left: -1px;
   z-index: 99;
@@ -86,7 +86,7 @@ input {
 }
 
 input[value="on"] {
-  top: 150px;
+  top: 110px;
 }
 input[value="off"] {
   top: -100px;
@@ -95,13 +95,13 @@ input[value="on"]:checked {
   top: -100px;
 }
 input[value="on"]:checked + input[value="off"] {
-  top: 150px;
+  top: 110px;
 }
 
 label {
   width: 51px;
   height: 51px;
-  top: 164px;
+  top: 114px;
   position: absolute;
   left: 0;
   margin-left: -24px;

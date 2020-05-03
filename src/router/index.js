@@ -11,17 +11,17 @@ const routes = [
   {
     path:'/home',
     name:'home',
-    component:() => import('../components/Home.vue')
+    component:() => import('../views/Home.vue')
   },
   {
     path:'/message',
     name:'message',
-    component:() => import('../components/LeaveMessage.vue')
+    component:() => import('../views/LeaveMessage.vue')
   },
   {
     path:'/login',
     name:'login',
-    component:() => import('../components/Login.vue')
+    component:() => import('../views/Login.vue')
   },
   {
     path:'/logined',
@@ -29,19 +29,19 @@ const routes = [
     component:() => import('../components/LoginComponents/Logined.vue')
   },
   {
-    path:'/about',
-    name:'about',
-    component:() => import('../components/About.vue')
+    path:'/photos',
+    name:'photos',
+    component:() => import('../views/Photos.vue')
   },
   {
     path:'/profile',
     name:'profile',
-    component:() => import('../components/Profile.vue')
+    component:() => import('../views/Profile.vue')
   },
   {
     path:'/category',
     name:'category',
-    component:() => import('../components/category.vue')
+    component:() => import('../views/category.vue')
   },
   {
     path:'/article',
@@ -51,7 +51,7 @@ const routes = [
   {
     path:'/demo',
     name:'demo',
-    component:() => import('../components/Demo.vue')
+    component:() => import('../views/Demo.vue')
   },
   {
     path:'/detail/:id',
@@ -75,7 +75,7 @@ const routes = [
       },
       {
         path:'/admin/article/upload/photos',
-        name:'photos',
+        name:'uploadphoto',
         component:() => import ('../admin/sendcontent.vue')
       },
       {
@@ -112,6 +112,12 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+/* 重定向不报错 */
+const routerPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return routerPush.call(this, location).catch(error=> error)
+}
 
 /* 全局导航守卫 */
 router.beforeEach((to,from,next) => {

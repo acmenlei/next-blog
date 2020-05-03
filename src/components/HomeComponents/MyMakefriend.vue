@@ -45,13 +45,13 @@
     font-size: .8rem;
   }
   .tabs {
-    padding: .5rem;
+    padding: .5rem .8rem;
     position: relative;
     z-index: 5;
     background: #fff;
     color: #333;
     .ivu-tabs-tabpane {
-      font-size: .8rem;
+      font-size: 13px;
     }
 
   }

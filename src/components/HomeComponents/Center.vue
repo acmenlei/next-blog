@@ -1,6 +1,5 @@
 <template>
   <div id="center">
-    <div class="stage">
         <div class="wrapper">
             <div class="slash"></div>
             <div class="sides">
@@ -10,7 +9,7 @@
                 <div class="side"></div>
             </div>
             <div class="text">
-                <div class="text--backing">HELLOW</div>
+                <div class="text--backing">CODELEI</div>
                 <div class="text--left">
                     <div class="inner">CODELEI</div>
                 </div>
@@ -19,7 +18,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <div class="loading">
         <span class="status online"></span>
         <span class="status invisible"></span>
@@ -136,12 +134,7 @@
    .container_img {
        margin-bottom: 2rem;
    }
-   @font-face {
-       font-family: '../../assets/font/font_title.ttf';
-       src: url('../../assets/font/font_title.ttf');
-   }
    h3 {
-       font-family: '../../assets/font/font_title.ttf';
        margin-bottom: 4rem;
        color: #f2f2f2;
        font-size: 2rem;

@@ -24,7 +24,7 @@
                <p v-if="publishURL == '/note/accessPulish'" class="number_id">{{index+1}} 楼</p>
                <p v-if="publishURL == '/message/leavemessage'" class="number_id">{{item.id}} 楼</p>
               <img :src="item.Imgsrc"> 
-               <a>{{item.name}}</a>
+               <a>{{item.name}}<span v-show="item.username === '972761675'" class="chief">站长</span></a>
                <span>{{item.value}}</span>
               <p>{{item.date | dateFilter}}</p>
               <p @click="SetReplyInfo(item, index)" class="reply">回复</p>
@@ -38,7 +38,10 @@
                     <img :src="replyitem.user_imgsrc"> 回复<a> @{{replyitem.reply_name}}</a>: {{replyitem.content}}</p>
                 </p>
               <p class="reply_name">{{replyitem.name}}</p>
-              <p :style="{color: Color}" class="reply_time">{{replyitem.datetime | dateFilter}}</p>
+              <p :style="{color: Color}" class="reply_time">
+                {{replyitem.datetime | dateFilter}}
+                <span v-show="replyitem.username === '972761675'" class="chief">站长</span>
+              </p>
               <p @click="SetPaddingReply(replyitem, item,  j)" class="reply">回复</p>
             </ListItem>
              </div>
@@ -202,7 +205,13 @@ import moment from 'moment'
         a{
           color: red;
           left: 4rem;
-          top: 1rem;        
+          top: 1rem;      
+          .chief {
+            color: orange;
+            white-space: nowrap;
+            font-weight: bold;
+            margin-left: .5rem;
+          }  
         }
        span {
           padding-right: 3rem;
@@ -262,13 +271,19 @@ import moment from 'moment'
           }
           p.reply_time {
             position: absolute;
-            left: 8rem;
+            left: 9rem;
             font-size: 0.8rem;
             color: #333;
+            .chief {
+              color: orange;
+              white-space: nowrap;
+              font-weight: bold;
+              margin-left: .5rem;
+          }
           }
           p.number_id {
             position: absolute;
-            right: 4rem;
+            right: 1rem;
             top: 1rem;
             color: #333;
           }

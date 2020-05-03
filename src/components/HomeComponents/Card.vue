@@ -258,15 +258,14 @@ export default {
     margin: 2rem 0;
     .article-category {
       line-height: 20px;
-      font-size: 0.8rem;
+      font-size: 15px;
       padding: 0.5rem;
       border: 1px solid #ccc;
       border-bottom: 1.5px solid lightseagreen;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       .article-num {
-        text-align: right;
-        display: inline;
+        display: inline-block;
         float: right;
         color: #333;
         span {
@@ -296,7 +295,7 @@ export default {
     .card-right {
       .categroy-lable,
       .time-article {
-        font-size: 0.8rem;
+        font-size: 14px;
         background: #fff;
         border: 1px solid #ccc;
         border-radius: 5px;
@@ -333,6 +332,7 @@ export default {
           color: #555;
           border-bottom: 1px solid #ccc;
           transition: background 0.6s;
+          font-size: 13px;
         }
         .ItemList:hover {
           background: #f2f2f2;

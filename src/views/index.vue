@@ -91,7 +91,7 @@ body,html {
     .active,
     .current {
       position: sticky;
-      background: rgba(23, 23, 24);
+      background: #555;
       animation: animate 1s;
     }
     @keyframes animate {

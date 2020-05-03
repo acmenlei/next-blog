@@ -19,14 +19,14 @@ export default {
 </script>
 <style lang="scss">
 @font-face {
-  font-family: './assets/font/Helvetica-Neue-UltraLight-2.ttf';
-  src: url('./assets/font/Helvetica-Neue-UltraLight-2.ttf');
+  font-family: './assets/font/2012DingYongKangYingBiKaiShuXinBan-2.ttf';
+  src: url('./assets/font/2012DingYongKangYingBiKaiShuXinBan-2.ttf');
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: './assets/font/Helvetica-Neue-UltraLight-2.ttf';
+  font-family: './assets/font/2012DingYongKangYingBiKaiShuXinBan-2.ttf';
 }
 @media screen and (max-width:1200px) {
     body,html {

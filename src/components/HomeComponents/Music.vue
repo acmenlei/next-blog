@@ -52,7 +52,7 @@ export default {
   padding:.5rem;
   border: 1px solid #ccc;
   position: relative;
-  font-size: .8rem;
+  font-size: 13px;
   border-radius: 8px!important;
   border-bottom-left-radius: 0!important;
   border-bottom-right-radius: 0!important;
