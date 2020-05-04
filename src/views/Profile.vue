@@ -62,7 +62,17 @@ import { PostMessage } from '../components/NetWork/request'
         if(this.username) {
            PostMessage('/user/getuserInfo',{token:this.username})
            .then(res => {
-             this.MyInfo = res.data.Info[0]
+             if(res.data.err === 0) {
+               this.MyInfo = res.data.Info[0]
+             } else if(res.data.err === -999) {
+               this.$Message.error('对不起,您的登录信息已过期请重新登陆。')
+               localStorage.removeItem('username')
+               setTimeout(() => {
+                 location.reload()
+               }, 1000);
+             } else {
+               this.$Message.error(res.data.message)
+             }
            })
         }
       },
