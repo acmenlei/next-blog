@@ -17,7 +17,7 @@
             <p style="margin:1rem">{{item.time | dateFilter}}</p>
             <p> 
              <Tooltip placement="top" content="点击跳转到详情页查看">
-            <Button type="primary" @click.native="Godetail(item.id,item.article_id,item)">阅读全文</Button>
+            <Button type="primary" @click.native="Godetail(item.article_id)">阅读全文</Button>
             </Tooltip>
             </p>
       </Card>
@@ -77,10 +77,8 @@ import moment from 'moment'
                 } 
             })
        },
-       Godetail(id,path,item) {
+       Godetail(path) {
         this.$router.push(`/detail/${path}`)
-        item.visited += 1
-        PostMessage('/note/noteVisited',{visitedNum:item.visited,id:id})
       }
     },
   }

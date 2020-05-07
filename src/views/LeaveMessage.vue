@@ -32,13 +32,32 @@ import replyOrpublish from '../components/ReplyOrPublish/replyOrpublish'
     },
     components:{ replyOrpublish },
     methods: {
+    showLoading() {
+      /* 请求数据的加载 */
+      this.$Spin.show({
+        render: h => {
+          return h("div", [
+            h("Icon", {
+              class: "demo-spin-icon-load",
+              props: {
+                type: "ios-loading",
+                size: 18
+              }
+            }),
+            h("div", "正在努力加载请稍等...")
+          ]);
+        }
+      });
+    },
       Pagechange(index) {
         /* 发起请求 */
+        this.showLoading();
         PageSizeChange('/page/pageSize',{page:index})
         .then(res => {
           if(res.data.err == 0) {
             this.count = res.data.message.count
             this.arrMesasgeList = res.data.message.data
+            this.$Spin.hide()
           } else {
             this.$Message.error("网络出错了,(ノへ￣、)！")
           }

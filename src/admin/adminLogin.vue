@@ -1,6 +1,5 @@
 <template>
   <div class="adminLogin">
-    <div class="bg"></div>
     <div :class="{rightpanelactive: isTransform}" class="container" id="container">
       <div class="form-container sign-up-container">
         <!-- 注册 -->
@@ -94,11 +93,8 @@ export default {
         PostMessage("/user/adminUserCheck", { username:this.user, password: this.pass })
         .then(res => {
           if (res.data.err === 0) {
-            localStorage.setItem("a_u", "djashfklehlkhtlkahlshdlsa");
-            setTimeout(() => {
-              this.$router.replace("/admin/article/upload/articleManage");
-            }, 1000);
-            this.$Message.success("欢迎您最帅的站长！");
+            this.$router.replace('/admin/article')
+            this.$Message.success(res.data.message);
           } else if (res.data.err === -998) {
             this.$Message.error(res.data.message);
           } else {
@@ -300,11 +296,5 @@ button.ghost:active {
 .container.rightpanelactive .overlay-right {
   transform: translateX(20%);
   transition: all 0.6s ease-in-out;
-}
-/* 背景 */
-.bg {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
 }
 </style>

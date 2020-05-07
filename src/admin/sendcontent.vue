@@ -11,7 +11,7 @@
       <p>
           <img v-show="content_src" :src="content_src" alt="说说图片">
       </p>
-    <Upload action="http://39.107.50.117:3000/upload/sendcontent"
+    <Upload action="http://codelei.cn:3000/upload/sendcontent"
     :on-success="handleSuccess"
     >
         <Button icon="ios-cloud-upload-outline">选择图片</Button>

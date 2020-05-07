@@ -5,16 +5,16 @@
       <video v-show="video_path" id="video" controls="" preload="none" :poster="video_pic">
       <source :src="video_path" type="video/mp4">
       </video>
-       <Upload action="http://39.107.50.117:3000/upload/sendcontent"
+       <Upload action="http://codelei.cn:3000/upload/sendcontent"
                :on-success="handlePSuccess">
         <Button icon="ios-cloud-upload-outline">选择封面文件</Button>
         </Upload>
-      <Upload action="http://39.107.50.117:3000/upload/sendcontent"
+      <Upload action="http://codelei.cn:3000/upload/sendcontent"
                :on-success="handleVSuccess">
         <Button icon="ios-cloud-upload-outline">选择录屏文件</Button>
         </Upload>
         <p>{{code_path}}</p>
-        <Upload action="http://39.107.50.117:3000/upload/sendcontent"
+        <Upload action="http://codelei.cn:3000/upload/sendcontent"
                :on-success="handleCSuccess">
         <Button icon="ios-cloud-upload-outline">选择源码文件</Button>
         </Upload>

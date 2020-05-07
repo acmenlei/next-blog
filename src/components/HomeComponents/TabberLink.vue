@@ -1,8 +1,8 @@
 <template>
   <div id="tabbarLink">
-    <router-link :to="item.path"  v-for="(item, index) in LinkList" :key="index">
-       <Icon :type="item.imageURL" /> {{item.name}}
-    </router-link>
+    <a v-for="(item, index) in LinkList" :key="index" @click="triggerPage(item.path)">
+      <Icon :type="item.imageURL" /> {{item.name}}
+    </a>
   </div>
 </template>
 <script>
@@ -25,21 +25,25 @@
               return
             }
           } else if(path == 'https://github.com/Acmenlei') {
-            location.href = path
-            return
+            return window.open(path)
           }
-          this.$router.replace(path)
+          this.$router.push(path)
         },
     },
   }
 </script>
 <style lang="scss" scoped>
+@font-face {
+  font-family: 'codeleilei';
+  src: url('../../assets/font/2012DingYongKangYingBiKaiShuXinBan-2.ttf');
+}
 #tabbarLink {
   display: flex;
   height: 3rem;
   justify-content: center;
   align-items: center;
   a {
+    font-family: 'codeleilei';
     color: #f2f2f2;
     margin: 0 1rem;
     padding: .3rem;

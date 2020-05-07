@@ -50,6 +50,7 @@
   </div>
 </template>
 <script>
+import { getnotedetail } from '../components/NetWork/request'
   export default {
     name:'articleEditor',
     data() {
@@ -62,8 +63,10 @@
             this.ModelisShow = true
         },
         handelOK() {
-            localStorage.removeItem('a_u')
-            this.$router.replace('/admin/login')
+            getnotedetail('/user/adminExit').then(res => {
+                this.$Message.success(res.data.message);
+                location.reload()
+            })
         }
     }
   }

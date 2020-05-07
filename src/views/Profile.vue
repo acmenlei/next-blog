@@ -14,7 +14,7 @@
                 :format="['jpg','jpeg','png']"
                 multiple
                 type="drag"
-                action="http://39.107.50.117:3000/upload/headPortraitUpload"
+                action="http://codelei.cn:3000/upload/headPortraitUpload"
                 style="display: inline-block;width:58px;margin:0 0 2rem 1rem;">
                 <div style="width: 58px;height:58px;line-height: 58px;">
                     <Icon type="ios-camera" size="20"></Icon>

@@ -34,7 +34,8 @@ export default {
     width: 100%;
     height: 100vh;
     animation: opcity 0.5s linear;
-    background: url('../../assets/images/maskeBG.jpg') no-repeat center;
+    background:linear-gradient(#000,#311133);
+    // background: url('../../assets/images/maskeBG.jpg') no-repeat center;
     background-size: cover;
     z-index: -99;
   }
@@ -53,11 +54,11 @@ export default {
     0% { transform: translateX(-100%) }
     100% {  transform: translateX(0%) }
   }
-  @media screen and (max-width: 987px) {
-  .bg {
-    animation: opcity 0.5s linear;
-    background: rgb(34, 34, 34);
-  }
-  }
+  // @media screen and (max-width: 987px) {
+  // .bg {
+  //   animation: opcity 0.5s linear;
+  //   background: rgb(34, 34, 34);
+  // }
+  // }
 }
 </style>

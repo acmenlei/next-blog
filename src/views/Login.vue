@@ -28,7 +28,7 @@
         >发送验证码</Button>
       </FormItem>
       <FormItem v-if="isshow" prop="value">
-        <Input class="put_code" v-model="formInline.value" placeholder="输入验证码"></Input>
+        <Input class="put_code" v-model="formInline.code" placeholder="输入验证码"></Input>
       </FormItem>
       <FormItem>
         <Button class="btns" @click="handleSubmit('formInline')">登陆</Button>
@@ -54,7 +54,7 @@ export default {
         user: "",
         password: "",
         email: "",
-        value: ""
+        code: ""
       },
       ruleInline: {
         user: [
@@ -88,7 +88,7 @@ export default {
             trigger: "blur"
           }
         ],
-        value: [
+        code: [
           {
             required: true,
             message: "你还没有输入验证码,不要着急！",
@@ -104,21 +104,23 @@ export default {
       }
     },
   mounted() {
-    if (localStorage.getItem("show")) {
+    if (localStorage.getItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk")) {
       this.showBtn = true;
-      this.count = parseInt(localStorage.getItem("show"));
+      this.count = parseInt(localStorage.getItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk"));
       this.timer = setInterval(() => {
         this.count -= 1;
         if (this.count == 0) {
           clearInterval(this.timer);
-          localStorage.removeItem("show");
+          localStorage.removeItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk");
           this.btntext = "发送验证码";
           this.showBtn = false;
         } else {
           this.btntext = `${this.count}秒后重新发送`;
-          localStorage.setItem("show", this.count);
+          localStorage.setItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk", this.count);
         }
       }, 1000);
+    } else {
+      clearInterval(this.timer)
     }
     /* 键盘事件 */
       document.onkeydown = (e) => {
@@ -134,8 +136,8 @@ export default {
         if (valid) {
           /* 登陆失败走注册模式 */
           if (this.isshow) {
-            const code = localStorage.getItem("code");
-            if (this.formInline.value == code) {
+            // const regex = /\d+/g;
+            // const code = localStorage.getItem("m_z_y_c").match(regex)[0];
               PostMessage("/user/login", this.formInline).then(res => {
                 if (res.data.err == 0) {
                   this.$Message.success(
@@ -143,18 +145,17 @@ export default {
                   );
                   /* 保存一下token */
                   localStorage.setItem("username", res.data.token);
-                  /* 再清除一下本地验证码缓存 */
-                  localStorage.removeItem("code");
+                  // /* 再清除一下本地验证码缓存 */
+                  // localStorage.removeItem("m_z_y_c");
+                  clearInterval(this.timer)
+                  localStorage.removeItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk");
                   setTimeout(() => {
-                    this.$router.replace("/home");
+                    this.$router.back()
                   }, 1000);
                 } else {
                   this.$Message.error(res.data.message);
                 }
               });
-            } else {
-              this.$Message.error("错误的验证码, ⊙﹏⊙∥！");
-            }
           } else {
             /* 默认走登陆模式 */
             PostMessage("/user/login", this.formInline).then(res => {
@@ -197,25 +198,25 @@ export default {
             if (res.data.err == 0) {
               /* 发送成功 */
               this.$Message.success("验证码已经发送到小主的邮箱了,(●ˇ∀ˇ●)");
-              localStorage.setItem("code", res.data.data);
+              // localStorage.setItem("m_z_y_c", 'jkjgisafhiawr__ew__rouohkfdshkkfsdhkhkjhaskisaifhihihfigdhk'+res.data.data+'jeg__fdsj_fewsfh');
               /* 进行倒计时 设置定时一分钟后可访问 */
-              localStorage.setItem("show", 60);
+              localStorage.setItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk", 60);
               this.showBtn = true;
               this.count = 60;
               this.timer = setInterval(() => {
                 this.count -= 1;
                 if (this.count == 0) {
                   clearInterval(this.timer);
-                  localStorage.removeItem("show");
+                  localStorage.removeItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk");
                   this.btntext = "发送验证码";
                   this.showBtn = false;
                 } else {
                   this.btntext = `${this.count}秒后重新发送`;
-                  localStorage.setItem("show", this.count);
+                  localStorage.setItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk", this.count);
                 }
               }, 1000);
             } else {
-              this.$Message.error("网络不行稍后再试试噢");
+              this.$Message.error(res.data.message);
             }
           });
         } else {

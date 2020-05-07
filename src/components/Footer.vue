@@ -2,19 +2,18 @@
   <div v-show="$route.path !== '/home'" id="Footer">
   <div class="myWX">
     <img src="../assets/images/wx.jpg" alt="">
-    
   </div>
-  <div class="friendLink">
-    <p>友情链接位置...</p>
-    <p>友情链接位置...</p>
-    <p>友情链接位置...</p>
-    <p>友情链接位置...</p>
-    <p>友情链接位置...</p>
-    <p>友情链接位置...</p>
-  </div>
-    <div class="talk">
-       <p> <i class="iconfont icon-touxiang"></i>: 小站刚上线, <p>添加友链请扫描微信联系。</p>~</p>
+      <div class="talk">
+       <p>&copy; codelei.cn 版权所有</p>
+       <p><a href="http://www.beian.miit.gov.cn">赣ICP备20005844号</a></p>
     </div>
+  <div class="friendLink">
+    <p style="color:#789;font-size:.9rem;">友情链接：</p>
+    <p><a href="https://www.zhoyq.com/">衷于栖</a></p>
+    <p><a href="javascript:;">友情链接待添加...</a></p>
+    <p><a href="javascript:;">友情链接待添加...</a></p>
+    <p><a href="javascript:;">友情链接待添加...</a></p>
+  </div>
   </div>
 </template>
 <script>
@@ -50,21 +49,44 @@
         width: 8rem;
       }
     }
+    @media screen and (max-width: 568px) {
+        .myWX {
+          display: none;
+        }
+    }
     p {
       color: #f2f2f2;
     }
     .friendLink {
-      width: 15rem;
+      width: 30%;
+      display: grid;
+      grid-template-columns: 2fr;
+      justify-items: start;
+      justify-content: center;
       p {
+        margin-left: 20px;
         padding-top: .3rem 0;
         cursor: pointer;
-    }
-    p:hover {
-      color: #456;
+        a {
+          font-size: 1rem;
+          color: #f2f2f2;
+        }
+        a:hover {
+           color: #456;
+        }
     }
     }
     .talk {
-      margin-left: 2rem;
+      font-size: 1rem;
+      padding: 2.5rem 1.5rem;
+      line-height: 25px;
+      white-space:nowrap;
+      width: 70%;
+      p {
+        a {
+          color: white;
+        }
+      }
     }
 }
 </style>

@@ -21,8 +21,8 @@
           </Modal>
             <div v-for="(item, index) in messageData" :key="index">
               <ListItem ref="contentItem" class="contentItem" :style="{color: Color}">
-               <p v-if="publishURL == '/note/accessPulish'" class="number_id">{{index+1}} 楼</p>
-               <p v-if="publishURL == '/message/leavemessage'" class="number_id">{{item.id}} 楼</p>
+               <p v-show="publishURL == '/note/accessPulish'" class="number_id">{{index+1}} 楼</p>
+               <p v-show="publishURL == '/message/leavemessage'" class="number_id">{{item.id}} 楼</p>
               <img :src="item.Imgsrc"> 
                <a>{{item.name}}<span v-show="item.username === '972761675'" class="chief">站长</span></a>
                <span>{{item.value}}</span>
@@ -31,7 +31,7 @@
             </ListItem>
             <!-- 回复 -->
              <div class="replyContent" v-for="(replyitem, j) in item.replyAccess" :key="j">
-                <ListItem ref="replyItem" class="replyItem" >
+                <ListItem :style="{background: bgcolor}" ref="replyItem" class="replyItem" >
                 <p :style="{color: Color}" class="number_id">{{j+1}} 楼</p>
                 <p class="reply_access">
                   <p :style="{color: Color}" class="content">
@@ -89,6 +89,9 @@ import moment from 'moment'
     computed:{
       Color() {
         return this.$store.state.Color
+      },
+      bgcolor() {
+        return this.$store.state.Color == '#333' ? "#f2f2f2" : 'transparent'
       }
     },
     methods: {
@@ -235,11 +238,13 @@ import moment from 'moment'
         p.reply:hover {
           color: blue;
         }
-        .replyContent {
-          border-bottom:1px solid #bbb;
+        .replyContent {  
           padding-left:50px;
           font-size: 0.8rem;
           .replyItem {
+            border-bottom: 1px solid #bbb; 
+            background: #f2f2f2;
+            border-left: 2.5px solid #ccc;
             position: relative;
             display: flex;
             flex-wrap: nowrap;

@@ -31,7 +31,7 @@
     </div>
     <div class="talk-method">
         <i class="iconfont icon-weixin"> : x972761675</i>
-        <i class="iconfont icon-qq"> : 755425595 || 972761675</i>
+        <i class="iconfont icon-qq"> : 972761675 || <i class="iconfont icon-qq"> 前端群</i>: 700785102</i>
     </div>
 </div>
 </template>
@@ -53,7 +53,7 @@
     methods: {
         triggerPage(path) {
             if(path === 'https://github.com/Acmenlei') {
-                window.location.href = path
+                window.open(path)
             } else {
                 this.$router.push(path)
             }

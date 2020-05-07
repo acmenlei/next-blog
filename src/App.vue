@@ -18,15 +18,10 @@ export default {
   }
 </script>
 <style lang="scss">
-@font-face {
-  font-family: './assets/font/2012DingYongKangYingBiKaiShuXinBan-2.ttf';
-  src: url('./assets/font/2012DingYongKangYingBiKaiShuXinBan-2.ttf');
-}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: './assets/font/2012DingYongKangYingBiKaiShuXinBan-2.ttf';
 }
 @media screen and (max-width:1200px) {
     body,html {
@@ -52,13 +47,5 @@ export default {
     body,html {
       font-size:11px ;
     }
-}
-#app {
-      .lizi {
-         position: fixed;
-         top:0;
-         width: 100vw;
-         height: 100vh;
-     }
 }
 </style>

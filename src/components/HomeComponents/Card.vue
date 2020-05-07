@@ -145,7 +145,11 @@ export default {
         if(res.data.err === 0) {
           this.lists = res.data.message
           this.count = res.data.message.length
-          this.$Message.success('查询内容成功!')
+          if(this.count === 0) {
+            this.$Message.success('暂时没有这个区域的内容,欢迎留言建议!')
+          } else {
+            this.$Message.success('查询成功了!')
+          }
         } else {
           this.$Message.error(res.data.message) // 未知错误
         }
@@ -285,7 +289,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@font-face {
+  font-family: 'leileiFont';
+  src: url('../../assets/font/2012DingYongKangYingBiKaiShuXinBan-2.ttf');
+}
 #card {
+    font-family: 'leileiFont';
   .article-box {
     background: #fff;
     border-radius: 5px;

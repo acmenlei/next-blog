@@ -1,8 +1,9 @@
 import axios from 'axios'
+axios.defaults.withCredentials = true;
  function requestConfig(path) {
     let instance = axios.create({
-        baseURL:'http://39.107.50.117:3000',
-        timeout:5000
+        baseURL:'http://codelei.cn:3000',
+        timeout:6000
     })
     return instance({
         url:path
@@ -10,12 +11,9 @@ import axios from 'axios'
 }
 function PageConfig(path,parmas) {
     let instance = axios.create({
-        baseURL:'http://39.107.50.117:3000',
-        timeout:5000
+        baseURL:'http://codelei.cn:3000',
+        timeout:6000
     })
-    // instance.interceptors.request.use(config => {
-    //     return config
-    // })
     return instance({
         url:path,
         params:parmas
@@ -23,7 +21,7 @@ function PageConfig(path,parmas) {
 }
 function PublishMessage(path,data) {
     let instance = axios.create({
-        baseURL:'http://39.107.50.117:3000',
+        baseURL:'http://codelei.cn:3000',
     })
     return instance({
         url:path,

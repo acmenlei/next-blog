@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+import { getnotedetail } from '../components/NetWork/request'
 Vue.use(VueRouter)
 
 const routes = [
@@ -130,10 +130,27 @@ router.beforeEach((to,from,next) => {
 })
 /* 管理系统守卫 */
 router.beforeEach((to,from,next) => {
-  if(to.path=="/admin/article") {
-      if(!localStorage.getItem('a_u')) {
-        router.replace({name:'adminlogin'})
+  if(to.path.includes("/admin/article")) {
+    getnotedetail('/user/adminIslogined').then(res => {
+      if(res.data.err === 0) {
+        next()
+      } else {
+        router.push({ name: 'adminlogin'})
       }
+    })
+  }
+  next()
+})
+// 以登陆状态
+router.beforeEach((to, from, next) => {
+  if(to.path.includes("/admin/login")) {
+    getnotedetail('/user/adminIslogined').then(res => {
+      if(res.data.err === 0) {
+        router.push({name:'admin'})
+      } else {
+        router.push({ name: 'adminlogin'})
+      }
+    })
   }
   next()
 })

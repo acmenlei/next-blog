@@ -5,7 +5,7 @@
           <p><i class="iconfont icon-lianjie"></i> 文章标题:</p>
         <Input v-model="articleDate.title" style="width:80%"  placeholder="请输入文章标题..." />
           <p><img v-show="articleDate.article_img" :src="articleDate.article_img" alt="笔记中的图片"/></p>
-        <Upload action="http://39.107.50.117:3000/upload/imageUpload"
+        <Upload action="http://codelei.cn:3000/upload/imageUpload"
         :on-success="handleSuccess">
             <Button icon="ios-cloud-upload-outline">选择文章封面图片</Button>
         </Upload>
