@@ -2,9 +2,7 @@
   <div id="card">
     <Row>
       <Col :xl="3" :lg="3" :md="2" :sm="1" :xs="0">
-        <header>
-          .
-        </header>
+        <header>.</header>
       </Col>
       <Col :xl="12" :lg="13" :md="12" :sm="12" :xs="24">
         <div class="article-box">
@@ -24,6 +22,7 @@
               :time="item.time"
               :Itemimg="item.article_img"
               :lable="item.lable"
+              :categroy="item.article_categroy"
               :content="item.article_brief"
               :visited="item.visited"
               :like="item.like_Star"
@@ -49,13 +48,33 @@
           <div class="card-right">
             <!-- 搜索框区 -->
             <div class="search">
-              <input placeholder="输入文章关键词搜索.." type="text" v-model="likeSearch">
+              <input placeholder="输入文章关键词搜索.." type="text" v-model="likeSearch" />
               <button class="search-btn" @click="searchLike">search</button>
             </div>
             <!-- 分类区 -->
-            <div class="categroy-lable">
+            <div class="article-categroy">
               <div class="title">
-                <Icon type="ios-keypad" />分类
+                <Icon type="ios-aperture-outline" /> 文章分类
+                <span>more</span>
+              </div>
+              <div class="categroy-item">
+                <Badge
+                  :count="item['COUNT(article_categroy)']"
+                  :type="categroyColor[index]"
+                  v-for="(item, index) in categroysList"
+                  :key="index"
+                >
+                  <p
+                    @click="getCategroyInfo(item.article_categroy)"
+                    class="demo-badge"
+                  >{{item.article_categroy}}</p>
+                </Badge>
+              </div>
+            </div>
+            <!-- 标签区 -->
+            <div class="article-lable">
+              <div class="title">
+                <Icon type="ios-keypad" /> 文章标签
                 <span>more</span>
               </div>
               <Tag
@@ -69,7 +88,7 @@
             <!-- 最近文章区 -->
             <div class="time-article">
               <div class="title">
-                <Icon type="ios-timer" />最近文章
+                <Icon type="ios-timer" /> 最近文章
                 <span>more</span>
               </div>
               <div
@@ -100,7 +119,7 @@ import CardItem from "./CardIItem";
 import Music from "./Music";
 import myMakefriends from "./MyMakefriend";
 import moment from "moment";
-import debounce from '../debounce/debounce'
+import debounce from "../debounce/debounce";
 export default {
   name: "card",
   data() {
@@ -115,8 +134,32 @@ export default {
       modal1: false,
       value: "",
       lablesList: [],
-      likeSearch:'',
-      bgColor: ["magenta", "blue", "red", "cyan", "volcano", "yellow"]
+      categroysList: [],
+      likeSearch: "",
+      bgColor: [
+        "magenta",
+        "blue",
+        "red",
+        "cyan",
+        "volcano",
+        "yellow",
+        "magenta",
+        "blue",
+        "red",
+        "cyan",
+        "volcano",
+        "yellow"
+      ],
+      categroyColor: [
+        "primary",
+        "success",
+        "error",
+        "warning",
+        "primary",
+        "success",
+        "error",
+        "warning"
+      ]
     };
   },
   components: { CardItem, myMakefriends, Music },
@@ -132,29 +175,33 @@ export default {
       this.navList = res.data;
     });
     this.getlables();
+    this.getCategroys();
   },
   methods: {
+    /* 防抖 */
     searchLike: debounce(function() {
-      if(!this.likeSearch) return this.$Message.error('搜索内容不能为空的呀~');
-      this.likesearchTool()
-    },800),
+      if (!this.likeSearch) return this.$Message.error("搜索内容不能为空的呀~");
+      this.likesearchTool();
+    }, 800),
     // 搜索工具
     likesearchTool() {
-      PostMessage('/note/like_article_search',{ value: this.likeSearch })
-      .then(res => {
-        if(res.data.err === 0) {
-          this.lists = res.data.message
-          this.count = res.data.message.length
-          if(this.count === 0) {
-            this.$Message.success('暂时没有这个区域的内容,欢迎留言建议!')
+      PostMessage("/note/like_article_search", { value: this.likeSearch }).then(
+        res => {
+          if (res.data.err === 0) {
+            this.lists = res.data.message;
+            this.count = res.data.message.length;
+            if (this.count === 0) {
+              this.$Message.success("暂时没有这个区域的内容,欢迎留言建议!");
+            } else {
+              this.$Message.success("查询成功了!");
+            }
           } else {
-            this.$Message.success('查询成功了!')
+            this.$Message.error(res.data.message); // 未知错误
           }
-        } else {
-          this.$Message.error(res.data.message) // 未知错误
         }
-      })
+      );
     },
+    /* 获取标签 */
     getlables() {
       getnotedetail("/note/getlables").then(res => {
         if (res.data.err == 0) {
@@ -166,19 +213,57 @@ export default {
         }
       });
     },
+    /* 获取标签详情 */
     getlableInfo(lable) {
       this.$Spin.show();
-      PostMessage("/note/getlableInfo", { lable: lable }).then(res => {
-        if (res.data.err == 0) {
-          res.data.message.forEach(element => {
-            element.content = element.content.toString().substring(0, 300);
-          });
-          this.lists = res.data.message;
-          this.count = this.lists.length;
-          this.pageShow = false;
+      PostMessage("/note/getlableInfo", { lable: lable })
+        .then(res => {
           this.$Spin.hide();
-        }
-      });
+          if (res.data.err == 0) {
+            this.lists = res.data.message;
+            this.count = this.lists.length;
+            this.pageShow = false;
+            this.$Message.success("为您查找到左侧内容!");
+          } else {
+            this.$Message.error(res.data.message);
+          }
+        })
+        .catch(err => {
+          this.$Message.error(err);
+        });
+    },
+    /* 获取分类 */
+    getCategroys() {
+      getnotedetail("/note/getcategroys")
+        .then(res => {
+          if (res.data.err === 0) {
+            this.categroysList = res.data.message;
+          } else {
+            this.$Message.error(res.data.message);
+          }
+        })
+        .catch(err => {
+          this.$Message.error(err);
+        });
+    },
+    /* 获取分类详情页 */
+    getCategroyInfo(categroy) {
+      this.$Spin.show();
+      PostMessage("/note/getManycategroys", { categroy })
+        .then(res => {
+          this.$Spin.hide();
+          if (res.data.err == 0) {
+            this.lists = res.data.message;
+            this.count = this.lists.length;
+            this.pageShow = false;
+            this.$Message.success("为您查找到左侧内容!");
+          } else {
+            this.$Message.error(res.data.message);
+          }
+        })
+        .catch(err => {
+          this.$Message.error(err);
+        });
     },
     timeArticle(path) {
       this.$router.push(`/detail/${path}`);
@@ -290,11 +375,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @font-face {
-  font-family: 'leileiFont';
-  src: url('../../assets/font/2012DingYongKangYingBiKaiShuXinBan-2.ttf');
+  font-family: "leileiFont";
+  src: url("../../assets/font/2012DingYongKangYingBiKaiShuXinBan-2.ttf");
 }
 #card {
-    font-family: 'leileiFont';
+  font-family: "leileiFont";
   .article-box {
     background: #fff;
     border-radius: 5px;
@@ -339,7 +424,8 @@ export default {
       .search {
         width: 100%;
         margin-bottom: 1rem;
-        input,.search-btn {
+        input,
+        .search-btn {
           outline: none;
           border: 1px solid #ccc;
         }
@@ -362,7 +448,8 @@ export default {
           font-size: 13px;
         }
       }
-      .categroy-lable,
+      .article-lable,
+      .article-categroy,
       .time-article {
         font-size: 14px;
         background: #fff;
@@ -394,6 +481,27 @@ export default {
           opacity: 0.8;
         }
       }
+      .article-categroy {
+        .ivu-badge {
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          margin: 0.5rem;
+          padding: 0.2rem;
+          transition: opacity 0.6s;
+        }
+        .ivu-badge:hover {
+          opacity: 0.8;
+        }
+        .categroy-item {
+          margin-top: 0.8rem;
+          .demo-badge {
+            background: #fff;
+            margin: 0.1rem;
+            font-size: 13px;
+            cursor: pointer;
+          }
+        }
+      }
       .time-article {
         .ItemList {
           padding: 0.8rem 0.5rem;
@@ -415,7 +523,7 @@ export default {
         .ItemList:hover {
           background: #f2f2f2;
           color: lightgreen;
-          padding-left: .8rem;
+          padding-left: 0.8rem;
         }
         .ItemList:last-child {
           border-bottom: none;

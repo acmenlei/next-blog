@@ -54,11 +54,5 @@ export default {
     0% { transform: translateX(-100%) }
     100% {  transform: translateX(0%) }
   }
-  // @media screen and (max-width: 987px) {
-  // .bg {
-  //   animation: opcity 0.5s linear;
-  //   background: rgb(34, 34, 34);
-  // }
-  // }
 }
 </style>

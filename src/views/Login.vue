@@ -161,19 +161,18 @@ export default {
             PostMessage("/user/login", this.formInline).then(res => {
               if (res.data.err == 0) {
                 this.$Message.success(
-                  "登陆成功啦小主,3秒后为您跳转到首页(❤ ω ❤)!"
+                  "登陆成功啦,马上带您去游览我的小站!"
                 );
                 /* 保存一下刚刚登陆的账号 */
                 localStorage.setItem("username", res.data.token);
                 setTimeout(() => {
-                  this.$router.replace("/home");
+                  this.$router.back();
                 }, 1000);
-              }
-              if (res.data.err == -1) {
+              } else if (res.data.err == -998) {
                 /* 报错查不到用户 那么我们就要进行一个注册 */
-                this.$Message.error(
-                  "没有查询到小主的信息哦需要进行注册, ⊙﹏⊙∥！"
-                );
+                this.$Message.error(res.data.data);
+              } else {
+                 this.$Message.error(res.data.data);
               }
             });
           }

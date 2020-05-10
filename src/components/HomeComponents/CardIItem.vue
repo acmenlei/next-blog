@@ -33,7 +33,7 @@
             </div>
             <!-- 文章标签 -->
             <div class="tags">
-              <Tag color="cyan">{{lable}}</Tag>
+              <Tag color="cyan">{{categroy}}</Tag>
               <Tag :color="bgColor[index]" v-for="(item,index) in lablesList" :key="index">{{item}}</Tag>
       </div>
     </Card>
@@ -71,6 +71,9 @@
         type:Number,default:0,required:true
       },
       lable:{
+        type:String,default:''
+      },
+      categroy:{
         type:String,default:''
       }
     },

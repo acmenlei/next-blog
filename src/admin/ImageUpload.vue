@@ -5,8 +5,8 @@
       <p>
           <img v-show="src" :src="src" alt="笔记中的图片"/>
       </p>
-    <Upload action="http://codelei.cn:3000/upload/imageUpload"
-    :on-success="handleSuccess">
+    <Upload action="http://xxxxxx/upload/imageUpload"
+    :on-success="handleSuccess"><!-- xxxxxx为你的后台地址 -->
         <Button icon="ios-cloud-upload-outline">选择图片</Button>
     </Upload>
   </div>

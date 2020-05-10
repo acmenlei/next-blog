@@ -62,6 +62,8 @@ body,html {
   height: 100%;
 }
   #index {
+    display: flex;
+    flex-direction: column;
     .moon,.night {
       width: 100%;
       height: 100%;
@@ -71,7 +73,6 @@ body,html {
       z-index: -1;
     }
     .night {
-      // background:linear-gradient(#111,purple);
       background: url('../assets/images/night.gif') center;
     }
     .moon {
@@ -91,7 +92,7 @@ body,html {
     .active,
     .current {
       position: sticky;
-      background: #555;
+      background: linear-gradient(#333, #456);
       animation: animate 1s;
     }
     @keyframes animate {

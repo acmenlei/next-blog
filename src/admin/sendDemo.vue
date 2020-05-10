@@ -5,17 +5,17 @@
       <video v-show="video_path" id="video" controls="" preload="none" :poster="video_pic">
       <source :src="video_path" type="video/mp4">
       </video>
-       <Upload action="http://codelei.cn:3000/upload/sendcontent"
-               :on-success="handlePSuccess">
+       <Upload action="http://xxxxxx/upload/sendcontent"
+               :on-success="handlePSuccess"><!-- xxxxxx为你的后台地址 -->
         <Button icon="ios-cloud-upload-outline">选择封面文件</Button>
         </Upload>
-      <Upload action="http://codelei.cn:3000/upload/sendcontent"
-               :on-success="handleVSuccess">
+      <Upload action="http://xxxxxx/upload/sendcontent"
+               :on-success="handleVSuccess"><!-- xxxxxx为你的后台地址 -->
         <Button icon="ios-cloud-upload-outline">选择录屏文件</Button>
         </Upload>
         <p>{{code_path}}</p>
-        <Upload action="http://codelei.cn:3000/upload/sendcontent"
-               :on-success="handleCSuccess">
+        <Upload action="http://xxxxxx/upload/sendcontent"
+               :on-success="handleCSuccess"><!-- xxxxxx为你的后台地址 -->
         <Button icon="ios-cloud-upload-outline">选择源码文件</Button>
         </Upload>
       <div class="contentPublish">

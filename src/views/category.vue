@@ -9,7 +9,7 @@
            :lable="item" />
     </div>
       <div v-if="Itemlist.length">
-        <h3 style="color:#f2f2f2 !important;">搜索结果...</h3>
+        <h3 style="color:purple !important;">搜索结果...</h3>
         <Card class="detail" v-for="(item, index) in Itemlist" :key="index" :bordered="false">
             <p style="color:orange;margin:0.5rem;border:0;">{{item.title}}</p>
             <span class="lablecard" style="background:purple"># {{item.lable}}</span>
@@ -85,27 +85,32 @@ import moment from 'moment'
 </script>
 <style lang="scss" scoped>
 #categroy {
-    margin: 5rem auto 0 auto;
+  margin: 0 auto;
     h3 {
       text-align: center;
       padding:2rem;
       color: rgba(4, 226, 60, 0.8)!important ;
     }
     .lables {
-      width: 85%;
-      height: 10rem;
-      background: transparent;
       margin: 0 auto;
-      position: relative;
+      width: 60%;
       z-index: 3;
+      display: grid;
+      grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    @media screen and (max-width: 992px) {
+      .lables {
+        width: 90%;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
     }
     .lablecard { 
-    text-align: center;
-    padding: 0.5rem;
-    border-radius: .2rem;
-    color: white!important;
-    font-size: .9rem;
-    display: inline-block;
+      text-align: center;
+      padding: 0.5rem;
+      border-radius: .2rem;
+      color: white!important;
+      font-size: .9rem;
+      display: inline-block;
   }
      .detail {
       background: rgb(255, 255, 255, .7);

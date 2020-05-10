@@ -242,9 +242,9 @@ import moment from 'moment'
           padding-left:50px;
           font-size: 0.8rem;
           .replyItem {
-            border-bottom: 1px solid #bbb; 
-            background: #f2f2f2;
-            border-left: 2.5px solid #ccc;
+            border-bottom: 1px solid #eee; 
+            background: #fffefe;
+            border-left: 2.5px solid #eee;
             position: relative;
             display: flex;
             flex-wrap: nowrap;

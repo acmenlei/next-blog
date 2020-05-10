@@ -11,9 +11,9 @@
       <p>
           <img v-show="content_src" :src="content_src" alt="说说图片">
       </p>
-    <Upload action="http://codelei.cn:3000/upload/sendcontent"
+    <Upload action="http://xxxxxx/upload/sendcontent"
     :on-success="handleSuccess"
-    >
+    ><!-- xxxxxx为你的后台地址 -->
         <Button icon="ios-cloud-upload-outline">选择图片</Button>
     </Upload>
     <Button @click.native="sendTalk" type="primary">发表说说</Button>

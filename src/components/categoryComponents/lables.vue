@@ -27,16 +27,21 @@
 #labledetail  {
     .lable{
         display: block;
-        width: 6rem;
-        height: 3rem;
-        line-height: 3rem;
+        width: 5.5rem;
+        height: 2.8rem;
+        line-height: 2.8rem;
         text-align: center;
         color:white;
         border-radius: 0.2rem;
         margin:1rem;
         cursor: pointer;
-        font-size: 1rem;
+        font-size: .9rem;
         float: left;
+        transition: transform .6s;
+    }
+    .lable:hover {
+      transform: scale(1.1);
+      opacity: .8;
     }
 }
 </style>

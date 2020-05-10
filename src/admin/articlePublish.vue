@@ -5,18 +5,18 @@
           <p><i class="iconfont icon-lianjie"></i> 文章标题:</p>
         <Input v-model="articleDate.title" style="width:80%"  placeholder="请输入文章标题..." />
           <p><img v-show="articleDate.src" :src="articleDate.src" alt="笔记中的图片"/></p>
-        <Upload action="http://codelei.cn:3000/upload/imageUpload"
-        :on-success="handleSuccess">
+        <Upload action="http://xxxxxx/upload/imageUpload"
+        :on-success="handleSuccess"><!-- xxxxxx为你的后台地址 -->
             <Button icon="ios-cloud-upload-outline">选择文章封面图片</Button>
         </Upload>
         <p><i class="iconfont icon-lianjie"></i> 文章简介:</p>
         <Input v-model="articleDate.brief" style="width:80%" type="textarea" :rows="4" placeholder="请输入文章简介..." />
         <p><i class="iconfont icon-lianjie"></i> 文章主体内容:</p>
         <Input v-model="articleDate.content" style="width:80%" type="textarea" :rows="16" placeholder="请输入文章主体内容..." />
-        <p><i class="iconfont icon-lianjie"></i> 文章类别:</p>
-        <Select v-model="articleDate.categroy" style="width:200px">
-        <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
-        </Select>
+        <p><i class="iconfont icon-lianjie"></i> 文章标签:</p>
+        <Input v-model="articleDate.lable" style="width:200px" placeholder="文章标签" />
+        <p><i class="iconfont icon-lianjie"></i> 文章分类:</p>
+        <Input v-model="articleDate.categroy" style="width:200px" placeholder="文章分类" />
         <div class="event-Button">
             <Button @click.native="handelPublish" type="primary">发表</Button>
             <Button type="default">取消</Button>
@@ -36,42 +36,9 @@ import { PostMessage } from '../components/NetWork/request'
                 title:'',
                 brief:'',
                 content:'',
-                categroy:'',
-          },
-          cityList:[
-                    {
-                        value: 'javascript',
-                        label: 'javascript'
-                    },
-                    {
-                        value: 'Promise',
-                        label: 'Promise'
-                    },
-                    {
-                        value: 'es6',
-                        label: 'es6'
-                    },
-                    {
-                        value: 'Android',
-                        label: 'Android'
-                    },
-                    {
-                        value: 'Linux',
-                        label: 'Linux'
-                    },
-                    {
-                        value: 'nodejs',
-                        label: 'nodejs'
-                    },
-                    {
-                        value: 'jQuery',
-                        label: 'jQuery'
-                    },
-                    {
-                        value: 'Structure',
-                        label: 'Structure'
-                    }
-          ],
+                lable:'',
+                categroy:''
+          }
       }
     },
     methods: {
@@ -84,10 +51,11 @@ import { PostMessage } from '../components/NetWork/request'
                  !this.articleDate.content ||  
                  !this.articleDate.title ||  
                  !this.articleDate.brief ||  
-                 !this.articleDate.categroy  
+                 !this.articleDate.categroy ||
+                 !this.articleDate.lable 
             ) return this.$Message.error('请输入完整的文章信息!')
             const obj = this.articleDate
-            const path = this.articleDate.categroy + Math.floor(Math.random()*2000000)
+            const path = this.articleDate.lable + Math.floor(Math.random()*2000000)
             obj.articlePath = path
             PostMessage('/note/articlePublish', obj)
             .then(res =>{
