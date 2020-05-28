@@ -21,11 +21,13 @@
           </Modal>
             <div v-for="(item, index) in messageData" :key="index">
               <ListItem ref="contentItem" class="contentItem" :style="{color: Color}">
-               <p v-show="publishURL == '/note/accessPulish'" class="number_id">{{index+1}} 楼</p>
+               <div class="head"> 
+                 <p v-show="publishURL == '/note/accessPulish'" class="number_id">{{index+1}} 楼</p>
                <p v-show="publishURL == '/message/leavemessage'" class="number_id">{{item.id}} 楼</p>
               <img :src="item.Imgsrc"> 
                <a>{{item.name}}<span v-show="item.username === '972761675'" class="chief">站长</span></a>
-               <span>{{item.value}}</span>
+               </div>
+             <span>{{item.value}}</span>
               <p>{{item.date | dateFilter}}</p>
               <p @click="SetReplyInfo(item, index)" class="reply">回复</p>
             </ListItem>
@@ -199,16 +201,16 @@ import moment from 'moment'
         border-radius: 50%;
       }
       .contentItem {
-        padding: 2rem;
+        padding:0.8rem 1rem 0.2rem 1rem;
         position: relative;
         border-bottom: 1px solid #bbb;
-        p,span,img,a{
+        p,img,a{
           position: absolute;font-size: 0.8rem;
         }
         a{
           color: red;
           left: 4rem;
-          top: 1rem;      
+          top: .6rem;      
           .chief {
             color: orange;
             white-space: nowrap;
@@ -217,8 +219,11 @@ import moment from 'moment'
           }  
         }
        span {
-          padding-right: 3rem;
-          left: 4rem;bottom: 0.1rem;
+          margin-top: 1rem;
+          padding:0 3rem;
+          text-align: left;
+          font-size: 0.8rem;
+          padding-top: 0.5rem;
        }
         img {
           top: 0.5rem;left: 1.5rem;

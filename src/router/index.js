@@ -146,7 +146,7 @@ router.beforeEach((to, from, next) => {
   if(to.path.includes("/admin/login")) {
     getnotedetail('/user/adminIslogined').then(res => {
       if(res.data.err === 0) {
-        router.push({name:'admin'})
+        router.push({ name:'admin'})
       } else {
         router.push({ name: 'adminlogin'})
       }

@@ -307,25 +307,8 @@ export default {
         });
       }
     },
-    showLoading() {
-      /* 请求数据的加载 */
-      this.$Spin.show({
-        render: h => {
-          return h("div", [
-            h("Icon", {
-              class: "demo-spin-icon-load",
-              props: {
-                type: "ios-loading",
-                size: 18
-              }
-            }),
-            h("div", "正在努力加载请稍等...")
-          ]);
-        }
-      });
-    },
     Pagechange(index) {
-      this.showLoading();
+      this.$store.commit('LoadingTitleChange', {isshow: true, title: '正在加载文章内容,请稍等...'})
       PageSizeChange("/page/getnotePage", { page: index }).then(res => {
         if (res.data.err == 0) {
           this.count = res.data.message.count;
@@ -333,7 +316,7 @@ export default {
         } else {
           this.$Message.error("网络出错了,(ノへ￣、)！");
         }
-        this.$Spin.hide(); // 请求完成隐藏遮罩层
+        this.$store.commit('LoadingTitleChange', {isshow: false, title: ''})
       });
     },
     handleSuccess(response) {

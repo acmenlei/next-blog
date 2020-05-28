@@ -7,7 +7,9 @@ export default new Vuex.Store({
   state: {
     isshow:false,
     fontColor: false,
-    Color:'#333'
+    Color:'#333',
+    LoadingShow: false,
+    LoadingTitle:'正在加载内容请稍后...'
     },
   mutations: {
     updateShow(state,data) {
@@ -16,6 +18,10 @@ export default new Vuex.Store({
     updatefont(state, data) {
       state.fontColor = data
       data ? state.Color = '#fff': state.Color = '#333'
+    },
+    LoadingTitleChange(state, data) {
+      state.LoadingTitle = data.title;
+      state.LoadingShow = data.isshow;
     }
   }
 })

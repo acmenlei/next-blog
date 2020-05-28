@@ -16,7 +16,7 @@
                 type="drag"
                 action="http://xxxxxx/upload/headPortraitUpload"
                 style="display: inline-block;width:58px;margin:0 0 2rem 1rem;">
-                <!-- xxxxxx为你的后台地址 -->
+                <!-- codelei/api为你的后台地址 -->
                 <div style="width: 58px;height:58px;line-height: 58px;">
                     <Icon type="ios-camera" size="20"></Icon>
                 </div><span style="font-size:.6rem">上传头像</span>

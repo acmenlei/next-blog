@@ -10,6 +10,7 @@
      <keep-alive exclude="detail,profile">
      <router-view :class="{router_content: $route.name !== 'home'}"/>
      </keep-alive>
+    <Loading class="LoadingStyle" v-show="$store.state.LoadingShow"/>
     <Tab-contorle/>
     <Footer v-if="!$route.path.includes('admin')"/>
   </div>
@@ -19,10 +20,11 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import TabContorle  from '../components/Tabcontorle'
 import light from '../components/highlight/light'
+import Loading from '../components/Loading/Loading'
 export default {
   name: 'index',
   components:{
-    Header,TabContorle,Footer,light
+    Header,TabContorle,Footer,light,Loading
   },
   mounted() {
     document.onclick = (e) => {
@@ -98,6 +100,16 @@ body,html {
     @keyframes animate {
       0% { opacity: 0; transform: translateY(-50px);}
       100% { opacity: 1; transform: translateY(0);}
+    }
+    .LoadingStyle {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,.6);
     }
   }
   .adminCssStyle {

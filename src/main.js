@@ -15,8 +15,7 @@ Vue.config.productionTip = false
 
 // 图片懒加载
 Vue.use(Vuelazyload,{
-  error:'static/img/error.jpg',
-  loading:'static/img/loading.jpg'
+  loading:'./assets/images/loading.png'
 })
 Vue.prototype.bus = new Vue()
 new Vue({

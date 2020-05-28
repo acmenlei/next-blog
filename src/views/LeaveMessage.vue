@@ -32,26 +32,9 @@ import replyOrpublish from '../components/ReplyOrPublish/replyOrpublish'
     },
     components:{ replyOrpublish },
     methods: {
-    showLoading() {
-      /* 请求数据的加载 */
-      this.$Spin.show({
-        render: h => {
-          return h("div", [
-            h("Icon", {
-              class: "demo-spin-icon-load",
-              props: {
-                type: "ios-loading",
-                size: 18
-              }
-            }),
-            h("div", "正在努力加载请稍等...")
-          ]);
-        }
-      });
-    },
       Pagechange(index) {
         /* 发起请求 */
-        this.showLoading();
+        this.$store.commit('LoadingTitleChange', {isshow: true, title: '正在获取留言信息~'})
         PageSizeChange('/page/pageSize',{page:index})
         .then(res => {
           if(res.data.err == 0) {
@@ -61,6 +44,7 @@ import replyOrpublish from '../components/ReplyOrPublish/replyOrpublish'
           } else {
             this.$Message.error("网络出错了,(ノへ￣、)！")
           }
+           this.$store.commit('LoadingTitleChange', {isshow: false, title: ''})
         })
       },
     }

@@ -5,7 +5,7 @@
       <Input v-model="content" 
       maxlength="300" 
       show-word-limit type="textarea" 
-      placeholder="Enter something..." 
+      placeholder="输入图片描述..." 
       style="width: 500px;" />
       <!-- 图片上传 -->
       <p>

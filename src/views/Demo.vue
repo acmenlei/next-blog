@@ -34,14 +34,14 @@ export default {
   },
   methods: {
     getPage(index) {
-      this.showLoading();
+      this.$store.commit('LoadingTitleChange', {isshow: true, title: '正在加载案例内容,请稍等...'})
       PageSizeChange("/note/getdemolist", { page: index }).then(res => {
         if (res.data.err == 0) {
           this.demoList = res.data.data;
         } else {
           this.$Message.error(res.data.message);
         }
-        this.$Spin.hide();
+       this.$store.commit('LoadingTitleChange', {isshow: false, title: ''})
       });
     },
     CatCode(path) {
@@ -49,23 +49,6 @@ export default {
     },
     Pagechange(page) {
       this.getPage(page);
-    },
-    showLoading() {
-      /* 请求数据的加载 */
-      this.$Spin.show({
-        render: h => {
-          return h("div", [
-            h("Icon", {
-              class: "demo-spin-icon-load",
-              props: {
-                type: "ios-loading",
-                size: 18
-              }
-            }),
-            h("div", "正在努力加载请稍等...")
-          ]);
-        }
-      });
     }
   }
 };

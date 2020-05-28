@@ -5,6 +5,8 @@
       <Tabs class="tabs" value="name1"> 
         <TabPane label="友情链接" name="name1">
         <Icon type="md-laptop" /> <a href="https://www.zhoyq.com/">衷于栖自由开发者</a>
+        <br/>
+        <Icon type="md-laptop" /> <a href="https://weilet.me/">Weilet's blog</a>
         </TabPane>
         <TabPane label="联系方式" name="name2">
           <i class="iconfont icon-qq" style="color:skyblue;"></i>:755425595 

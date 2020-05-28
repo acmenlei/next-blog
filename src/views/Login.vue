@@ -98,37 +98,44 @@ export default {
       }
     };
   },
-    computed:{
-      Color() {
-        return this.$store.state.Color
-      }
-    },
+  computed: {
+    Color() {
+      return this.$store.state.Color;
+    }
+  },
   mounted() {
     if (localStorage.getItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk")) {
       this.showBtn = true;
-      this.count = parseInt(localStorage.getItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk"));
+      this.count = parseInt(
+        localStorage.getItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk")
+      );
       this.timer = setInterval(() => {
         this.count -= 1;
         if (this.count == 0) {
           clearInterval(this.timer);
-          localStorage.removeItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk");
+          localStorage.removeItem(
+            "dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk"
+          );
           this.btntext = "发送验证码";
           this.showBtn = false;
         } else {
           this.btntext = `${this.count}秒后重新发送`;
-          localStorage.setItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk", this.count);
+          localStorage.setItem(
+            "dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk",
+            this.count
+          );
         }
       }, 1000);
     } else {
-      clearInterval(this.timer)
+      clearInterval(this.timer);
     }
     /* 键盘事件 */
-      document.onkeydown = (e) => {
-      var key = e['keyCode'];
-      if(key == 13){
-        this.handleSubmit('formInline');
+    document.onkeydown = e => {
+      var key = e["keyCode"];
+      if (key == 13) {
+        this.handleSubmit("formInline");
       }
-    }
+    };
   },
   methods: {
     handleSubmit(name) {
@@ -136,33 +143,41 @@ export default {
         if (valid) {
           /* 登陆失败走注册模式 */
           if (this.isshow) {
-            // const regex = /\d+/g;
-            // const code = localStorage.getItem("m_z_y_c").match(regex)[0];
-              PostMessage("/user/login", this.formInline).then(res => {
-                if (res.data.err == 0) {
-                  this.$Message.success(
-                    "注册成功啦小主,3秒后为您跳转到首页(❤ ω ❤)!"
-                  );
-                  /* 保存一下token */
-                  localStorage.setItem("username", res.data.token);
-                  // /* 再清除一下本地验证码缓存 */
-                  // localStorage.removeItem("m_z_y_c");
-                  clearInterval(this.timer)
-                  localStorage.removeItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk");
-                  setTimeout(() => {
-                    this.$router.back()
-                  }, 1000);
-                } else {
-                  this.$Message.error(res.data.message);
-                }
-              });
-          } else {
-            /* 默认走登陆模式 */
+            this.$store.commit("LoadingTitleChange", {
+              isshow: true,
+              title: "正在注册您的账号请稍等..."
+            });
             PostMessage("/user/login", this.formInline).then(res => {
               if (res.data.err == 0) {
                 this.$Message.success(
-                  "登陆成功啦,马上带您去游览我的小站!"
+                  "注册成功啦小主,3秒后为您跳转到首页(❤ ω ❤)!"
                 );
+                /* 保存一下token */
+                localStorage.setItem("username", res.data.token);
+                clearInterval(this.timer);
+                localStorage.removeItem(
+                  "dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk"
+                );
+                setTimeout(() => {
+                  this.$router.back();
+                }, 1000);
+              } else {
+                this.$Message.error(res.data.message);
+              }
+              this.$store.commit("LoadingTitleChange", {
+                isshow: false,
+                title: ""
+              });
+            });
+          } else {
+            /* 默认走登陆模式 */
+            this.$store.commit("LoadingTitleChange", {
+              isshow: true,
+              title: "正在登陆请稍等片刻..."
+            });
+            PostMessage("/user/login", this.formInline).then(res => {
+              if (res.data.err == 0) {
+                this.$Message.success("登陆成功啦,马上带您去游览我的小站!");
                 /* 保存一下刚刚登陆的账号 */
                 localStorage.setItem("username", res.data.token);
                 setTimeout(() => {
@@ -172,8 +187,12 @@ export default {
                 /* 报错查不到用户 那么我们就要进行一个注册 */
                 this.$Message.error(res.data.data);
               } else {
-                 this.$Message.error(res.data.data);
+                this.$Message.error(res.data.data);
               }
+              this.$store.commit("LoadingTitleChange", {
+                isshow: false,
+                title: ""
+              });
             });
           }
         } else {
@@ -199,19 +218,27 @@ export default {
               this.$Message.success("验证码已经发送到小主的邮箱了,(●ˇ∀ˇ●)");
               // localStorage.setItem("m_z_y_c", 'jkjgisafhiawr__ew__rouohkfdshkkfsdhkhkjhaskisaifhihihfigdhk'+res.data.data+'jeg__fdsj_fewsfh');
               /* 进行倒计时 设置定时一分钟后可访问 */
-              localStorage.setItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk", 60);
+              localStorage.setItem(
+                "dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk",
+                60
+              );
               this.showBtn = true;
               this.count = 60;
               this.timer = setInterval(() => {
                 this.count -= 1;
                 if (this.count == 0) {
                   clearInterval(this.timer);
-                  localStorage.removeItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk");
+                  localStorage.removeItem(
+                    "dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk"
+                  );
                   this.btntext = "发送验证码";
                   this.showBtn = false;
                 } else {
                   this.btntext = `${this.count}秒后重新发送`;
-                  localStorage.setItem("dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk", this.count);
+                  localStorage.setItem(
+                    "dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk",
+                    this.count
+                  );
                 }
               }, 1000);
             } else {
