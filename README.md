@@ -2,7 +2,7 @@
 # vue+node多人博客
 
 ### 前排提示
-> 缺少Fotter文件请自己新建一个fotter文件。
+> 缺少Fotter.vue文件请自己新建一个Fotter.vue文件。
 ### 前言
 这个项目是我在疫情期间写的，项目总体结构就是一个响应式的架构，前台`vue`，`ui`库使用`iview`，后台`nodejs`、数据库`mysql`，可适配多端：`PC`，`移动端`.
 
