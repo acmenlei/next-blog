@@ -9,7 +9,8 @@ export default new Vuex.Store({
     fontColor: false,
     Color:'#333',
     LoadingShow: false,
-    LoadingTitle:'正在加载内容请稍后...'
+    LoadingTitle:'正在加载请稍后...',
+    baseURL:'http://localhost:3000'
     },
   mutations: {
     updateShow(state,data) {

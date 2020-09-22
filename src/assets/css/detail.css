@@ -81,8 +81,25 @@ iframe{
     padding: 5px !important;
 }
 .markdown-body h4 {
-    color: #7e06ee !important;
-    margin-top: 1rem;
+    color: #a343fc !important;
+    margin: 1rem 0; padding-bottom: .5rem ;
+    border-bottom: 1.5px solid #ddb8ff;
+    text-indent: 1.5rem;
+}
+.markdown-body h4::before {
+    content: "";
+    width: 1.25rem;
+    height: 1.25rem;
+    position: absolute;
+    left: 1rem;
+    background: url('../images/logo.jpg') no-repeat center;
+    background-size: 120% 120%;
+    animation: scale 3s infinite linear;
+}
+@keyframes scale {
+    0% { transform: scale(.9) }
+    50% { transform: scale(1.2) }
+    100% { transform: scale(1.5) }
 }
 .markdown-body img {
     width: 50%;

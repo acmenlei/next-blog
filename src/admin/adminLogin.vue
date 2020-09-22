@@ -3,7 +3,7 @@
     <div :class="{rightpanelactive: isTransform}" class="container" id="container">
       <div class="form-container sign-up-container">
         <!-- 注册 -->
-        <form action="#">
+        <form action="javascript:;">
           <h1>用户注册</h1>
           <div class="social-container">
             <a href="#" class="social">
@@ -27,7 +27,7 @@
       </div>
       <div class="form-container sign-in-container">
         <!-- 登陆 -->
-        <form action="#">
+        <form action="javascript:;">
           <h1>
             <i class="iconfont icon-denglu"></i> 后台管理系统登陆:
           </h1>
@@ -76,7 +76,7 @@ export default {
     return {
       isTransform: false,
       user: "",
-      pass: ""
+      pass: "",
     };
   },
   methods: {
@@ -90,10 +90,12 @@ export default {
       if (!this.pass && this.user) {
         this.$Message.error("请填写完整的信息!");
       } else {
-        PostMessage("/user/adminUserCheck", { username:this.user, password: this.pass })
-        .then(res => {
+        PostMessage("/user/adminUserCheck", {
+          username: this.user,
+          password: this.pass,
+        }).then((res) => {
           if (res.data.err === 0) {
-            this.$router.replace('/admin/article')
+            this.$router.replace("/admin/article");
             this.$Message.success(res.data.message);
           } else if (res.data.err === -998) {
             this.$Message.error(res.data.message);
@@ -102,8 +104,8 @@ export default {
           }
         });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>

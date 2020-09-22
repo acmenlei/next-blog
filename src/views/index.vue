@@ -109,7 +109,7 @@ body,html {
       z-index: 999;
       width: 100vw;
       height: 100vh;
-      background: rgba(0,0,0,.6);
+      background: rgba(0, 0, 0, 0.9);
     }
   }
   .adminCssStyle {

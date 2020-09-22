@@ -1,6 +1,6 @@
 <template>
   <div id="tabbarLink">
-    <a v-for="(item, index) in LinkList" :key="index" @click="triggerPage(item.path)">
+    <a v-for="(item, index) in LinkList" :key="index" @click="triggerPage(item.path)" ref="navigators">
       <Icon :type="item.imageURL" /> {{item.name}}
     </a>
   </div>
@@ -16,6 +16,12 @@
                     {name:"GitHub",imageURL:'logo-github',path:'https://github.com/Acmenlei'},{name:"登陆 / 注册",imageURL:"md-contact",path:'/login'}
           ]
       };
+    },
+    mounted(){
+      if(localStorage.getItem('username')) {
+        this.$refs.navigators[this.$refs.navigators.length-1].innerHTML
+         = this.$refs.navigators[this.$refs.navigators.length-1].innerHTML.replace('登陆 / 注册', '已登录')
+      }
     },
     methods: {
         triggerPage(path) {
@@ -43,7 +49,7 @@
   justify-content: center;
   align-items: center;
   a {
-    font-family: 'codeleilei';
+    font-family: '微软雅黑';
     color: #f2f2f2;
     margin: 0 1rem;
     padding: .3rem;

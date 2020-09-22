@@ -362,7 +362,7 @@ export default {
   src: url("../../assets/font/2012DingYongKangYingBiKaiShuXinBan-2.ttf");
 }
 #card {
-  font-family: "leileiFont";
+  font-family:"微软雅黑";
   .article-box {
     background: #fff;
     border-radius: 5px;

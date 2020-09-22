@@ -193,6 +193,8 @@ export default {
                 isshow: false,
                 title: ""
               });
+            }).catch(reason => {
+              this.$Message.error(reason.message);
             });
           }
         } else {

@@ -33,26 +33,31 @@ export default {
   .bg {
     width: 100%;
     height: 100vh;
-    animation: opcity 0.5s linear;
-    background:linear-gradient(#000,#311133);
-    // background: url('../../assets/images/maskeBG.jpg') no-repeat center;
-    background-size: cover;
+    animation: linears 15s infinite;
+    background:linear-gradient(125deg,#2980b9,#633bd3,
+   #8e44ad,#192f44,#27ae60,);
+    background-size:800%;
     z-index: -99;
   }
-  .bg::after {
-    content:'';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background:inherit;
-    filter: blur(3px);
-        opacity: .7;
-  }
-  @keyframes opcity {
-    0% { transform: translateX(-100%) }
-    100% {  transform: translateX(0%) }
+  // .bg::after {
+  //   content:'';
+  //   width: 100%;
+  //   height: 100%;
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0;
+  //   background:inherit;
+  //   filter: blur(3px);
+  //       opacity: .7;
+  // }
+  // @keyframes opcity {
+  //   0% { transform: translateX(-100%) }
+  //   100% {  transform: translateX(0%) }
+  // }
+    @keyframes linears {
+      0% { background-position: 0% 50%; }
+    50%{ background-position: 100% 50%; }
+    100%{ background-position: 0% 50%; }
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="labledetail">
-   <div  ref="lable" class="lable">
+   <div ref="lable" class="lable">
     {{lable}}
   </div>
   </div>
