@@ -14,7 +14,7 @@
                 :format="['jpg','jpeg','png']"
                 multiple
                 type="drag"
-                action="http://codelei.cn/api/upload/headPortraitUpload"
+                :action="baseURL"
                 style="display: inline-block;width:58px;margin:0 0 2rem 1rem;">
                 <!-- codelei.cn/api为你的后台地址 -->
                 <div style="width: 58px;height:58px;line-height: 58px;">
@@ -57,6 +57,11 @@ import { PostMessage } from '../components/NetWork/request'
     mounted() {
         this.getInfo()
     },
+      computed: {
+    baseURL() {
+      return `${this.$store.state.baseURL}/upload/headPortraitUpload`;
+    },
+  },
     methods: {
        getInfo() {
         this.username = localStorage.getItem('username')

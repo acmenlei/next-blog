@@ -5,7 +5,7 @@
           <p><i class="iconfont icon-lianjie"></i> 文章标题:</p>
         <Input v-model="articleDate.title" style="width:80%"  placeholder="请输入文章标题..." />
           <p><img v-show="articleDate.src" :src="articleDate.src" alt="笔记中的图片"/></p>
-        <Upload :action="baseURL"
+        <Upload :action="articleImageUpload"
         :on-success="handleSuccess"><!-- codelei.cn/api为你的后台地址 -->
             <Button icon="ios-cloud-upload-outline">选择文章封面图片</Button>
         </Upload>
@@ -42,7 +42,7 @@ import { PostMessage } from '../components/NetWork/request'
       }
     },
     computed:{
-        baseURL() {
+        articleImageUpload() {
             return `${this.$store.state.baseURL}/api/upload/imageUpload`;
         }
     },

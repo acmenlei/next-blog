@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     baseURL() {
-      return `${this.$store.state.baseURL}/api/upload/imageUpload`;
+      return `${this.$store.state.baseURL}/api/upload/talkokSend`;
     },
   },
   methods: {
