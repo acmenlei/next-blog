@@ -11,7 +11,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
-    "highlight.js": "^9.18.1",
+    "highlight.js": "^10.1.2",
     "marked": "^0.8.0",
     "moment": "^2.24.0",
     "qrcode.vue": "^1.7.0",
