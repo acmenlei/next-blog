@@ -43,7 +43,7 @@ import { PostMessage } from '../components/NetWork/request'
     },
     computed:{
         articleImageUpload() {
-            return `${this.$store.state.baseURL}/api/upload/imageUpload`;
+            return `${this.$store.state.baseURL}/upload/imageUpload`;
         }
     },
     methods: {

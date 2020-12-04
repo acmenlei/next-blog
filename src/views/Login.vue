@@ -218,7 +218,6 @@ export default {
             if (res.data.err == 0) {
               /* 发送成功 */
               this.$Message.success("验证码已经发送到小主的邮箱了,(●ˇ∀ˇ●)");
-              // localStorage.setItem("m_z_y_c", 'jkjgisafhiawr__ew__rouohkfdshkkfsdhkhkjhaskisaifhihihfigdhk'+res.data.data+'jeg__fdsj_fewsfh');
               /* 进行倒计时 设置定时一分钟后可访问 */
               localStorage.setItem(
                 "dlsjalkjdkljaslfjldjgltlfgdoeiroeiotgjfkdjk",
