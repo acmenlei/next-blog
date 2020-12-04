@@ -36,7 +36,7 @@
 
 > 留言板的话我封装成了一个组件，因为在文章的评论中也使用到了一样的模板，封装的文件为`replyOrpublish`下的同名文件，详细的话可以看`props`参数,主要就是传入不同的后台地址。下面上效果图：
 
-![博客留言板](http://codeleilei.gitee.io/blog/new_leavemessage.png)
+![博客留言板](http://codeleilei.gitee.io/blog/leavemessage.png)
 
 - 挑选了一些比较常用的模块来展示，还有那么多内容就不多介绍了，感兴趣的朋友可以下载自己详细的去琢磨，觉得好用的话请给一个`star`，谢谢啦笔芯~♥
 - 欢迎你们来博客玩耍~
