@@ -51,7 +51,10 @@ npm install
 
 ```
 npm run serve
+如果出现了 can't not find module core-js shipped proposals ... 错误，这是因为版本不兼容造成的，执行以下命令更新就好
+npm update --depth 5 @babel/compat-data
 ```
+
 
 #### 3. 项目打包
 
