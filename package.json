@@ -12,7 +12,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.4",
     "highlight.js": "^10.4.1",
-    "marked": "^0.8.0",
+    "marked": "^4.0.10",
     "moment": "^2.24.0",
     "qrcode.vue": "^1.7.0",
     "view-design": "^4.0.0",
