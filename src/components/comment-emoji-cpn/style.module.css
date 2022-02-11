@@ -1,0 +1,10 @@
+.emojiIcon {
+  font-size: 35px;
+  color:rgb(136, 136, 105);
+  margin: 12px 20px 0 0;
+  cursor: pointer;
+}
+
+.emojiIcon:hover {
+  opacity: .9;
+}

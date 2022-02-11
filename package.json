@@ -1,0 +1,43 @@
+{
+  "name": "next-ssr-stu",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "antd": "^4.18.5",
+    "axios": "^0.25.0",
+    "babel-plugin-styled-components": "^2.0.2",
+    "emoji-picker-react": "^3.5.0",
+    "highlight.js": "^11.4.0",
+    "immutable": "^4.0.0",
+    "markdown-navbar": "^1.4.3",
+    "moment": "^2.29.1",
+    "next": "12.0.8",
+    "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
+    "prismjs": "^1.26.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-redux": "^7.2.6",
+    "react-transition-group": "^4.4.2",
+    "redux": "^4.1.2",
+    "redux-immutable": "^4.0.0",
+    "redux-thunk": "^2.4.1",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.12",
+    "@types/nprogress": "^0.2.0",
+    "@types/react": "17.0.38",
+    "@types/redux-immutable": "^4.0.2",
+    "@types/styled-components": "^5.1.21",
+    "eslint": "8.7.0",
+    "eslint-config-next": "12.0.8",
+    "typescript": "4.5.5"
+  }
+}
