@@ -20,9 +20,21 @@
 [博客的后端仓库](https://github.com/Acmenlei/node-admin-backend.git)
 
 ## 开发模式
+### 启动前端
 先安装依赖 然后执行以下命令
 ```shell
 yarn dev 或者 npm run dev
+```
+### 启动后端
+1. 启动后端之前请先启动`redis`, 后端依赖`redis`。
+```shell
+# 启动命令
+redis-server
+```
+2. 导入必要的`mysql`结构，以及启动`mysql`，表结构在后端仓库自取
+3. 完成以上操作后即可启动后端
+```shell
+yarn start
 ```
 
 ## 打包发布
