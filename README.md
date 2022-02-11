@@ -1,3 +1,19 @@
+## 关于技术栈
+**博客前台**：nextjs + typescript + antd
+**博客后台管理系统**：vue2 + element-ui + echarts
+**博客后端**：nodejs + mysql + redis
+
+## 关于这个blog的一些改善
+1. 之前该仓库是用Vue写的，现在用next进行了重构（Vue版的也不再使用了），主要是为了有更好的SEO支持，代码风格也更加规范一些
+2. 功能减少了相册、DEMO案例等等、其余的功能都是差不多的，UI风格延续之前Vue版本的。
+3. 完善了管理系统的功能，新增了权限管理与数据中台，文章编辑页面新增了富文本编辑器。
+
+## 项目地址
+![前台博客浏览地址](http://106.12.143.215)
+![后台博客管理系统浏览地址](http://106.12.143.215:8080)
+![后台博客管理系统仓库](https://github.com/Acmenlei/vue-admin-top.git)
+![该项目的后端仓库](https://github.com/Acmenlei/node-admin-backend.git)
+
 ## 开发模式
 先安装依赖 然后执行以下命令
 ```shell
