@@ -8,11 +8,14 @@
 2. 功能减少了相册、DEMO案例等等、其余的功能都是差不多的，UI风格延续之前Vue版本的。
 3. 完善了管理系统的功能，新增了权限管理与数据中台，文章编辑页面新增了富文本编辑器。
 
-## 项目地址
-![前台博客浏览地址](http://106.12.143.215)
-![后台博客管理系统浏览地址](http://106.12.143.215:8080)
-![后台博客管理系统仓库](https://github.com/Acmenlei/vue-admin-top.git)
-![该项目的后端仓库](https://github.com/Acmenlei/node-admin-backend.git)
+## 项目仓库以及浏览地址
+[前台博客浏览地址](http://106.12.143.215)
+
+[后台博客管理系统浏览地址](http://106.12.143.215:8080)
+
+[后台博客管理系统仓库](https://github.com/Acmenlei/vue-admin-top.git)
+
+[博客的后端仓库](https://github.com/Acmenlei/node-admin-backend.git)
 
 ## 开发模式
 先安装依赖 然后执行以下命令
