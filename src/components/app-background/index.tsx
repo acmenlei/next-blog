@@ -2,7 +2,7 @@ import React, { memo, useContext, useEffect } from 'react';
 import { SwitchTransition, CSSTransition } from "react-transition-group"
 
 import { AppBackGroundWrapper } from "./style"
-import { useLinearColors } from '@/utils/theme';
+import { createLinearColors } from '@/utils/theme';
 
 import AppDarkBackGround from '@/components/app-dark-bg'
 import AppLightBackGround from '@/components/app-light-bg'
@@ -12,7 +12,7 @@ export default memo(function AppBackGround() {
 
   const theme = useContext(ThemeContext)
   useEffect(() => {
-    useLinearColors()
+    createLinearColors()
   }, [])
   return (
     <AppBackGroundWrapper>

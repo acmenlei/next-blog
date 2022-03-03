@@ -23,7 +23,7 @@ export function getCurrentNickNameColor(color: string) {
   return color === 'light' ? '#567' : '#999';
 }
 
-export function useLinearColors() {
+export function createLinearColors() {
   (function () {
     function e(e: any, t: any, n: any) {
       return Number(e.getAttribute(t)) || n
