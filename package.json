@@ -27,7 +27,8 @@
     "redux": "^4.1.2",
     "redux-immutable": "^4.0.0",
     "redux-thunk": "^2.4.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "typeit-react": "^2.3.3"
   },
   "devDependencies": {
     "@types/node": "17.0.12",

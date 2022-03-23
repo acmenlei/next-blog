@@ -15,7 +15,7 @@ text-align: center;
    left:50%;
    transform: translate(-50%);
     color: #333;
-    font-size: 1.5em;
+    font-size: 30px;
 }
 
 .usagi {

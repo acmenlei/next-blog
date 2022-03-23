@@ -30,6 +30,7 @@ const ArticleDetail: NextPage = memo(function MyArticleDetail(props: any) {
     }
   })
   const { articleDetail } = props
+  console.log(articleDetail.ll_content_html)
   const [articleComments, setArticleComments] = useState(props.articleComments)
   const [total, setTotal] = useState(props.total)
   const [content, setContent] = useState("")
