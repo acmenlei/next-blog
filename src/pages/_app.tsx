@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { BackTop, Tooltip } from 'antd'
-import { memo, useCallback, useEffect, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { Provider } from "react-redux"
 import nProgress from "nprogress"
 import "nprogress/nprogress.css"
@@ -21,6 +21,7 @@ import AppHeader from '@/components/app-header'
 import AppBackGround from '@/components/app-background'
 import AppLoading from '@/components/app-loading'
 import AppFooter from '@/components/app-footer'
+import { useKeyBoradEventHook } from '@/utils/hook'
 
 const App = memo(function MyApp({ Component, pageProps }: AppProps) {
   // other hook
@@ -29,6 +30,9 @@ const App = memo(function MyApp({ Component, pageProps }: AppProps) {
   const changeTheme = useCallback(() => {
     setTheme(getReflectTheme(theme))
   }, [theme])
+
+  useKeyBoradEventHook(useMemo(() => ["Control", "r"], []), changeTheme)
+
   const router = useRouter()
 
   useEffect(() => {

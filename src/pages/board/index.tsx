@@ -11,6 +11,7 @@ import { ThemeContext } from '@/common/context';
 
 import BoardComment from '@/components/board-comment';
 import CommentEmojiCpn from '@/components/comment-emoji-cpn';
+import { useKeyBoradEventHook } from '@/utils/hook';
 
 const MessageBoard: NextPage = memo(function MyBoard(props: any) {
   // redux hooks
@@ -51,6 +52,10 @@ const MessageBoard: NextPage = memo(function MyBoard(props: any) {
     // 本应该抽俩出去 但是redux-thunk 不起效 暂时先这么写
     resetCommentsList(pageNum)
   }, [userInfo, content, pageNum, resetCommentsList])
+
+  // 自定义键盘hook 回车发送留言
+  useKeyBoradEventHook("Enter", publishMessage)
+
   // 删除留言(level1/level2)（没登录的情况下不开放显示）如果是一级留言 那么它的子集都要被删除
   const removeComment = useCallback(async ({ id, level, username }) => {
     const { code, msg }: any = await delComment({

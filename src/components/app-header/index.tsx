@@ -20,6 +20,8 @@ import { logOutAction } from '@/services/modules/login';
 import { errorMessage, successMessage } from '@/common/message';
 import { changeUserInfoAction } from '@/store/modules/login/actionCreators';
 
+const THEME_TITLE_PRE = '单击/Ctrl+R'
+
 const AppHeader = memo(function MyAppHeader(props: any) {
   // redux hooks
   const dispatch = useDispatch()
@@ -97,7 +99,7 @@ const AppHeader = memo(function MyAppHeader(props: any) {
               classNames="theme"
               key={theme === 'light' ? 'sunshine' : 'moon'}
               timeout={300} >
-              <Tooltip placement="right" title={theme === 'light' ? '切换夜间模式' : '切换白天模式'}>
+              <Tooltip placement="right" title={theme === 'light' ? `${THEME_TITLE_PRE}切换夜间模式` : `${THEME_TITLE_PRE}切换白天模式`}>
                 <Image
                   alt='切换主题显示对应的图标'
                   onClick={props.changeTheme}

@@ -27,7 +27,6 @@ const Login: NextPage = memo(function MyLogin() {
   }, [isLogin])
   // 登录逻辑
   const onFinishLogin = useCallback(({ username, password }) => {
-    console.log(username, password)
     // redux-thunk 莫名不起效果 暂时这么写。
     userLoginVerify({ ll_username: username, ll_password: password })
       .then(({ data, code, msg }: any) => {

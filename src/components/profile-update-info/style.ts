@@ -15,5 +15,16 @@ export const ProfileUpdateInfoWrapper = styled(comment)`
         color: #999;
       }
     }
+
+    .upload-render {
+      position: absolute;
+      left: 0;
+      top: 5px;
+      border: 1px solid #ccc;
+      color: #999;
+      padding: 5px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
   }
 `
