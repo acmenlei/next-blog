@@ -9,7 +9,7 @@ const Home: NextPage = memo(function myHome() {
     <IndexWrapper>
       <div className="message">
         <TypeIt
-              getBeforeInit={instance => instance.type("  I'm Coderlie").pause(750).delete(2).pause(500).type("ei !")}
+              getBeforeInit={instance => instance.type("  喜欢项目的话可以给一个Star～").pause(750).delete(2).pause(500).type("ei !")}
               options={{ waitUntilVisible: true }}>
           你好 欢迎来到这里 希望这里的文章对你有所帮助 祝你一切顺利～
         </TypeIt>
