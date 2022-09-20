@@ -11,28 +11,33 @@
 </div>
 
 ## 技术栈
-**博客前台**：nextjs + typescript + antd
+- **前台**：nextjs + typescript + antd
 
-**博客后台管理系统**：vue2 + element-ui + echarts
+- **管理台**：vue2 + element-ui + echarts
 
-**博客后端**：nodejs + mysql + redis
+- **服务端**：nodejs + mysql + redis
 
 ## 介绍
-1.良好的UI界面风格
-2.使用Next重构，对Vue版的改善，良好的SEO支持
+- 良好的UI界面风格
+- 使用Next重构，对Vue版的改善，良好的SEO支持
+- 需要一定的基础才能上手
 
-## 项目仓库以及浏览地址
-[前台博客浏览地址(暂时下线...)](http://106.12.143.215)
+## 配套仓库及演示
+- [博客前台演示(暂时下线...)](http://106.12.143.215)
 
-[后台博客管理系统浏览地址](https://codeleilei.gitee.io/vue-admin-top/#/login)
+- [博客管理台演示](https://codeleilei.gitee.io/vue-admin-top/#/login)
 
-[后台博客管理系统仓库](https://github.com/Acmenlei/vue-admin-top.git)
+- [博客管理台](https://github.com/Acmenlei/vue-admin-top.git)
 
-[博客的后端仓库](https://github.com/Acmenlei/node-admin-backend.git)
+- [博客服务端](https://github.com/Acmenlei/node-admin-backend.git)
 
 ## 启动步骤
 ### 启动前端
-先安装依赖 然后执行以下命令
+1. 安装依赖
+```shell
+yarn install 或者 npm install
+```
+2. 启动项目
 ```shell
 yarn dev 或者 npm run dev
 ```
