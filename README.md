@@ -1,3 +1,15 @@
+<div>
+  <h2 align="center">next-ssr-blog</h2>
+  <p align="center">
+    <a href="https://www.nextjs.cn">
+      <img src="https://img.shields.io/badge/nextjs-%3E12.0-red" alt="nextjs"/>
+    </a>
+    <a href="https://www.tslang.cn/" target="_blank">
+      <img src="https://img.shields.io/badge/typescript-%3E4.0.0-blue" alt="typescript">
+    </a>
+  </p>
+</div>
+
 ## 技术栈
 **博客前台**：nextjs + typescript + antd
 
