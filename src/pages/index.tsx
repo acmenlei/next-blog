@@ -1,18 +1,11 @@
-import type { NextPage } from 'next'
 import { memo } from 'react';
-import TypeIt from 'typeit-react';
 import { IndexWrapper } from '@/styles/home';
 // local
 
-const Home: NextPage = memo(function myHome() {
+const Home = memo(function myHome() {
   return (
     <IndexWrapper>
       <div className="message">
-        <TypeIt
-              getBeforeInit={instance => instance.type("  喜欢项目的话可以给一个Star～").pause(750).delete(2).pause(500).type("ei !")}
-              options={{ waitUntilVisible: true }}>
-          你好 欢迎来到这里 希望这里的文章对你有所帮助 祝你一切顺利～
-        </TypeIt>
       </div>
       <div className="usagi">
         <div className="head">

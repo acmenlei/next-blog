@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { BackTop, Tooltip } from 'antd'
-import { memo, useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Provider } from "react-redux"
 import nProgress from "nprogress"
 import "nprogress/nprogress.css"
@@ -23,7 +23,7 @@ import AppLoading from '@/components/app-loading'
 import AppFooter from '@/components/app-footer'
 import { useKeyBoradEventHook } from '@/utils/hook'
 
-const App = memo(function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   // other hook
   const [theme, setTheme] = useState('light')
   // other logic
@@ -53,16 +53,18 @@ const App = memo(function MyApp({ Component, pageProps }: AppProps) {
     })
     // 路由跳转进度
     const Events = router.events
-    Events.on("routeChangeStart", () => {
+    function start() {
       nProgress.start()
-    })
-    Events.on("routeChangeComplete", () => {
+    }
+    function done() {
       nProgress.done()
-    })
+    }
+    Events.on("routeChangeStart", start)
+    Events.on("routeChangeComplete", done)
 
     return () => {
-      Events.off("routeChangeStart", () => { })
-      Events.off("routeChangeComplete", () => { })
+      Events.off("routeChangeStart", start)
+      Events.off("routeChangeComplete", done)
     }
   }, [router])
 
@@ -80,6 +82,6 @@ const App = memo(function MyApp({ Component, pageProps }: AppProps) {
       <Tooltip title="返回顶部"><BackTop /></Tooltip>
     </ThemeContext.Provider>
   )
-})
+}
 
 export default App

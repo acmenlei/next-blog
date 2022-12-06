@@ -26,7 +26,7 @@ export default memo(function ProfileUpdateInfo(props: any) {
     } else {
       errorMessage(msg)
     }
-  }, [router, ll_id, ll_nick_name, avatar])
+  }, [router, ll_id, avatar])
 
   const uploadHandler = useCallback((files) => {
     const file = files.file, chunkSize = 1024 * 1024; // 每次限制上传文件的大小为1MB
