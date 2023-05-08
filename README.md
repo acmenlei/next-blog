@@ -18,21 +18,10 @@
 - **服务端**：nodejs + mysql + redis
 
 ## 介绍
-- 良好的UI界面风格
-- 使用Next重构，对Vue版的改善，良好的SEO支持
-- 需要一定的基础才能上手
+基于nextjs的博客网站，配套[后台管理系统](https://github.com/acmenlei/vue-admin-top)和[服务端](https://github.com/acmenlei/node-admin-backend)，博客实现了一些常规功能，感兴趣的可以自己部署试试
 
-## 配套仓库及演示
-- [博客前台演示(暂时下线...)](http://106.12.143.215)
-
-- [博客管理台演示](https://codeleilei.gitee.io/vue-admin-top/#/login)
-
-- [博客管理台](https://github.com/Acmenlei/vue-admin-top.git)
-
-- [博客服务端](https://github.com/Acmenlei/node-admin-backend.git)
-
-## 启动步骤
-### 启动前端
+## 项目启动
+### 前台
 1. 安装依赖
 ```shell
 yarn install 或者 npm install
@@ -41,7 +30,7 @@ yarn install 或者 npm install
 ```shell
 yarn dev 或者 npm run dev
 ```
-### 启动后端
+### 后台
 1. 启动后端之前请先启动`redis`, 后端依赖`redis`。
 ```shell
 # 启动命令
