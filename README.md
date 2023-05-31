@@ -1,6 +1,6 @@
 <div>
-  <h2 align="center">next-ssr-blog</h2>
-  <p align="center">
+  <h2>next-ssr-blog</h2>
+  <p>
     <a href="https://www.nextjs.cn">
       <img src="https://img.shields.io/badge/nextjs-%3E12.0-red" alt="nextjs"/>
     </a>
@@ -18,7 +18,7 @@
 - **服务端**：nodejs + mysql + redis
 
 ## 介绍
-基于nextjs的博客网站，配套[后台管理系统](https://github.com/acmenlei/vue-admin-top)和[服务端](https://github.com/acmenlei/node-admin-backend)，博客实现了一些常规功能，感兴趣的可以自己部署试试
+基于nextjs的博客网站，自己练手玩的项目，配套[后台管理系统](https://github.com/acmenlei/vue-admin-top)和[服务端](https://github.com/acmenlei/node-admin-backend)，博客一些常规功能都有，感兴趣的可以自己部署试试
 
 ## 项目启动
 ### 前台
